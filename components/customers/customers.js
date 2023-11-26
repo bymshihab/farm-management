@@ -1,24 +1,28 @@
-function getUom() {}
+// function getUom() {}
 
 const IP = "https://localhost:7105";
-const uomForm = document.getElementById("insertUnite");
+const CustomersForm = document.getElementById("insertCustomers");
 
-uomForm.addEventListener("submit", function (event) {
+CustomersForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const unitName = document.getElementById("unitId").value;
-  const unitDes = document.getElementById("unitDescription").value;
-  const unitStatus = document.getElementById("unitStatusId").checked;
+  const customerName = document.getElementById("customerId").value;
+  const customerPhone = document.getElementById("customerPhone").value;
+  const customerEmail = document.getElementById("customerEmail").value;
+  const customerAddress = document.getElementById("customerAddress").value;
+  const customerStatus = document.getElementById("customerStatus").checked;
 
   const obj = {
-    uomName: unitName,
-    uomDescription: unitDes,
-    status: unitStatus,
+    customerName: customerName,
+    customerPhoneNumber: customerPhone,
+    customerEmail: customerEmail,
+    customerAddress: customerAddress,
+    customerStatus: customerStatus,
   };
 
   console.log(obj, "object...");
 
-  fetch(`${IP}/api/Uom/CreateUom`, {
+  fetch(`${IP}/api/Customer/CreateCustomer`, {
     method: "POST",
     // body: objArray,
     body: JSON.stringify(obj),
@@ -30,7 +34,7 @@ uomForm.addEventListener("submit", function (event) {
       alert(data.message);
       console.log(data, "data message!");
       loadTable();
-      uomForm.reset();
+      CustomersForm.reset();
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
@@ -40,11 +44,11 @@ uomForm.addEventListener("submit", function (event) {
 
 loadTable();
 function loadTable() {
-  fetch(`${IP}/api/Uom`)
+  fetch(`${IP}/api/Customer`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      const tablebody = document.querySelector(".uomTable");
+      const tablebody = document.querySelector(".customerTable");
       tablebody.innerHTML = "";
 
       for (let i = 0; i < data.length; i++) {
@@ -55,28 +59,36 @@ function loadTable() {
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.name = "uomCheckbox";
-        checkbox.value = data[i].uomId;
-        checkbox.id = "checkbox_" + data[i].uomId; // Create a unique ID for each checkbox
+        checkbox.value = data[i].customerId;
+        checkbox.id = "checkbox_" + data[i].customerId; // Create a unique ID for each checkbox
 
         // Append the checkbox to cell1
         cell1.appendChild(checkbox);
-        cell1.setAttribute("id", data[i].uomId);
+        cell1.setAttribute("id", data[i].customerId);
 
         // cell1.textContent = data[i].resolutionName;
 
         let cell2 = document.createElement("td");
-        cell2.textContent = data[i].uomName;
+        cell2.textContent = data[i].customerName;
 
         let cell3 = document.createElement("td");
 
-        cell3.textContent = data[i].uomDescription;
+        cell3.textContent = data[i].customerPhoneNumber;
 
         let cell4 = document.createElement("td");
 
-        cell4.textContent = data[i].status;
+        cell4.textContent = data[i].customerEmail;
 
         let cell5 = document.createElement("td");
-        cell5.setAttribute("id", data[i].uomId);
+
+        cell5.textContent = data[i].customerAddress;
+
+        let cell6 = document.createElement("td");
+
+        cell6.textContent = data[i].customerStatus;
+
+        let cell7 = document.createElement("td");
+        cell7.setAttribute("id", data[i].customerId);
 
         // Create and append the SVG to the button
         let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -114,7 +126,7 @@ function loadTable() {
         editButton.setAttribute("data-bs-toggle", "modal");
         editButton.setAttribute("data-bs-target", "#updateModal");
 
-        cell5.appendChild(editButton);
+        cell7.appendChild(editButton);
 
         editButton.addEventListener("click", function () {
           addDataToPopup(data[i], this);
@@ -128,13 +140,10 @@ function loadTable() {
         newRow.appendChild(cell3);
         newRow.appendChild(cell4);
         newRow.appendChild(cell5);
+        newRow.appendChild(cell6);
+        newRow.appendChild(cell7);
 
-        // newRow.setAttribute("ondblclick", "addDataToForm(this)");
-        // newRow.addEventListener("dblclick", function () {
-        //   addDataToForm(this);
-        // });
-
-        // newRow.setAttribute('ondblclick', addDataToForm(this));
+        console.log(newRow,"row data"); 
 
         tablebody.appendChild(newRow);
       }
@@ -147,44 +156,54 @@ function addDataToPopup(rowData, editBtn) {
   console.log("Row Data:", rowData, editBtn);
 
   const formUpdateId = document.getElementById('updated-formID');
-  formUpdateId.setAttribute("data-uom-id", rowData.uomId);
+  formUpdateId.setAttribute("data-category-id", rowData.customerId);
 
-  const unitEditName = (document.getElementById(
-    "uniteditId"
-  ).value = `${rowData.uomName}`);
-  const unitEditDes = (document.getElementById(
-    "unitEditDescription"
-  ).value = `${rowData.uomDescription}`);
+  const customerUpdateName = (document.getElementById(
+    "customerUpdateName"
+  ).value = `${rowData.customerName}`);
 
-  const unitEditStatus = (document.getElementById(
-    "unitEditStatusId"
-  ).checked = `${rowData.status}`);
-  let uomUpdateId = rowData.uomId;
+  const customerUpdatePhone = (document.getElementById(
+    "customerUpdatePhone"
+  ).value = `${rowData.customerPhoneNumber}`);
+  const customerUpdateEmail = (document.getElementById(
+    "customerUpdateEmail"
+  ).value = `${rowData.customerEmail}`);
+  const customerUpdateAddress = (document.getElementById(
+    "customerUpdateAddress"
+  ).value = `${rowData.customerAddress}`);
+
+  const customerUpdateStatus = (document.getElementById(
+    "customerUpdateStatus"
+  ).checked = `${rowData.customerStatus}`);
+  let customerId = rowData.customerId;
 
 }
 
-const updateUomBtn = document.getElementById("updateUomBtn");
+const updateCustomerBtn = document.getElementById("updateCustomerBtn");
 
-updateUomBtn.addEventListener("click", function (e) {
+updateCustomerBtn.addEventListener("click", function (e) {
   e.preventDefault();
 
-  let uomId = document.getElementById("updated-formID").getAttribute("data-uom-id");
+  let customerId = document.getElementById("updated-formID").getAttribute("data-category-id");
 
-  let unitEditName = document.getElementById("uniteditId").value;
-  let unitEditDes = document.getElementById("unitEditDescription").value;
-  let unitEditStatus = document.getElementById("unitEditStatusId").checked;
-  // let uomUpdateId = rowData.uomId;
-
+  let customerUpdateName = document.getElementById("customerUpdateName").value;
+  let customerUpdatePhone = document.getElementById("customerUpdatePhone").value;
+  let customerUpdateEmail = document.getElementById("customerUpdateEmail").value;
+  let customerUpdateAddress = document.getElementById("customerUpdateAddress").value;
+  let customerUpdateStatus = document.getElementById("customerUpdateStatus").checked;
+  
   let obj = {
-    uomId: uomId,
-    uomName: unitEditName,
-    uomDescription: unitEditDes,
-    status: unitEditStatus,
+    customerId: customerId,
+    customerName: customerUpdateName,
+    customerPhoneNumber: customerUpdatePhone,
+    customerEmail: customerUpdateEmail,
+    customerAddress: customerUpdateAddress,
+    customerStatus: customerUpdateStatus,
   };
 
-  console.log("obj of UOM update", obj);
+//   console.log("obj of UOM update", obj);
 
-  fetch(`https://localhost:7105/api/Uom/UpdateUom/${uomId}`, {
+  fetch(`${IP}/api/Customer/UpdateCustomer${customerId}`, {
       method: "PUT",
       body: JSON.stringify(obj),
       headers: { "Content-Type": "application/json" },
@@ -195,7 +214,7 @@ updateUomBtn.addEventListener("click", function (e) {
         console.log(data, "data message!");
         loadTable();
         // unitEditName.placeholder = "";
-        uomForm.reset();
+        CustomersForm.reset();
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);

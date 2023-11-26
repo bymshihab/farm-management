@@ -6,13 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="/style.css" />
     
-    <link rel="stylesheet" href="/components/UOM/uom.css" />
+    <link rel="stylesheet" href="/components/customers/customers.css" />
 
     <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
   </head>
   <body>
-    <div class="container mt-2"> <h2>UOM</h2></div>
-  
+    <div class="container mt-2"> <h2>Customers</h2></div>
     <section>
       <div class="container mt-5">
         <!-- top of table -->
@@ -111,19 +110,23 @@
               <th scope="col">
                 <input type="checkbox" id="" name="" value="" />
               </th>
-              <th scope="col">Unit</th>
-              <th scope="col">Description</th>
+              <th scope="col">Customer Name</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Email</th>
+              <th scope="col">Address</th>
               <th scope="col">Status</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody class="uomTable">
+          <tbody class="customerTable">
             <tr class="text-center">
               <td scope="row">
                 <input type="checkbox" id="" name="" value="" />
               </td>
               <td>Mark</td>
               <td>Otto</td>
+              <td>@mdo</td>
+              <td>@mdo</td>
               <td>@mdo</td>
               <td><button class="bg-light border-0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -135,7 +138,7 @@
           </tbody>
         </table>
 
-        <div class="d-flex justify-content-end align-content-center">
+        <!-- <div class="d-flex justify-content-end align-content-center">
           <button class="custom-btn bg-danger">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +154,7 @@
             </svg>
             <span>Delete</span>
           </button>
-        </div>
+        </div> -->
       </div>
 
       <!-- modal -->
@@ -167,7 +170,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header bg-success text-white">
-              <h5 class="modal-title">Create new Unit</h5>
+              <h5 class="modal-title">Create new Category</h5>
               <button
                 type="button"
                 class="btn-close bg-white"
@@ -176,29 +179,49 @@
               ></button>
             </div>
             <div class="modal-body">
-              <form id="insertUnite">
+              <form id="insertCustomers">
                 <div class="mb-3">
-                  <label for="unitId" class="form-label">Unit</label>
+                  <label for="customerId" class="form-label">Customer Name</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="unitId"
+                    id="customerId"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="customerPhone" class="form-label">Phone Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="customerPhone"
                     aria-describedby="emailHelp"
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="uniteDescription" class="form-label"
-                    >Unit Description</label
-                  >
-                  <textarea
+                  <label for="customerEmail" class="form-label">Email</label>
+                  <input
+                    type="email"
                     class="form-control"
-                    id="unitDescription"
-                    rows="3"
-                  ></textarea>
+                    id="customerEmail"
+                    aria-describedby="emailHelp"
+                  />
                 </div>
                 <div class="mb-3">
-                  <label for="uniteStatus" class="form-label">Status</label>
-                  <input type="checkbox" id="unitStatusId" />
+                    <label for="customerAddress" class="form-label"
+                      >Customer Address</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="customerAddress"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                
+                <div class="mb-3">
+                  <label for="customerStatus" class="form-label">Status</label>
+                  <input type="checkbox" id="customerStatus" />
                 </div>
                 <div class="d-flex justify-content-end">
                   <button type="submit" data-bs-dismiss="modal" class="custom-btn">Save</button>
@@ -235,30 +258,48 @@
             <div class="modal-body">
               <form id="updated-formID">
                 <div class="mb-3">
-                  <label for="uniteditId" class="form-label">Unit</label>
+                  <label for="customerUpdateName" class="form-label">customer Name</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="uniteditId"
+                    id="customerUpdateName"
                     aria-describedby="emailHelp"
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="unitEditDescription" class="form-label"
-                    >Unit Description</label
+                  <label for="customerUpdatePhone" class="form-label">customer Phone</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="customerUpdatePhone"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="customerUpdateEmail" class="form-label">customer Email</label>
+                  <input
+                    type="Email"
+                    class="form-control"
+                    id="customerUpdateEmail"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="customerUpdateAddress" class="form-label"
+                    >Customer Address</label
                   >
                   <textarea
                     class="form-control"
-                    id="unitEditDescription"
+                    id="customerUpdateAddress"
                     rows="3"
                   ></textarea>
                 </div>
                 <div class="mb-3">
-                  <label for="unitEditStatusId" class="form-label">Status</label>
-                  <input type="checkbox" id="unitEditStatusId" />
+                  <label for="customerUpdateStatus" class="form-label">Status</label>
+                  <input type="checkbox" id="customerUpdateStatus" />
                 </div>
                 <div class="d-flex justify-content-end">
-                  <button type="submit" data-bs-dismiss="modal" id="updateUomBtn" class="custom-btn ">Update</button>
+                  <button type="submit" data-bs-dismiss="modal" id="updateCustomerBtn" class="custom-btn ">Update</button>
                 </div>
               </form>
             </div>
@@ -273,7 +314,7 @@
 
     <!-- <script src="/bootstrap-5.3.2-dist/js/bootstrap.js"></script> -->
 
-    <script src="/components/UOM/uom.js"></script>
+    <script src="/components/customers/customers.js"></script>
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

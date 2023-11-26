@@ -1,24 +1,24 @@
-function getUom() {}
+// function getUom() {}
 
 const IP = "https://localhost:7105";
-const uomForm = document.getElementById("insertUnite");
+const CategoryForm = document.getElementById("insertCategory");
 
-uomForm.addEventListener("submit", function (event) {
+CategoryForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const unitName = document.getElementById("unitId").value;
-  const unitDes = document.getElementById("unitDescription").value;
-  const unitStatus = document.getElementById("unitStatusId").checked;
+  const categoryName = document.getElementById("categoryId").value;
+  const categoryDescription = document.getElementById("categoryDescription").value;
+  const categoryStatus = document.getElementById("categoryStatus").checked;
 
   const obj = {
-    uomName: unitName,
-    uomDescription: unitDes,
-    status: unitStatus,
+    categoryName: categoryName,
+    categoryDescription: categoryDescription,
+    categoryStatus: categoryStatus,
   };
 
   console.log(obj, "object...");
 
-  fetch(`${IP}/api/Uom/CreateUom`, {
+  fetch(`${IP}/api/Category/CreateCategory`, {
     method: "POST",
     // body: objArray,
     body: JSON.stringify(obj),
@@ -30,7 +30,7 @@ uomForm.addEventListener("submit", function (event) {
       alert(data.message);
       console.log(data, "data message!");
       loadTable();
-      uomForm.reset();
+      CategoryForm.reset();
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
@@ -40,11 +40,11 @@ uomForm.addEventListener("submit", function (event) {
 
 loadTable();
 function loadTable() {
-  fetch(`${IP}/api/Uom`)
+  fetch(`${IP}/api/Category`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      const tablebody = document.querySelector(".uomTable");
+      const tablebody = document.querySelector(".categoryTable");
       tablebody.innerHTML = "";
 
       for (let i = 0; i < data.length; i++) {
@@ -56,27 +56,27 @@ function loadTable() {
         checkbox.type = "checkbox";
         checkbox.name = "uomCheckbox";
         checkbox.value = data[i].uomId;
-        checkbox.id = "checkbox_" + data[i].uomId; // Create a unique ID for each checkbox
+        checkbox.id = "checkbox_" + data[i].categoryId; // Create a unique ID for each checkbox
 
         // Append the checkbox to cell1
         cell1.appendChild(checkbox);
-        cell1.setAttribute("id", data[i].uomId);
+        cell1.setAttribute("id", data[i].categoryId);
 
         // cell1.textContent = data[i].resolutionName;
 
         let cell2 = document.createElement("td");
-        cell2.textContent = data[i].uomName;
+        cell2.textContent = data[i].categoryName;
 
         let cell3 = document.createElement("td");
 
-        cell3.textContent = data[i].uomDescription;
+        cell3.textContent = data[i].categoryDescription;
 
         let cell4 = document.createElement("td");
 
-        cell4.textContent = data[i].status;
+        cell4.textContent = data[i].categoryStatus;
 
         let cell5 = document.createElement("td");
-        cell5.setAttribute("id", data[i].uomId);
+        cell5.setAttribute("id", data[i].categoryId);
 
         // Create and append the SVG to the button
         let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -129,13 +129,6 @@ function loadTable() {
         newRow.appendChild(cell4);
         newRow.appendChild(cell5);
 
-        // newRow.setAttribute("ondblclick", "addDataToForm(this)");
-        // newRow.addEventListener("dblclick", function () {
-        //   addDataToForm(this);
-        // });
-
-        // newRow.setAttribute('ondblclick', addDataToForm(this));
-
         tablebody.appendChild(newRow);
       }
     })
@@ -147,44 +140,44 @@ function addDataToPopup(rowData, editBtn) {
   console.log("Row Data:", rowData, editBtn);
 
   const formUpdateId = document.getElementById('updated-formID');
-  formUpdateId.setAttribute("data-uom-id", rowData.uomId);
+  formUpdateId.setAttribute("data-category-id", rowData.categoryId);
 
-  const unitEditName = (document.getElementById(
-    "uniteditId"
-  ).value = `${rowData.uomName}`);
-  const unitEditDes = (document.getElementById(
-    "unitEditDescription"
-  ).value = `${rowData.uomDescription}`);
+  const categoryUpdateUnit = (document.getElementById(
+    "categoryUpdateUnit"
+  ).value = `${rowData.categoryName}`);
+  const CategoryDescription = (document.getElementById(
+    "CategoryDescription"
+  ).value = `${rowData.categoryDescription}`);
 
-  const unitEditStatus = (document.getElementById(
-    "unitEditStatusId"
-  ).checked = `${rowData.status}`);
-  let uomUpdateId = rowData.uomId;
+  const categoryEditStatusId = (document.getElementById(
+    "categoryEditStatusId"
+  ).checked = `${rowData.categoryStatus}`);
+  let categoryId = rowData.categoryId;
 
 }
 
-const updateUomBtn = document.getElementById("updateUomBtn");
+const updateCategoryBtn = document.getElementById("updateCategoryBtn");
 
-updateUomBtn.addEventListener("click", function (e) {
+updateCategoryBtn.addEventListener("click", function (e) {
   e.preventDefault();
 
-  let uomId = document.getElementById("updated-formID").getAttribute("data-uom-id");
+  let categoryId = document.getElementById("updated-formID").getAttribute("data-category-id");
 
-  let unitEditName = document.getElementById("uniteditId").value;
-  let unitEditDes = document.getElementById("unitEditDescription").value;
-  let unitEditStatus = document.getElementById("unitEditStatusId").checked;
+  let categoryUpdateUnitName = document.getElementById("categoryUpdateUnit").value;
+  let CategoryDescription = document.getElementById("CategoryDescription").value;
+  let categoryEditStatusId = document.getElementById("categoryEditStatusId").checked;
   // let uomUpdateId = rowData.uomId;
 
   let obj = {
-    uomId: uomId,
-    uomName: unitEditName,
-    uomDescription: unitEditDes,
-    status: unitEditStatus,
+    categoryId: categoryId,
+    categoryName: categoryUpdateUnitName,
+    categoryDescription: CategoryDescription,
+    categoryStatus: categoryEditStatusId,
   };
 
   console.log("obj of UOM update", obj);
 
-  fetch(`https://localhost:7105/api/Uom/UpdateUom/${uomId}`, {
+  fetch(`${IP}/api/Category/UpdateCategory/${categoryId}`, {
       method: "PUT",
       body: JSON.stringify(obj),
       headers: { "Content-Type": "application/json" },
@@ -195,7 +188,7 @@ updateUomBtn.addEventListener("click", function (e) {
         console.log(data, "data message!");
         loadTable();
         // unitEditName.placeholder = "";
-        uomForm.reset();
+        CategoryForm.reset();
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
