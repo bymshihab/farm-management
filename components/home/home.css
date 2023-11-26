@@ -73,6 +73,24 @@
   /* width: 1rem !important; */
 }
 
+.topbar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* .topbar .dropdown-menu {
+  margin-top: 0;
+} */
+
+.topbar .dropdown-menu {
+  margin-top: 1px;
+   /* padding: 30px; */
+   margin-left: -7rem;
+
+}
+
+/* .left-margin{
+  margin-right: rem;
+} */
 
 
 

@@ -29,9 +29,7 @@
         <li>Help</li>
       </ul>
 
-
       <!-- <hr class="text-light border border-1" /> -->
-      
     </div>
 
     <!-- Topbar -->
@@ -39,13 +37,31 @@
       <div class="breadcrumbs fs-5">Dashboard</div>
       <div class="user-info">
         <span class="me-3">Ahamed</span>
-        <img
-          src="/utility/image/profile.jpg"
-          alt="User Avatar"
-          width="40"
-          height="40"
-        />
+        
+        <!-- Group image and dropdown trigger together -->
+        <div class="dropdown left-margin">
+          <!-- Image as part of the trigger -->
+          <img
+            src="/utility/image/profile.jpg"
+            alt="User Avatar"
+            width="40"
+            height="40"
+            class="dropdown-toggle"
+            id="dropdownMenuLink"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            role="button"
+          />
+      
+          <!-- Dropdown Menu -->
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
       </div>
+      
     </div>
 
     <!-- Main content -->
