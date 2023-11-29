@@ -78,7 +78,7 @@ function get_supplier() {}
         .then((data) => {
           alert(data.message);
           console.log(data, "data message!");
-          //loadTable();
+          loadTable();
           ShedForm.reset();
         })
         .catch((error) => {
@@ -94,7 +94,7 @@ function get_supplier() {}
       fetch(`${IP}/api/Shed`)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          console.log(data, "get data..........");
           const tablebody = document.querySelector(".shedTable");
           tablebody.innerHTML = "";
     
@@ -196,12 +196,6 @@ function get_supplier() {}
     }
 
 
-
-
-
-
-
-    
     function addDataToPopup(rowData, editBtn) {
       // You can access the rowData and use it to fill in the modal fields.
       console.log("Row Data:", rowData, editBtn);
@@ -217,14 +211,23 @@ function get_supplier() {}
         "shedUpdateDescription"
       ).value = `${rowData.shedDescription}`);
 
-      const shedTypeUpdatedDropdown = (document.getElementById(
-        "shedTypeDropdown"
-      ).value = `${rowData.shedTypeId}`);
+      // const shedTypeUpdatedDropdown = (document.getElementById(
+      //   "shedTypeDropdown"
+      // ).value = `${rowData.shedTypeName}`);
+
+
+      const shedTypeUpdatedDropdown = document.getElementById(
+        "shedTypeUpdatedDropdown"
+      );
+      setSelectedOption(shedTypeUpdatedDropdown, rowData.shedTypeName);
+
+
     
       const shedUpdateStatus = (document.getElementById(
         "shedUpdateStatus"
       ).checked = `${rowData.status}`);
       let shedId = rowData.shedId;
+      
     
     }
 
@@ -253,7 +256,7 @@ function get_supplier() {}
         companyId: parseInt(companyId, 10)
       };
     
-      console.log("obj  update", obj);
+      console.log("obj  update=====", obj);
     
       fetch(`${IP}/api/Shed/UpdateShed/${shedId}`, {
           method: "PUT",
@@ -266,7 +269,7 @@ function get_supplier() {}
             console.log(data, "data message!");
             loadTable();
             // unitEditName.placeholder = "";
-            ShedForm.reset();
+           // ShedForm.reset();
           })
           .catch((error) => {
             console.error("There was a problem with the fetch operation:", error);

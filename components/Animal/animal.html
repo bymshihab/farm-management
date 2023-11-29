@@ -6,12 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="/style.css" />
 
-    <link rel="stylesheet" href="/components/shed/shed.css" />
+    <link rel="stylesheet" href="/components/Animal/animal.css" />
 
     <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
   </head>
   <body>
-    <div class="container mt-2"><h2>Shed</h2></div>
+    <div class="container mt-2"><h2>Animal</h2></div>
     <section>
       <div class="container mt-5">
         <!-- top of table -->
@@ -110,14 +110,22 @@
               <!-- <th scope="col">
                 <input type="checkbox" id="" name="" value="" />
               </th> -->
-              <th scope="col">Shed Name</th>
-              <th scope="col">Description</th>
-              <th scope="col">ShedType</th>
+             
+              <th scope="col">Animal Name</th>
+              <th scope="col">Animal Tag</th>
+              <th scope="col">Product</th>
+              <th scope="col">Shed</th>
+              <th scope="col">Milk Type</th>
+              <th scope="col">Weight</th>
+              <th scope="col">Purchase Date/(DOB)</th>
+              <th scope="col">Gender</th>
               <th scope="col">Status</th>
+              <th scope="col">Dead</th>
+              <th scope="col">Sold</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody class="shedTable">
+          <tbody class="productTable">
             <tr class="text-center">
               <!-- <td scope="row">
                 <input type="checkbox" id="" name="" value="" />
@@ -174,7 +182,7 @@
 
       <!-- for create modal -->
       <div
-        class="modal fade"
+        class="modal fade  modal-lg"
         id="createModal"
         tabindex="-1"
         aria-labelledby="createModal"
@@ -183,7 +191,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header bg-success text-white">
-              <h5 class="modal-title">Add new Shed</h5>
+              <h5 class="modal-title">Add new Animal</h5>
               <button
                 type="button"
                 class="btn-close bg-white"
@@ -192,43 +200,135 @@
               ></button>
             </div>
             <div class="modal-body">
-              <form id="insertShed">
+              <form id="insertAnimal">
                 <div class="mb-3">
-                  <label for="shedId" class="form-label">Shed Name</label>
+                  <label for="animalId" class="form-label">Animal Name</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="shedId"
+                    id="productId"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="animalTagName" class="form-label">Animal Tagname</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="animalTagName"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="productName" class="form-label">Product Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productName"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="shedName" class="form-label">Shed Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="shedName"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="IsDead" class="form-label">IsDead</label>
+                  <input type="checkbox" id="IsDead" />
+                </div>
+                <div class="mb-3">
+                  <label for="IsSold" class="form-label">IsSold</label>
+                  <input type="checkbox" id="IsSold" />
+                </div>
+                <div class="mb-3">
+                  <label for="isVaccinated" class="form-label">isVaccinated</label>
+                  <input type="checkbox" id="isVaccinated" />
+                </div>
+
+
+                <div class="mb-3">
+                  <label for="milkType" class="form-label">Milk Type</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="milkType"
                     aria-describedby="emailHelp"
                   />
                 </div>
 
                 <div class="mb-3">
-                  <label for="shedDescription" class="form-label"
-                    >Shed Description</label
-                  >
-                  <textarea
+                  <label for="animalWeight" class="form-label">weight</label>
+                  <input
+                    type="text"
                     class="form-control"
-                    id="shedDescription"
-                    rows="3"
-                  ></textarea>
+                    id="animalWeight"
+                    aria-describedby="emailHelp"
+                  />
                 </div>
 
-                <!-- shed dropdown -->
+                <div class="mb-3">
+                  <label for="animalDob" class="form-label">DOB</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="animalDob"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
 
-                <div class="shedType">
-                  <label for="shedTypeDropdown" class="fw-bold">ShedType</label
+                <div class="mb-3">
+                  <label for="animalWeight" class="form-label">weight</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="animalWeight"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="animalgenderType" class="form-label">genderType</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="animalgenderType"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+               
+
+
+                <!-- category dropdown -->
+
+                <div class="category">
+                  <label for="productCategoryDropdown" class="fw-bold"
+                    >Category</label
                   ><br />
                   <select
-                    name="shedTypeId"
-                    id="shedTypeDropdown"
+                    name="productId"
+                    id="productCategoryDropdown"
+                    class="w-100 p-1"
+                  ></select>
+                </div>
+
+                <!-- unit dropdown -->
+                <div class="unit">
+                  <label for="priceUnitDropdown" class="fw-bold">Unit</label
+                  ><br />
+                  <select
+                    name="productId"
+                    id="priceUnitDropdown"
                     class="w-100 p-1"
                   ></select>
                 </div>
 
                 <div class="mb-3">
-                  <label for="shedStatus" class="form-label">Status</label>
-                  <input type="checkbox" id="shedStatus" />
+                  <label for="animalStatus" class="form-label">Status</label>
+                  <input type="checkbox" id="animalStatus" />
                 </div>
                 <div class="d-flex justify-content-end">
                   <button
@@ -271,46 +371,73 @@
             <div class="modal-body">
               <form id="updated-formID">
                 <div class="mb-3">
-                  <label for="shedUpdateName" class="form-label"
-                    >shade Name</label
+                  <label for="productUpdateName" class="form-label"
+                    >Product Name</label
                   >
                   <input
                     type="text"
                     class="form-control"
-                    id="shedUpdateName"
+                    id="productUpdateName"
                     aria-describedby="emailHelp"
                   />
                 </div>
 
                 <div class="mb-3">
-                  <label for="shedUpdateDescription" class="form-label"
-                    >Shed Description</label
+                  <label for="productUpdateDescription" class="form-label">
+                    Description</label
                   >
                   <textarea
                     class="form-control"
-                    id="shedUpdateDescription"
+                    id="productUpdateDescription"
                     rows="3"
                   ></textarea>
                 </div>
 
-                <!-- shed dropdown -->
+                <div class="mb-3">
+                  <label for="productUpdatePrice" class="form-label"
+                    >Price</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="productUpdatePrice"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
 
-                <div class="shedType">
-                  <label for="shedTypeUpdatedDropdown" class="fw-bold">ShedType</label
+              
+
+                <!-- category dropdown -->
+
+                <div class="category">
+                  <label for="productUpdatedCategoryDropdown" class="fw-bold"
+                    >Category</label
                   ><br />
                   <select
-                    name="shedTypeId"
-                    id="shedTypeUpdatedDropdown"
+                    name="productId"
+                    id="productUpdatedCategoryDropdown"
+                    class="w-100 p-1"
+                  ></select>
+                </div>
+
+                <!-- unit dropdown -->
+                <div class="unit">
+                  <label for="unitUpdatedDropdown" class="fw-bold">Unit</label
+                  ><br />
+                  <select
+                    name="productId"
+                    id="unitUpdatedDropdown"
                     class="w-100 p-1"
                   ></select>
                 </div>
 
                 <div class="mb-3">
-                  <label for="shedUpdateStatus" class="form-label"
-                    >Status</label
-                  >
-                  <input type="checkbox" id="shedUpdateStatus" />
+                  <label for="productUpdatedStatus" class="form-label">Status</label>
+                  <input type="checkbox" id="productUpdatedStatus" />
                 </div>
+
+
+
                 <div class="d-flex justify-content-end">
                   <button
                     type="submit"
@@ -333,8 +460,11 @@
     </section>
 
     <!-- <script src="/bootstrap-5.3.2-dist/js/bootstrap.js"></script> -->
+   
     <script src="/common.js"></script>
-    <script src="/components/shed/shed.js"></script>
+    <script src="/components/Animal/animal.js"></script>
+
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+
   </body>
 </html>
