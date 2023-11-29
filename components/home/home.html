@@ -23,9 +23,15 @@
       <hr class="text-light border border-1" />
       <ul>
         <li>Dashboard</li>
-        <li>All Farms</li>
-        <li>Tasks</li>
-        <li>Reports</li>
+        <li onclick="getUOM()">UOM</li>
+        <li onclick="getCategory()">
+          Category
+      </li>
+        <li onclick="getSuppliers()">
+          Suppliers
+      </li>
+        <li onclick="getCustomer()">Customers</li>
+        <li onclick="shedType()">Shed Type</li>
         <li>Help</li>
       </ul>
 
@@ -34,6 +40,7 @@
 
     <!-- Topbar -->
     <div class="topbar">
+      <button id="sidebarToggle" class="custom-btn rounded-end-circle"> <span class="side-angle"> > </span></button>
       <div class="breadcrumbs fs-5">Dashboard</div>
       <div class="user-info">
         <span class="me-3">Ahamed</span>
@@ -57,7 +64,7 @@
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li><a class="dropdown-item" id="logoutBtn" href="#">Logout</a></li>
           </ul>
         </div>
       </div>
@@ -65,11 +72,18 @@
     </div>
 
     <!-- Main content -->
-    <div class="content"></div>
+    <div class="content" id="mainContent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae velit neque deserunt, quas blanditiis possimus autem. Corporis possimus, at voluptatem fugiat commodi eius aspernatur explicabo rerum! Rem, repudiandae nobis hic accusantium pariatur iusto rerum, nesciunt obcaecati explicabo dolores ut praesentium, sit temporibus ducimus incidunt non earum velit nulla animi nisi. Impedit repellendus velit nesciunt sunt facere molestias corrupti quaerat eaque enim, distinctio quam! Quis, excepturi? Fuga esse neque adipisci architecto corporis sunt, quibusdam laboriosam veritatis aspernatur blanditiis itaque deserunt est numquam sed praesentium, temporibus aperiam et cum! Aliquid corporis libero harum numquam necessitatibus et modi. Eos, culpa. Quis, eos ratione?</div>
 
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.js"></script>
-
+    
     <script src="/components/home/home.js"></script>
+    <script src="/components/UOM/uom.js"></script>
+    <script src="/components/category/category.js"></script>
+    <script src="/components/customers/customers.js"></script>
+    <script src="/components/suppliers/suppliers.js"></script>
+    <!-- <script src="/components/outsiders/outsiders.js"></script> -->
+    <script src="/components/shedType/shedType.js"></script>
+
   </body>
 </html>

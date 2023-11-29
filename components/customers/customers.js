@@ -1,6 +1,7 @@
-// function getUom() {}
+function getcustomer() {
 
 const IP = "https://localhost:7105";
+const companyId = localStorage.getItem("companyId");
 const CustomersForm = document.getElementById("insertCustomers");
 
 CustomersForm.addEventListener("submit", function (event) {
@@ -18,6 +19,7 @@ CustomersForm.addEventListener("submit", function (event) {
     customerEmail: customerEmail,
     customerAddress: customerAddress,
     customerStatus: customerStatus,
+    companyId: parseInt(companyId, 10)
   };
 
   console.log(obj, "object...");
@@ -199,6 +201,7 @@ updateCustomerBtn.addEventListener("click", function (e) {
     customerEmail: customerUpdateEmail,
     customerAddress: customerUpdateAddress,
     customerStatus: customerUpdateStatus,
+    companyId: parseInt(companyId, 10)
   };
 
 //   console.log("obj of UOM update", obj);
@@ -222,6 +225,7 @@ updateCustomerBtn.addEventListener("click", function (e) {
       });
 });
 
+}
 
 
 

@@ -1,40 +1,9 @@
-console.log("login");
+// console.log("login");
 const IP = "https://localhost:7105";
 // const IP = "http://172.16.5.18:8788";
 
 toCreateCompanyName();
-// function to create options for company 
-// function toCreateCompanyName(){
-//     fetch(`${IP}/api/ActiveCompany`, {
-//         method: "GET",
-//       })
-//         .then((response) => {
-//           console.log(response, "json");
-//           return response.json();
-//         })
-//         .then((data) => {
-//           console.log(data, "dsfjhfd");
-//            let companyIds = data;
-//           const comapnyDropdown = document.getElementById("comapnyDropdown");
-//           comapnyDropdown.innerHTML = "";
-//           const defaultOption = document.createElement("option");
-//           defaultOption.value = "0";
-//           defaultOption.textContent = "Nothing is Selected";
-//           defaultOption.classList.add("d-none");
-//           comapnyDropdown.appendChild(defaultOption);
-  
-//           companyIds.forEach((option) => {
-//             const newOption = document.createElement("option");
-//             newOption.value = option.companyId;
-//             newOption.textContent = option.companyName;
-//             comapnyDropdown.appendChild(newOption);
-//           });
-//         })
-//         .catch((error) => {
-//           console.error("There was a problem with the fetch operation:", error);
-//           alert("create User failed: " + error.message);
-//         });
-// }
+
 function toCreateCompanyName(){
     fetch(`${IP}/api/ActiveCompany`, {
         method: "GET",
@@ -67,11 +36,6 @@ function toCreateCompanyName(){
         alert("Error fetching company data: " + error.message);
     });
 }
-
-
-
-
-
 
 
 

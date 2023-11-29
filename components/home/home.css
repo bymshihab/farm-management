@@ -44,6 +44,7 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: margin-left 0.5s;
   }
   .topbar .user-info {
     display: flex;
@@ -92,9 +93,43 @@
   margin-right: rem;
 } */
 
+/* Default open state of the sidebar */
+.sidebar {
+  transition: width 0.5s; /* Smooth transition for opening and closing */
+}
+
+/* Closed state of the sidebar */
+.sidebar-closed {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.5s;
+}
+
+/* Style for the toggle button (optional) */
+#sidebarToggle {
+  margin-left: -25px;
+ 
+}
+
+/* Adjust content when sidebar is closed */
+.content-shift {
+  margin-left: 0; 
+  transition: margin-left 0.5s;
+}
 
 
+/* to handle topbar */
+
+.topbar-closed {
+  margin-left: 0;
+  transition: margin-left 0.5s;
+}
 
 
+.angle-flipped .side-angle {
+  display: inline-block;
+  transform: rotate(180deg);
+  transition: transform 0.3s; /* Smooth rotation transition */
+}
 
 

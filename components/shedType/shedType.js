@@ -1,27 +1,26 @@
-function getcategory() {
+function shed_Type() {
   const IP = "https://localhost:7105";
-  const companyId = localStorage.getItem("companyId");
-  const CategoryForm = document.getElementById("insertCategory");
+  const shedTypeForm = document.getElementById("insertShedType");
 
-  CategoryForm.addEventListener("submit", function (event) {
+  const companyId = localStorage.getItem("companyId");
+
+  shedTypeForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const categoryName = document.getElementById("categoryId").value;
-    const categoryDescription = document.getElementById(
-      "categoryDescription"
-    ).value;
-    const categoryStatus = document.getElementById("categoryStatus").checked;
+    const shedTypeName = document.getElementById("shedTypeId").value;
+    const shedTypeDes = document.getElementById("shedTypeDescription").value;
+    const shedTypeStatus = document.getElementById("shedTypeStatus").checked;
 
     const obj = {
-      categoryName: categoryName,
-      categoryDescription: categoryDescription,
-      categoryStatus: categoryStatus,
-      companyId: parseInt(companyId, 10),
+      shedTypeName: shedTypeName,
+      shedTypeDescription: shedTypeDes,
+      status: shedTypeStatus,
+      companyId: parseInt(companyId, 10)
     };
 
     console.log(obj, "object...");
 
-    fetch(`${IP}/api/Category/CreateCategory`, {
+    fetch(`${IP}/api/ShedType/CreateShedType`, {
       method: "POST",
       // body: objArray,
       body: JSON.stringify(obj),
@@ -33,7 +32,7 @@ function getcategory() {
         alert(data.message);
         console.log(data, "data message!");
         loadTable();
-        CategoryForm.reset();
+        shedTypeForm.reset();
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
@@ -43,11 +42,11 @@ function getcategory() {
 
   loadTable();
   function loadTable() {
-    fetch(`${IP}/api/Category`)
+    fetch(`${IP}/api/ShedType/GetShedType`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        const tablebody = document.querySelector(".categoryTable");
+        const tablebody = document.querySelector(".shedTypeTable");
         tablebody.innerHTML = "";
 
         for (let i = 0; i < data.length; i++) {
@@ -59,27 +58,27 @@ function getcategory() {
           checkbox.type = "checkbox";
           checkbox.name = "uomCheckbox";
           checkbox.value = data[i].uomId;
-          checkbox.id = "checkbox_" + data[i].categoryId; // Create a unique ID for each checkbox
+          checkbox.id = "checkbox_" + data[i].shedTypeId; // Create a unique ID for each checkbox
 
           // Append the checkbox to cell1
           cell1.appendChild(checkbox);
-          cell1.setAttribute("id", data[i].categoryId);
+          cell1.setAttribute("id", data[i].shedTypeId);
 
           // cell1.textContent = data[i].resolutionName;
 
           let cell2 = document.createElement("td");
-          cell2.textContent = data[i].categoryName;
+          cell2.textContent = data[i].shedTypeName;
 
           let cell3 = document.createElement("td");
 
-          cell3.textContent = data[i].categoryDescription;
+          cell3.textContent = data[i].shedTypeDescription;
 
           let cell4 = document.createElement("td");
 
-          cell4.textContent = data[i].categoryStatus;
+          cell4.textContent = data[i].status;
 
           let cell5 = document.createElement("td");
-          cell5.setAttribute("id", data[i].categoryId);
+          cell5.setAttribute("id", data[i].shedTypeId);
 
           // Create and append the SVG to the button
           let svg = document.createElementNS(
@@ -135,6 +134,13 @@ function getcategory() {
           newRow.appendChild(cell4);
           newRow.appendChild(cell5);
 
+          // newRow.setAttribute("ondblclick", "addDataToForm(this)");
+          // newRow.addEventListener("dblclick", function () {
+          //   addDataToForm(this);
+          // });
+
+          // newRow.setAttribute('ondblclick', addDataToForm(this));
+
           tablebody.appendChild(newRow);
         }
       })
@@ -146,51 +152,46 @@ function getcategory() {
     console.log("Row Data:", rowData, editBtn);
 
     const formUpdateId = document.getElementById("updated-formID");
-    formUpdateId.setAttribute("data-category-id", rowData.categoryId);
+    formUpdateId.setAttribute("data-uom-id", rowData.shedTypeId);
 
-    const categoryUpdateUnit = (document.getElementById(
-      "categoryUpdateUnit"
-    ).value = `${rowData.categoryName}`);
-    const CategoryDescription = (document.getElementById(
-      "CategoryDescription"
-    ).value = `${rowData.categoryDescription}`);
+    const shedTypeEditId = (document.getElementById(
+      "shedTypeEditId"
+    ).value = `${rowData.shedTypeName}`);
+    const shedTypeEditDescription = (document.getElementById(
+      "shedTypeEditDescription"
+    ).value = `${rowData.shedTypeDescription}`);
 
-    const categoryEditStatusId = (document.getElementById(
-      "categoryEditStatusId"
-    ).checked = `${rowData.categoryStatus}`);
-    let categoryId = rowData.categoryId;
+    const shedTypeEditStatusId = (document.getElementById(
+      "shedTypeEditStatusId"
+    ).checked = `${rowData.status}`);
+    let shedTypeUpdateId = rowData.shedTypeId;
   }
 
-  const updateCategoryBtn = document.getElementById("updateCategoryBtn");
+  const updatShedTypeBtn = document.getElementById("updatShedTypeBtn");
 
-  updateCategoryBtn.addEventListener("click", function (e) {
+  updatShedTypeBtn.addEventListener("click", function (e) {
     e.preventDefault();
 
-    let categoryId = document
+    let shedTypeId = document
       .getElementById("updated-formID")
-      .getAttribute("data-category-id");
+      .getAttribute("data-uom-id");
 
-    let categoryUpdateUnitName =
-      document.getElementById("categoryUpdateUnit").value;
-    let CategoryDescription = document.getElementById(
-      "CategoryDescription"
-    ).value;
-    let categoryEditStatusId = document.getElementById(
-      "categoryEditStatusId"
-    ).checked;
+    let shedTypeEditName = document.getElementById("shedTypeId").value;
+    let shedTypeEditDes = document.getElementById("shedTypeEditDescription").value;
+    let shedTypeEditStatus = document.getElementById("shedTypeEditStatusId").checked;
     // let uomUpdateId = rowData.uomId;
 
     let obj = {
-      categoryId: categoryId,
-      categoryName: categoryUpdateUnitName,
-      categoryDescription: CategoryDescription,
-      categoryStatus: categoryEditStatusId,
-      companyId: parseInt(companyId, 10),
+      shedTypeId: shedTypeId,
+      shedTypeName: shedTypeEditName,
+      shedTypeDescription: shedTypeEditDes,
+      status: shedTypeEditStatus,
+      companyId: parseInt(companyId, 10)
     };
 
     console.log("obj of UOM update", obj);
 
-    fetch(`${IP}/api/Category/UpdateCategory/${categoryId}`, {
+    fetch(`${IP}/api/ShedType/UpdateShedType/${shedTypeId}`, {
       method: "PUT",
       body: JSON.stringify(obj),
       headers: { "Content-Type": "application/json" },
@@ -201,7 +202,7 @@ function getcategory() {
         console.log(data, "data message!");
         loadTable();
         // unitEditName.placeholder = "";
-        CategoryForm.reset();
+        shedTypeForm.reset();
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
