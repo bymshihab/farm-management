@@ -6,6 +6,13 @@
 :root{
     --primary:#41945e;
     --secondary: #f2fff6;
+
+    /* --primary:#183a23;
+    --secondary: #dad4c2; */
+/* 
+    --primary:#1b2d2e;
+    --secondary: #a1b4a4; */
+
     --btn: rgb(73, 78, 223);
 
 }

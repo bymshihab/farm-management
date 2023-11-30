@@ -6,12 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="/style.css" />
 
-    <link rel="stylesheet" href="/components/Animal/animal.css" />
+    <link rel="stylesheet" href="/components/breading/breading.css" />
 
     <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
   </head>
   <body>
-    <div class="container mt-2"><h2>Animal shudhu insert hoiche.. same as employee image problem</h2></div>
+    <div class="container mt-2"><h2>Breading</h2></div>
     <section>
       <div class="container mt-5">
         <!-- top of table -->
@@ -191,7 +191,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header bg-success text-white">
-              <h5 class="modal-title">Add new Animal</h5>
+              <h5 class="modal-title">Breading new entry</h5>
               <button
                 type="button"
                 class="btn-close bg-white"
@@ -200,96 +200,106 @@
               ></button>
             </div>
             <div class="modal-body">
-              <form id="insertAnimal">
+              <form id="insertBreading">
                 <div class="row">
-                  <div class="col-md-6 mb-3">
-                  <label for="animalId" class="form-label">Animal Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="animalId"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-               
-                <div class="productType col-md-6 mb-3">
-                  <label for="productTypeDropdown" class="fw-bold"
-                    >Animal Type</label
-                  ><br />
-                  <select
-                    name="productType"
-                    id="productTypeDropdown"
-                    class="w-100 p-1"
-                  ></select>
-                </div>
-
-
                 
-                <div class="milkType col-md-6 mb-3">
-                  <label for="milkTypeDropdown" class="fw-bold"
-                    >Milk Type</label
+                <div class="EmployeeType col-md-6 mb-3">
+                  <label for="EmployeeDropdown" class="fw-bold"
+                    >Employee</label
                   ><br />
                   <select
-                    name="milkType"
-                    id="milkTypeDropdown"
+                    name="EmployeeType"
+                    id="EmployeeDropdown"
                     class="w-100 p-1"
                   ></select>
                 </div>
 
-
-                <div class="gendertype col-md-6 mb-3">
-                  <label for="genderTypeDropdown" class="fw-bold"
-                    >Gender Type</label
+                <div class="SemenType col-md-6 mb-3">
+                  <label for="SemenDropdown" class="fw-bold"
+                    >Semen</label
                   ><br />
                   <select
-                    name="gendertype"
-                    id="genderTypeDropdown"
+                    name="SemenType"
+                    id="SemenDropdown"
                     class="w-100 p-1"
                   ></select>
                 </div>
 
+                <div class="AnimalType col-md-6 mb-3">
+                  <label for="AnimalDropdown" class="fw-bold"
+                    >Animal</label
+                  ><br />
+                  <select
+                    name="AnimalType"
+                    id="AnimalDropdown"
+                    class="w-100 p-1"
+                  ></select>
+                </div>
+                <div class="OutsiderType col-md-6 mb-3">
+                  <label for="OutsiderDropdown" class="fw-bold"
+                    >Outsider</label
+                  ><br />
+                  <select
+                    name="OutsiderType"
+                    id="OutsiderDropdown"
+                    class="w-100 p-1"
+                  ></select>
+                </div>
+                <div class="OutsiderCatagoryType col-md-6 mb-3">
+                  <label for="OutsiderCatagoryDropdown" class="fw-bold"
+                    >OutsiderCatagory</label
+                  ><br />
+                  <select
+                    name="OutsiderCatagoryType"
+                    id="OutsiderCatagoryDropdown"
+                    class="w-100 p-1"
+                  ></select>
+                </div>
 
                 <div class="col-md-6 mb-3">
-                  <label for="animalDob" class="form-label">DOB</label>
+                  <label for="SemenDateBreading" class="form-label">Semen Date</label>
                   <input
                     type="date"
                     class="form-control"
-                    id="animalDob"
+                    id="SemenDateBreading"
                     aria-describedby="emailHelp"
                   />
                 </div>
 
                 <div class="col-md-6 mb-3">
-                  <label for="animalWeight" class="form-label">weight</label>
+                  <label for="DeliveryDateBreading" class="form-label">Delivery Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="DeliveryDateBreading"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="PriceBreading" class="form-label">Price</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="animalWeight"
+                    id="PriceBreading"
                     aria-describedby="emailHelp"
                   />
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label for="animalImg" class="form-label">Animal Image</label>
-                  <input type="file" id="animalImg" name="filename" class="">
+                  <label for="semenPctBreading" class="form-label">Semen Percentage %</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="semenPctBreading"
+                    aria-describedby="emailHelp"
+                  />
                 </div>
 
+              
 
                 <div class="col-md-6 mb-3">
-                  <label for="IsDead" class="form-label">IsDead</label>
-                  <input type="checkbox" id="IsDead" />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="IsSold" class="form-label">IsSold</label>
-                  <input type="checkbox" id="IsSold" />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="isVaccinated" class="form-label">isVaccinated</label>
-                  <input type="checkbox" id="isVaccinated" />
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="animalStatus" class="form-label">Status</label>
-                  <input type="checkbox" id="animalStatus" />
+                  <label for="breadingStatus" class="form-label">Status</label>
+                  <input type="checkbox" id="breadingStatus" />
                 </div>
 
               </div>
@@ -427,7 +437,7 @@
     <!-- <script src="/bootstrap-5.3.2-dist/js/bootstrap.js"></script> -->
    
     <script src="/common.js"></script>
-    <script src="/components/Animal/animal.js"></script>
+    <script src="/components/breading/breading.js"></script>
 
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
 

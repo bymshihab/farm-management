@@ -4,19 +4,19 @@ const IP = "https://localhost:7105";
 const companyId = parseInt(localStorage.getItem("companyId"), 10);
 
 // for creating
-const apiUrlmilk = `${IP}/api/ActiveGETMilks`;
-const apiUrlGenderType = `${IP}/api/ActiveGETGender`;
-const apiUrlproductType = `${IP}/api/ActiveProducts/ActiveAnimalType?CompanyId=${companyId}`;
-creatingDropdown(
-  "productTypeDropdown",
-  apiUrlproductType,
-  "ProductId",
-  "ProductName"
-);
+// const apiUrlmilk = `${IP}/api/ActiveGETMilks`;
+// const apiUrlGenderType = `${IP}/api/ActiveGETGender`;
+// const apiUrlproductType = `${IP}/api/ActiveProducts/ActiveAnimalType?CompanyId=${companyId}`;
+// creatingDropdown(
+//   "productTypeDropdown",
+//   apiUrlproductType,
+//   "ProductId",
+//   "ProductName"
+// );
 
-creatingDropdown("milkTypeDropdown", apiUrlmilk, "MilkId", "MilkType");
+// creatingDropdown("milkTypeDropdown", apiUrlmilk, "MilkId", "MilkType");
 
-creatingDropdown("genderTypeDropdown", apiUrlGenderType, "GenderId", "GenderType");
+// creatingDropdown("genderTypeDropdown", apiUrlGenderType, "GenderId", "GenderType");
 
 // // for updating
 // const apiUrlCategoryUpdate = `${IP}/api/ActiveCategories?CompanyId=${companyId}`;
@@ -33,7 +33,7 @@ creatingDropdown("genderTypeDropdown", apiUrlGenderType, "GenderId", "GenderType
 
 //form handle ==========
 
-const animalForm = document.getElementById("insertAnimal");
+const animalForm = document.getElementById("insertBreading");
 
 animalForm.addEventListener("submit", function (event) {
   event.preventDefault();

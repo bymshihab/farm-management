@@ -25,6 +25,53 @@ if (logoutButton) {
 
 
 
+// sidebar active
+document.querySelectorAll('.sidebar-item').forEach(item => {
+  item.addEventListener('click', function() {
+    // Remove 'active' class from all sidebar items
+    document.querySelectorAll('.sidebar-item').forEach(innerItem => {
+      innerItem.classList.remove('active');
+    });
+
+    // Add 'active' class to the clicked item
+    this.classList.add('active');
+
+    // Update the headerContent with the text of the clicked item
+    const headerContent = document.getElementById('headerContent');
+    if (headerContent) {
+      headerContent.textContent = this.textContent;
+    }
+  });
+});
+
+
+// sidebar-dropdown
+
+document.querySelectorAll('.sidebar-item.dropdown').forEach(dropdown => {
+  dropdown.addEventListener('click', function(event) {
+    event.stopPropagation();
+    this.classList.toggle('show');
+  });
+});
+
+// Close the dropdown when clicking outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropdown')) {
+    var dropdowns = document.getElementsByClassName("dropdown-menu");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+};
+
+
+
+
+
+
 
 
 // To getting UOM
@@ -127,6 +174,8 @@ if (logoutButton) {
         console.error("Error loading the navbar:", error);
       });
   }
+
+
     //To geting shedType
 
   function shedType(){

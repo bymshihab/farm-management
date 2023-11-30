@@ -32,6 +32,49 @@
     color: black;
   }
 
+  .sidebar-item.active {
+    background-color: var(--secondary);
+    border-right: 4px solid black;
+    color: black;
+  }
+
+
+/* sidebar dropdown menu */
+
+
+.sidebar-item .dropdown-menu {
+  display: none;
+  list-style: none;
+  position: absolute;
+  left: 100%; /* Adjust as needed based on your layout */
+  top: 0;
+  background-color: #f9f9f9;
+  min-width: 150px; /* Adjust width as needed */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.sidebar-item .dropdown-menu li {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar-item:hover .dropdown-menu {
+  display: block;
+}
+
+/* Style for the dropdown links */
+.sidebar-item .dropdown-menu li a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar-item .dropdown-menu li a:hover {
+  /* background-color: #ddd; */
+}
 
 
 
