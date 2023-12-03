@@ -6,12 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="/style.css" />
 
-    <link rel="stylesheet" href="/components/breading/breading.css" />
+    <link rel="stylesheet" href="/components/vaccination/vaccination.css" />
 
     <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
   </head>
   <body>
-    <div class="container mt-2"><h2>Breading</h2></div>
+    <div class="container mt-2"><h2>Vaccination</h2></div>
     <section>
       <div class="container mt-5">
         <!-- top of table -->
@@ -111,18 +111,20 @@
                 <input type="checkbox" id="" name="" value="" />
               </th> -->
              
-              <th scope="col">Employee</th>
               <th scope="col">Animal </th>
-              <th scope="col">Semen Percentage %</th>
-              <th scope="col">Price	</th>
-              <th scope="col">SemenDate</th>
-              <th scope="col">DeliveryDate</th>
+              <th scope="col"> Employee </th>
+
+              <th scope="col">Vaccine Name</th>
+              <th scope="col">price</th>
+              
+              <th scope="col">Vacc. Date</th>
+              <th scope="col">Exp. Date</th>
               <th scope="col">Outsider</th>
               <th scope="col">Status</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody class="breadingTable">
+          <tbody class="vaccineTable">
             <tr class="text-center">
               <!-- <td scope="row">
                 <input type="checkbox" id="" name="" value="" />
@@ -188,7 +190,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header bg-success text-white">
-              <h5 class="modal-title">Breading new entry</h5>
+              <h5 class="modal-title">Vaccination new entry</h5>
               <button
                 type="button"
                 class="btn-close bg-white"
@@ -197,38 +199,38 @@
               ></button>
             </div>
             <div class="modal-body">
-              <form id="insertBreading">
+              <form id="insertVaccination">
                 <div class="row">
                 
-                <div class="EmployeeType col-md-6 mb-3">
+                <div class="AnimalType col-md-6 mb-3">
+                  <label for="animalDropdown" class="fw-bold"
+                    >Animal</label
+                  ><br />
+                  <select
+                    name="animalType"
+                    id="animalDropdown"
+                    class="w-100 p-1"
+                  ></select>
+                </div>
+
+                <div class="vaccineType col-md-6 mb-3">
+                  <label for="vaccineDropdown" class="fw-bold"
+                    >Vaccine</label
+                  ><br />
+                  <select
+                    name="vaccineType"
+                    id="vaccineDropdown"
+                    class="w-100 p-1"
+                  ></select>
+                </div>
+
+                <div class="employeeType col-md-6 mb-3">
                   <label for="EmployeeDropdown" class="fw-bold"
                     >Employee</label
                   ><br />
                   <select
-                    name="EmployeeType"
+                    name="employeeType"
                     id="EmployeeDropdown"
-                    class="w-100 p-1"
-                  ></select>
-                </div>
-
-                <div class="SemenType col-md-6 mb-3">
-                  <label for="SemenDropdown" class="fw-bold"
-                    >Semen</label
-                  ><br />
-                  <select
-                    name="SemenType"
-                    id="SemenDropdown"
-                    class="w-100 p-1"
-                  ></select>
-                </div>
-
-                <div class="AnimalType col-md-6 mb-3">
-                  <label for="AnimalDropdown" class="fw-bold"
-                    >Animal</label
-                  ><br />
-                  <select
-                    name="AnimalType"
-                    id="AnimalDropdown"
                     class="w-100 p-1"
                   ></select>
                 </div>
@@ -242,61 +244,43 @@
                     class="w-100 p-1"
                   ></select>
                 </div>
-                <!-- <div class="OutsiderCatagoryType col-md-6 mb-3">
-                  <label for="OutsiderCatagoryDropdown" class="fw-bold"
-                    >OutsiderCatagory</label
-                  ><br />
-                  <select
-                    name="OutsiderCatagoryType"
-                    id="OutsiderCatagoryDropdown"
-                    class="w-100 p-1"
-                  ></select>
-                </div> -->
+                
 
                 <div class="col-md-6 mb-3">
-                  <label for="SemenDateBreading" class="form-label">Semen Date</label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="SemenDateBreading"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="DeliveryDateBreading" class="form-label">Delivery Date</label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="DeliveryDateBreading"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="PriceBreading" class="form-label">Price</label>
+                  <label for="PriceVaccine" class="form-label">Price</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="PriceBreading"
+                    id="PriceVaccine"
                     aria-describedby="emailHelp"
                   />
                 </div>
+
                 <div class="col-md-6 mb-3">
-                  <label for="semenPctBreading" class="form-label">Semen Percentage %</label>
+                  <label for="VaccinationDate" class="form-label">Vaccination Date</label>
                   <input
-                    type="text"
+                    type="date"
                     class="form-control"
-                    id="semenPctBreading"
+                    id="VaccinationDate"
                     aria-describedby="emailHelp"
                   />
                 </div>
 
-              
+                <div class="col-md-6 mb-3">
+                  <label for="ExpireDateVaccine" class="form-label">Expire Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="ExpireDateVaccine"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+
+  
 
                 <div class="col-md-6 mb-3">
-                  <label for="breadingStatus" class="form-label">Status</label>
-                  <input type="checkbox" id="breadingStatus" />
+                  <label for="vaccineStatus" class="form-label">Status</label>
+                  <input type="checkbox" id="vaccineStatus" />
                 </div>
 
               </div>
@@ -332,7 +316,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Update Shed</h5>
+              <h5 class="modal-title">Update Vaccination</h5>
               <button
                 type="button"
                 class="btn-close"
@@ -344,103 +328,85 @@
               <form id="updated-formID">
                 <div class="row">
                 
-                  <div class="EmployeeType col-md-6 mb-3">
-                    <label for="EmployeeUpdatedDropdown" class="fw-bold"
-                      >Employee</label
-                    ><br />
-                    <select
-                      name="breadingId"
-                      id="EmployeeUpdatedDropdown"
-                      class="w-100 p-1"
-                    ></select>
-                  </div>
-  
-                  <div class="SemenType col-md-6 mb-3">
-                    <label for="SemenUpdatedDropdown" class="fw-bold"
-                      >Semen</label
-                    ><br />
-                    <select
-                      name="breadingId"
-                      id="SemenUpdatedDropdown"
-                      class="w-100 p-1"
-                    ></select>
-                  </div>
-  
                   <div class="AnimalType col-md-6 mb-3">
-                    <label for="AnimalUpdatedDropdown" class="fw-bold"
+                    <label for="animalDropdownUpdate" class="fw-bold"
                       >Animal</label
                     ><br />
                     <select
-                      name="breadingId"
-                      id="AnimalUpdatedDropdown"
+                      name="animalType"
+                      id="animalDropdownUpdate"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+  
+                  <div class="vaccineType col-md-6 mb-3">
+                    <label for="vaccineDropdownUpdate" class="fw-bold"
+                      >Vaccine</label
+                    ><br />
+                    <select
+                      name="vaccineType"
+                      id="vaccineDropdownUpdate"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+  
+                  <div class="employeeType col-md-6 mb-3">
+                    <label for="EmployeeDropdownUpdate" class="fw-bold"
+                      >Employee</label
+                    ><br />
+                    <select
+                      name="employeeType"
+                      id="EmployeeDropdownUpdate"
                       class="w-100 p-1"
                     ></select>
                   </div>
                   <div class="OutsiderType col-md-6 mb-3">
-                    <label for="OutsiderUpdatedDropdown" class="fw-bold"
+                    <label for="OutsiderDropdownUpdate" class="fw-bold"
                       >Outsider</label
                     ><br />
                     <select
-                      name="breadingId"
-                      id="OutsiderUpdatedDropdown"
+                      name="OutsiderType"
+                      id="OutsiderDropdownUpdate"
                       class="w-100 p-1"
                     ></select>
                   </div>
-                  <!-- <div class="OutsiderCatagoryType col-md-6 mb-3">
-                    <label for="OutsiderCatagoryDropdown" class="fw-bold"
-                      >OutsiderCatagory</label
-                    ><br />
-                    <select
-                      name="OutsiderCatagoryType"
-                      id="OutsiderCatagoryDropdown"
-                      class="w-100 p-1"
-                    ></select>
-                  </div> -->
+                  
   
                   <div class="col-md-6 mb-3">
-                    <label for="SemenDateUpdatedBreading" class="form-label">Semen Date</label>
-                    <input
-                      type="date"
-                      class="form-control"
-                      id="SemenDateUpdatedBreading"
-                      aria-describedby="emailHelp"
-                    />
-                  </div>
-  
-                  <div class="col-md-6 mb-3">
-                    <label for="DeliveryDateUpdatedBreading" class="form-label">Delivery Date</label>
-                    <input
-                      type="date"
-                      class="form-control"
-                      id="DeliveryDateUpdatedBreading"
-                      aria-describedby="emailHelp"
-                    />
-                  </div>
-  
-                  <div class="col-md-6 mb-3">
-                    <label for="PriceUpdateBreading" class="form-label">Price</label>
+                    <label for="PriceVaccineUpdate" class="form-label">Price</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="PriceUpdateBreading"
+                      id="PriceVaccineUpdate"
                       aria-describedby="emailHelp"
                     />
                   </div>
+  
                   <div class="col-md-6 mb-3">
-                    <label for="semenPctUpdateBreading" class="form-label">Semen Percentage %</label>
+                    <label for="VaccinationDateUpdate" class="form-label">Vaccination Date</label>
                     <input
-                      type="text"
+                      type="date"
                       class="form-control"
-                      id="semenPctUpdateBreading"
+                      id="VaccinationDateUpdate"
                       aria-describedby="emailHelp"
                     />
                   </div>
   
-                
+                  <div class="col-md-6 mb-3">
+                    <label for="ExpireDateVaccineUpdate" class="form-label">Expire Date</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="ExpireDateVaccineUpdate"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+  
+    
   
                   <div class="col-md-6 mb-3">
-                    <label for="breadingUpdateStatus" class="form-label">Status</label>
-                    <input type="checkbox" id="breadingUpdateStatus" />
+                    <label for="vaccineStatusUpdate" class="form-label">Status</label>
+                    <input type="checkbox" id="vaccineStatusUpdate" />
                   </div>
   
                 </div>
@@ -470,7 +436,7 @@
     <!-- <script src="/bootstrap-5.3.2-dist/js/bootstrap.js"></script> -->
    
     <script src="/common.js"></script>
-    <script src="/components/breading/breading.js"></script>
+    <script src="/components/vaccination/vaccination.js"></script>
 
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
 

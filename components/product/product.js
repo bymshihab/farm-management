@@ -45,6 +45,9 @@ productForm.addEventListener("submit", function (event) {
 
   // const shedStatus = document.getElementById("shedStatus").checked;
 
+
+
+
   const obj = {
     productName: productName,
     productDescription: productDescription,
@@ -54,6 +57,8 @@ productForm.addEventListener("submit", function (event) {
     status: productStatus,
     companyId: parseInt(companyId, 10),
   };
+
+
 
   console.log(obj, "object...");
 
@@ -80,7 +85,7 @@ productForm.addEventListener("submit", function (event) {
 // showing data to grid
 loadTable();
 function loadTable() {
-  fetch(`${IP}/api/Product`)
+  fetch(`${IP}/api/Product?CompanyId=${companyId}`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);

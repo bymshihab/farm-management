@@ -3,92 +3,75 @@ function get_supplier() {}
 const IP = "https://localhost:7105";
 const companyId = parseInt(localStorage.getItem("companyId"), 10);
 
-// for creating
-const apiUrlemployee = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
+// // for creating
+const apiUrlanimal = `${IP}/api/ActiveAnimals?CompanyId=${companyId}`;
 
-const apiUrlSemen = `${IP}/api/Breeding/Semen?CompanyId=${companyId}`;
+const apiUrlvaccine= `${IP}/api/Vaccination/Vaccine?CompanyId=${companyId}`;
 
-const apiUrlAnimal = `${IP}/api/ActiveAnimals?CompanyId=${companyId}`;
+const apiUrlEmployee = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
 const apiUrlOutsider = `${IP}/api/ActiveOutsiders?CompanyId=${companyId}`;
 
 
-creatingDropdown("EmployeeDropdown", apiUrlemployee, "EId", "EmployeeName");
+creatingDropdown("EmployeeDropdown", apiUrlEmployee, "EId", "EmployeeName");
+creatingDropdown("animalDropdown", apiUrlanimal, "AnimalId", "AnimalName");
+creatingDropdown("vaccineDropdown", apiUrlvaccine, "ProductId", "ProductName");
+creatingDropdown("OutsiderDropdown", apiUrlOutsider, "OutsiderId", "OutsiderName");
 
-creatingDropdown("SemenDropdown", apiUrlSemen, "ProductId", "ProductName");
-
-creatingDropdown("AnimalDropdown", apiUrlAnimal, "AnimalId", "AnimalName");
-
-creatingDropdown(
-  "OutsiderDropdown",
-  apiUrlOutsider,
-  "OutsiderId",
-  "OutsiderName"
-);
 
 
 // // for updating
-const apiUrlUpdateEmployee = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
+const apiUrlanimalUpdate = `${IP}/api/ActiveAnimals?CompanyId=${companyId}`;
 
-const apiUrlSemenUpdate = `${IP}/api/Breeding/Semen?CompanyId=${companyId}`;
+const apiUrlvaccineUpdate= `${IP}/api/Vaccination/Vaccine?CompanyId=${companyId}`;
 
-const apiUrlAnimalUpdate = `${IP}/api/ActiveAnimals?CompanyId=${companyId}`;
+const apiUrlEmployeeUpdate = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
 const apiUrlOutsiderUpdate = `${IP}/api/ActiveOutsiders?CompanyId=${companyId}`;
 
-creatingDropdown("EmployeeUpdatedDropdown", apiUrlUpdateEmployee, "EId", "EmployeeName");
-creatingDropdown("SemenUpdatedDropdown", apiUrlSemenUpdate, "ProductId", "ProductName");
 
-creatingDropdown("AnimalUpdatedDropdown", apiUrlAnimalUpdate, "AnimalId", "AnimalName");
-
-creatingDropdown(
-  "OutsiderUpdatedDropdown",
-  apiUrlOutsiderUpdate,
-  "OutsiderId",
-  "OutsiderName"
-);
-
+creatingDropdown("EmployeeDropdownUpdate", apiUrlEmployeeUpdate, "EId", "EmployeeName");
+creatingDropdown("animalDropdownUpdate", apiUrlanimalUpdate, "AnimalId", "AnimalName");
+creatingDropdown("vaccineDropdownUpdate", apiUrlvaccineUpdate, "ProductId", "ProductName");
+creatingDropdown("OutsiderDropdownUpdate", apiUrlOutsiderUpdate, "OutsiderId", "OutsiderName");
 //form handle ==========
 
-const breadingForm = document.getElementById("insertBreading");
+const vaccineForm = document.getElementById("insertVaccination");
 
-breadingForm.addEventListener("submit", function (event) {
+vaccineForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
+  const animalDropdown = document.getElementById("animalDropdown").value;
+  const vaccineDropdown = document.getElementById("vaccineDropdown").value;
   const EmployeeDropdown = document.getElementById("EmployeeDropdown").value;
-  const SemenDropdown = document.getElementById("SemenDropdown").value;
-  const AnimalDropdown = document.getElementById("AnimalDropdown").value;
 
   const OutsiderDropdown = document.getElementById("OutsiderDropdown").value;
-  // const OutsiderCatagoryDropdown = document.getElementById(
-  //   "OutsiderCatagoryDropdown"
-  // ).value;
 
-  const SemenDateBreading = document.getElementById("SemenDateBreading").value;
-  const DeliveryDateBreading = document.getElementById(
-    "DeliveryDateBreading"
+
+  const VaccinationDate = document.getElementById("VaccinationDate").value;
+  const ExpireDateVaccine = document.getElementById(
+    "ExpireDateVaccine"
   ).value;
 
-  const PriceBreading = document.getElementById("PriceBreading").value;
-  const semenPctBreading = document.getElementById("semenPctBreading").value;
+  const PriceVaccine = document.getElementById("PriceVaccine").value;
 
-  const breadingStatus = document.getElementById("breadingStatus").checked;
+
+  const vaccineStatus = document.getElementById("vaccineStatus").checked;
 
   let data = {
-    EId: EmployeeDropdown,
-    ProductId: SemenDropdown,
-    AnimalId: AnimalDropdown,
-    OutsiderId: OutsiderDropdown,
+    animalId: animalDropdown,
+    vaccinationId: vaccineDropdown,
+    eId: EmployeeDropdown,
+    outsiderId: OutsiderDropdown,
     // OutsiderCatagoryId: OutsiderCatagoryDropdown,
-    SemenDate: SemenDateBreading,
-    DeliveryDate: DeliveryDateBreading,
-    Price: PriceBreading,
-    SemenPer: semenPctBreading,
-    Status: breadingStatus,
-    CompanyId: companyId,
+    vDate: VaccinationDate,
+    expDate: ExpireDateVaccine,
+    price: PriceVaccine,
+    status: vaccineStatus,
+    companyId: companyId,
   };
 
 
 
-  fetch(`https://localhost:7105/api/Breeding/CreateBreeding`, {
+  fetch(`https://localhost:7105/api/Vaccination/CreateVaccination`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -101,8 +84,8 @@ breadingForm.addEventListener("submit", function (event) {
       console.log(data, "data message!");
       // ... additional code ...
 
-      loadTable();
-      breadingForm.reset();
+     // loadTable();
+      vaccineForm.reset();
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
@@ -114,11 +97,11 @@ breadingForm.addEventListener("submit", function (event) {
 
 loadTable();
 function loadTable() {
-  fetch(`${IP}/api/Breeding/GetBreeding?CompanyId=${companyId}`)
+  fetch(`${IP}/api/Vaccination/GetVaccination?CompanyId=${companyId}`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data,"commimg...");
-      const tablebody = document.querySelector(".breadingTable");
+      const tablebody = document.querySelector(".vaccineTable");
       tablebody.innerHTML = "";
 
       for (let i = 0; i < data.length; i++) {
@@ -139,15 +122,15 @@ function loadTable() {
         // cell1.textContent = data[i].resolutionName;
 
         let cell2 = document.createElement("td");
-        cell2.textContent = data[i].employeeName;
+        cell2.textContent = data[i].animalName;
 
         let cell3 = document.createElement("td");
 
-        cell3.textContent = data[i].animalName;
+        cell3.textContent = data[i].employeeName;
 
         let cell4 = document.createElement("td");
 
-        cell4.textContent = data[i].semenPer;
+        cell4.textContent = data[i].productName;
 
         let cell5 = document.createElement("td");
 
@@ -155,11 +138,11 @@ function loadTable() {
 
         let cell6 = document.createElement("td");
 
-        cell6.textContent = data[i].semenDate.split('T')[0];
+        cell6.textContent = data[i].vDate.split('T')[0];
 
         let cell7 = document.createElement("td");
 
-        cell7.textContent = data[i].deliveryDate.split('T')[0];
+        cell7.textContent = data[i].expDate.split('T')[0];
 
         let cell8 = document.createElement("td");
 
@@ -174,7 +157,7 @@ function loadTable() {
         // cell10.textContent = data[i].outsider;
 
         let cell11 = document.createElement("td");
-        cell11.setAttribute("id", data[i].breadingId);
+        cell11.setAttribute("id", data[i].vaccinationId);
 
         // Create and append the SVG to the button
         let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -247,60 +230,57 @@ function addDataToPopup(rowData, editBtn) {
   console.log("Row Data:", rowData, editBtn);
 
   const formUpdateId = document.getElementById("updated-formID");
-  formUpdateId.setAttribute("data-category-id", rowData.breadingId);
+  formUpdateId.setAttribute("data-category-id", rowData.vaccinationId);
 
-  const EmployeeUpdatedDropdown = document.getElementById(
-    "EmployeeUpdatedDropdown"
+  const animalDropdownUpdate = document.getElementById(
+    "animalDropdownUpdate"
   );
 
-  setSelectedOption(EmployeeUpdatedDropdown, rowData.employeeName);
+  setSelectedOption(animalDropdownUpdate, rowData.animalName);
 
 
-  const SemenUpdatedDropdown = document.getElementById(
-    "SemenUpdatedDropdown"
+  const vaccineDropdownUpdate = document.getElementById(
+    "vaccineDropdownUpdate"
   );
 
-  setSelectedOption(SemenUpdatedDropdown, rowData.productName);
+  setSelectedOption(vaccineDropdownUpdate, rowData.productName);
 
-  const AnimalUpdatedDropdown = document.getElementById(
-    "AnimalUpdatedDropdown"
+  const EmployeeDropdownUpdate = document.getElementById(
+    "EmployeeDropdownUpdate"
   );
 
-  setSelectedOption(AnimalUpdatedDropdown, rowData.animalName);
+  setSelectedOption(EmployeeDropdownUpdate, rowData.employeeName);
 
-  const OutsiderUpdatedDropdown = document.getElementById(
-    "OutsiderUpdatedDropdown"
+  const OutsiderDropdownUpdate = document.getElementById(
+    "OutsiderDropdownUpdate"
   );
 
-  setSelectedOption(OutsiderUpdatedDropdown, rowData.outsider);
+  setSelectedOption(OutsiderDropdownUpdate, rowData.outsider);
   
 
 
-  const SemenDateUpdatedBreading = (document.getElementById(
-    "SemenDateUpdatedBreading"
-  ).value = `${rowData.semenDate.split('T')[0]}`) ;
+  const VaccinationDateUpdate = (document.getElementById(
+    "VaccinationDateUpdate"
+  ).value = `${rowData.vDate.split('T')[0]}`) ;
 
-  const DeliveryDateUpdatedBreading = (document.getElementById(
-    "DeliveryDateUpdatedBreading"
-  ).value = `${rowData.deliveryDate.split('T')[0]}`) ;
+  const ExpireDateVaccineUpdate = (document.getElementById(
+    "ExpireDateVaccineUpdate"
+  ).value = `${rowData.expDate.split('T')[0]}`) ;
 
 
   // console.log(DeliveryDateUpdatedBreading,"shdagghadg date ");
   
-  const PriceUpdateBreading = (document.getElementById(
-    "PriceUpdateBreading"
+  const PriceVaccineUpdate = (document.getElementById(
+    "PriceVaccineUpdate"
   ).value = `${rowData.price}`);
 
-  const semenPctUpdateBreading = (document.getElementById(
-    "semenPctUpdateBreading"
-  ).value = `${rowData.semenPer}`);
 
-  const breadingUpdateStatus = (document.getElementById(
-    "breadingUpdateStatus"
+  const vaccineStatusUpdate = (document.getElementById(
+    "vaccineStatusUpdate"
   ).checked = `${rowData.status}`);
 
-  setSelectedOption(EmployeeUpdatedDropdown, rowData.employeeName
-    );
+  // setSelectedOption(EmployeeUpdatedDropdown, rowData.employeeName
+  //   );
 
 }
 
