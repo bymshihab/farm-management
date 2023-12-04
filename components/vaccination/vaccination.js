@@ -6,32 +6,53 @@ const companyId = parseInt(localStorage.getItem("companyId"), 10);
 // // for creating
 const apiUrlanimal = `${IP}/api/ActiveAnimals?CompanyId=${companyId}`;
 
-const apiUrlvaccine= `${IP}/api/Vaccination/Vaccine?CompanyId=${companyId}`;
+const apiUrlvaccine = `${IP}/api/Vaccination/Vaccine?CompanyId=${companyId}`;
 
 const apiUrlEmployee = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
 const apiUrlOutsider = `${IP}/api/ActiveOutsiders?CompanyId=${companyId}`;
 
-
 creatingDropdown("EmployeeDropdown", apiUrlEmployee, "EId", "EmployeeName");
 creatingDropdown("animalDropdown", apiUrlanimal, "AnimalId", "AnimalName");
 creatingDropdown("vaccineDropdown", apiUrlvaccine, "ProductId", "ProductName");
-creatingDropdown("OutsiderDropdown", apiUrlOutsider, "OutsiderId", "OutsiderName");
-
-
+creatingDropdown(
+  "OutsiderDropdown",
+  apiUrlOutsider,
+  "OutsiderId",
+  "OutsiderName"
+);
 
 // // for updating
 const apiUrlanimalUpdate = `${IP}/api/ActiveAnimals?CompanyId=${companyId}`;
 
-const apiUrlvaccineUpdate= `${IP}/api/Vaccination/Vaccine?CompanyId=${companyId}`;
+const apiUrlvaccineUpdate = `${IP}/api/Vaccination/Vaccine?CompanyId=${companyId}`;
 
 const apiUrlEmployeeUpdate = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
 const apiUrlOutsiderUpdate = `${IP}/api/ActiveOutsiders?CompanyId=${companyId}`;
 
-
-creatingDropdown("EmployeeDropdownUpdate", apiUrlEmployeeUpdate, "EId", "EmployeeName");
-creatingDropdown("animalDropdownUpdate", apiUrlanimalUpdate, "AnimalId", "AnimalName");
-creatingDropdown("vaccineDropdownUpdate", apiUrlvaccineUpdate, "ProductId", "ProductName");
-creatingDropdown("OutsiderDropdownUpdate", apiUrlOutsiderUpdate, "OutsiderId", "OutsiderName");
+creatingDropdown(
+  "EmployeeDropdownUpdate",
+  apiUrlEmployeeUpdate,
+  "EId",
+  "EmployeeName"
+);
+creatingDropdown(
+  "animalDropdownUpdate",
+  apiUrlanimalUpdate,
+  "AnimalId",
+  "AnimalName"
+);
+creatingDropdown(
+  "vaccineDropdownUpdate",
+  apiUrlvaccineUpdate,
+  "ProductId",
+  "ProductName"
+);
+creatingDropdown(
+  "OutsiderDropdownUpdate",
+  apiUrlOutsiderUpdate,
+  "OutsiderId",
+  "OutsiderName"
+);
 //form handle ==========
 
 const vaccineForm = document.getElementById("insertVaccination");
@@ -45,14 +66,10 @@ vaccineForm.addEventListener("submit", function (event) {
 
   const OutsiderDropdown = document.getElementById("OutsiderDropdown").value;
 
-
   const VaccinationDate = document.getElementById("VaccinationDate").value;
-  const ExpireDateVaccine = document.getElementById(
-    "ExpireDateVaccine"
-  ).value;
+  const ExpireDateVaccine = document.getElementById("ExpireDateVaccine").value;
 
   const PriceVaccine = document.getElementById("PriceVaccine").value;
-
 
   const vaccineStatus = document.getElementById("vaccineStatus").checked;
 
@@ -69,8 +86,7 @@ vaccineForm.addEventListener("submit", function (event) {
     companyId: companyId,
   };
 
-
-
+  console.log("data===============> ", data);
   fetch(`https://localhost:7105/api/Vaccination/CreateVaccination`, {
     method: "POST",
     headers: {
@@ -84,7 +100,7 @@ vaccineForm.addEventListener("submit", function (event) {
       console.log(data, "data message!");
       // ... additional code ...
 
-     // loadTable();
+      loadTable();
       vaccineForm.reset();
     })
     .catch((error) => {
@@ -100,7 +116,7 @@ function loadTable() {
   fetch(`${IP}/api/Vaccination/GetVaccination?CompanyId=${companyId}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data,"commimg...");
+      console.log(data, "commimg...");
       const tablebody = document.querySelector(".vaccineTable");
       tablebody.innerHTML = "";
 
@@ -138,17 +154,17 @@ function loadTable() {
 
         let cell6 = document.createElement("td");
 
-        cell6.textContent = data[i].vDate.split('T')[0];
+        cell6.textContent = data[i].vDate.split("T")[0];
 
         let cell7 = document.createElement("td");
 
-        cell7.textContent = data[i].expDate.split('T')[0];
+        cell7.textContent = data[i].expDate.split("T")[0];
 
         let cell8 = document.createElement("td");
 
         cell8.textContent = data[i].outsider;
 
-        let cell9= document.createElement("td");
+        let cell9 = document.createElement("td");
 
         cell9.textContent = data[i].status;
 
@@ -222,7 +238,6 @@ function loadTable() {
     .catch((error) => console.log("Error Message", error));
 }
 
-
 // showing data to edit modal =============
 
 function addDataToPopup(rowData, editBtn) {
@@ -232,12 +247,9 @@ function addDataToPopup(rowData, editBtn) {
   const formUpdateId = document.getElementById("updated-formID");
   formUpdateId.setAttribute("data-category-id", rowData.vaccinationId);
 
-  const animalDropdownUpdate = document.getElementById(
-    "animalDropdownUpdate"
-  );
+  const animalDropdownUpdate = document.getElementById("animalDropdownUpdate");
 
   setSelectedOption(animalDropdownUpdate, rowData.animalName);
-
 
   const vaccineDropdownUpdate = document.getElementById(
     "vaccineDropdownUpdate"
@@ -256,24 +268,20 @@ function addDataToPopup(rowData, editBtn) {
   );
 
   setSelectedOption(OutsiderDropdownUpdate, rowData.outsider);
-  
-
 
   const VaccinationDateUpdate = (document.getElementById(
     "VaccinationDateUpdate"
-  ).value = `${rowData.vDate.split('T')[0]}`) ;
+  ).value = `${rowData.vDate.split("T")[0]}`);
 
   const ExpireDateVaccineUpdate = (document.getElementById(
     "ExpireDateVaccineUpdate"
-  ).value = `${rowData.expDate.split('T')[0]}`) ;
-
+  ).value = `${rowData.expDate.split("T")[0]}`);
 
   // console.log(DeliveryDateUpdatedBreading,"shdagghadg date ");
-  
+
   const PriceVaccineUpdate = (document.getElementById(
     "PriceVaccineUpdate"
   ).value = `${rowData.price}`);
-
 
   const vaccineStatusUpdate = (document.getElementById(
     "vaccineStatusUpdate"
@@ -281,7 +289,6 @@ function addDataToPopup(rowData, editBtn) {
 
   // setSelectedOption(EmployeeUpdatedDropdown, rowData.employeeName
   //   );
-
 }
 
 // handle update button ============
@@ -291,54 +298,78 @@ const updateShedBtn = document.getElementById("updateBtn");
 updateShedBtn.addEventListener("click", function (e) {
   e.preventDefault();
 
-  let breadingId = parseInt(document.getElementById("updated-formID").getAttribute("data-category-id"), 10);
-  let EmployeeUpdatedDropdown = parseInt(document.getElementById("EmployeeUpdatedDropdown").value, 10);
-  let SemenUpdatedDropdown = parseInt(document.getElementById("SemenUpdatedDropdown").value, 10);
-  let AnimalUpdatedDropdown = parseInt(document.getElementById("AnimalUpdatedDropdown").value, 10);
-  let OutsiderUpdatedDropdown = parseInt(document.getElementById("OutsiderUpdatedDropdown").value, 10);
+  let vaccineId = parseInt(
+    document.getElementById("updated-formID").getAttribute("data-category-id"),
+    10
+  );
+  let animalDropdownUpdate = parseInt(
+    document.getElementById("animalDropdownUpdate").value,
+    10
+  );
+  let vaccineDropdownUpdate = parseInt(
+    document.getElementById("vaccineDropdownUpdate").value,
+    10
+  );
+  let EmployeeDropdownUpdate = parseInt(
+    document.getElementById("EmployeeDropdownUpdate").value,
+    10
+  );
+  let OutsiderDropdownUpdate = parseInt(
+    document.getElementById("OutsiderDropdownUpdate").value,
+    10
+  );
 
-  let SemenDateUpdatedBreading = document.getElementById("SemenDateUpdatedBreading").value;
-  let DeliveryDateUpdatedBreading = document.getElementById("DeliveryDateUpdatedBreading").value;
-  let PriceUpdateBreading = parseFloat(document.getElementById("PriceUpdateBreading").value);
-  let semenPctUpdateBreading = parseFloat(document.getElementById("semenPctUpdateBreading").value);
+  let VaccinationDateUpdate = document.getElementById(
+    "VaccinationDateUpdate"
+  ).value;
+  let ExpireDateVaccineUpdate = document.getElementById(
+    "ExpireDateVaccineUpdate"
+  ).value;
+  let PriceVaccineUpdate = parseFloat(
+    document.getElementById("PriceVaccineUpdate").value
+  );
 
-  let breadingUpdateStatus = document.getElementById("breadingUpdateStatus").checked;
+  let vaccineStatusUpdate = document.getElementById(
+    "vaccineStatusUpdate"
+  ).checked;
 
   let formData = new FormData();
-  formData.append('BreadingId', breadingId);
-  formData.append('EId', EmployeeUpdatedDropdown);
-  formData.append('ProductId', SemenUpdatedDropdown);
-  formData.append('Price', PriceUpdateBreading);
-  formData.append('SemenPer', semenPctUpdateBreading);
-  formData.append('SemenDate', SemenDateUpdatedBreading);
-  formData.append('DeliveryDate', DeliveryDateUpdatedBreading);
-  formData.append('AnimalID', AnimalUpdatedDropdown);
-  formData.append('OutsiderId', OutsiderUpdatedDropdown);
-  formData.append('CompanyId', companyId); // Make sure 'companyId' is defined somewhere in your script
-  formData.append('Status', breadingUpdateStatus);
+  formData.append("VaccinationId", vaccineId);
+  formData.append("AnimalId", animalDropdownUpdate);
+  formData.append("ProductId", vaccineDropdownUpdate);
+  formData.append("EId", EmployeeDropdownUpdate);
+  formData.append("OutsiderId", OutsiderDropdownUpdate);
+
+  formData.append("VDate", VaccinationDateUpdate);
+  formData.append("ExpDate", ExpireDateVaccineUpdate);
+
+  formData.append("Price", PriceVaccineUpdate);
+
+  formData.append("CompanyId", companyId);
+  formData.append("Status", vaccineStatusUpdate);
 
   console.log("formData", formData);
 
-  fetch(`${IP}/api/Breeding/UpdateBreeding`, {
+  fetch(`${IP}/api/Vaccination/UpdateVaccination`, {
     method: "PUT",
     body: formData,
     // headers: { 'Content-Type': 'multipart/form-data' } // This line should be omitted, as the browser will set the correct content type for FormData
   })
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok ' + response.statusText);
-    }
-    return response.json();
-  })
-  .then((data) => {
-    alert(data.message);
-    console.log(data, "data message!");
-    loadTable(); // Make sure this function is defined and does what you need
-    // unitEditName.placeholder = ""; // Uncomment if needed
-    breadingForm.reset(); // Make sure 'breadingForm' is defined and points to the correct form element
-  })
-  .catch((error) => {
-    console.error("There was a problem with the fetch operation:", error);
-    alert("Update failed."); // Display an error message
-  });
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      alert(data.message);
+      console.log(data, "data message!");
+      loadTable(); // Make sure this function is defined and does what you need
+      // unitEditName.placeholder = ""; // Uncomment if needed
+      vaccineForm.reset(); // Make sure 'breadingForm' is defined and points to the correct form element
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+      alert("Update failed."); // Display an error message
+    });
 });
