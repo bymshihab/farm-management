@@ -10,21 +10,21 @@ function creatingDropdown(dropdownId, apiUrl, valueProp, textProp) {
     })
     .then((data) => {
       console.log(data, "dropdown data");
-      const shedTypeDropdown = document.getElementById(dropdownId);
-      shedTypeDropdown.innerHTML = ""; // Clear existing options
+      const Dropdown = document.getElementById(dropdownId);
+      Dropdown.innerHTML = ""; // Clear existing options
 
       // Optionally, add a default 'Select' option
       const defaultOption = document.createElement("option");
       defaultOption.value = "";
       defaultOption.textContent = "Select a shedType";
-      shedTypeDropdown.appendChild(defaultOption);
+      Dropdown.appendChild(defaultOption);
 
       // Iterate over each shed type and create a new option element
       data.forEach((c) => {
         const newOption = document.createElement("option");
         newOption.value = c[valueProp]; // Use dynamic property for value
         newOption.textContent = c[textProp]; // Use dynamic property for text
-        shedTypeDropdown.appendChild(newOption);
+        Dropdown.appendChild(newOption);
       });
     })
     .catch((error) => {
@@ -32,6 +32,41 @@ function creatingDropdown(dropdownId, apiUrl, valueProp, textProp) {
       alert("Error fetching shed type data: " + error.message);
     });
 }
+
+function creatingDropdownClass(dropdownElement, apiUrl, valueProp, textProp) {
+  fetch(apiUrl, {
+    method: "GET",
+  })
+  .then((response) => {
+    return response.json(); // Parse the JSON from the response
+  })
+  .then((data) => {
+    if (dropdownElement) {
+      dropdownElement.innerHTML = ""; // Clear existing options
+
+      // Optionally, add a default 'Select' option
+      const defaultOption = document.createElement("option");
+      defaultOption.value = "";
+      defaultOption.textContent = "Select a Category";
+      dropdownElement.appendChild(defaultOption);
+
+      // Iterate over each category and create a new option element
+      data.forEach((c) => {
+        const newOption = document.createElement("option");
+        newOption.value = c[valueProp];
+        newOption.textContent = c[textProp];
+        dropdownElement.appendChild(newOption);
+      });
+    }
+  })
+  .catch((error) => {
+    console.error("There was a problem with the fetch operation:", error);
+    alert("Error fetching category data: " + error.message);
+  });
+}
+
+
+
 
 // in dropdown selected option is selected
 function setSelectedOption(dropdownElement, valueToMatch) {
