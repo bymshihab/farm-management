@@ -6,12 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="/style.css" />
     
-    <link rel="stylesheet" href="/components/purchase/purchase.css" />
+    <link rel="stylesheet" href="/components/sale/sale.css" />
 
     <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
   </head>
   <body>
-    <div class="container mt-2"> <h2>Purchase</h2></div>
+    <div class="container mt-2"> <h2>Sale</h2></div>
     <section>
       <div class="container mt-5">
         <!-- top of table -->
@@ -52,7 +52,7 @@
             class="col-12 col-md-2 p-0 d-flex justify-content-end align-items-center"
           >
             <div class="">
-              <a href="/components/purchase/purchaseCreate.html">
+              <a href="/components/sale/saleCreate.html">
               <button
                 type="button"
              
@@ -85,10 +85,12 @@
               <!-- <th scope="col">
                 <input type="checkbox" id="" name="" value="" />
               </th> -->
-              <th scope="col">Purchase Code</th>
-              <th scope="col">PurchaseDate</th>
-              <th scope="col">Suppliers</th>
-              <th scope="col">PurchaseDescription</th>
+              <th scope="col">Sale Code</th>
+              <th scope="col">Sale Date</th>
+              <th scope="col">customer Name</th>
+              <th scope="col">employeeName Name</th>
+              <th scope="col">sale Description</th>
+              <th scope="col">Total Sale</th>
            
               <th scope="col">Action</th>
             
@@ -132,166 +134,15 @@
         </div> -->
       </div>
 
-      <!-- modal -->
 
-      <!-- for create modal -->
-      <div
-        class="modal fade"
-        id="createModal"
-        tabindex="-1"
-        aria-labelledby="createModal"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header bg-success text-white">
-              <h5 class="modal-title">Create new Category</h5>
-              <button
-                type="button"
-                class="btn-close bg-white"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form id="insertOutsiders">
-                <div class="mb-3">
-                  <label for="outsiderId" class="form-label"> Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="outsiderId"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
 
-                <div class="mb-3">
-                  <label for="outsiderCategory" class="form-label">Category</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="outsiderCategory"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="outsiderPhn" class="form-label">Phone Number</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="outsiderPhn"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div class="mb-3">
-                    <label for="outsiderAddress" class="form-label"
-                      >Address</label
-                    >
-                    <textarea
-                      class="form-control"
-                      id="outsiderAddress"
-                      rows="3"
-                    ></textarea>
-                  </div>
-                
-                <div class="mb-3">
-                  <label for="outsiderStatus" class="form-label">Status</label>
-                  <input type="checkbox" id="outsiderStatus" />
-                </div>
-                <div class="d-flex justify-content-end">
-                  <button type="submit" data-bs-dismiss="modal" class="custom-btn">Save</button>
-                </div>
-              </form>
-            </div>
-            <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div> -->
-          </div>
-        </div>
-      </div>
-
-      <!-- for update modal -->
-      <div
-        class="modal fade"
-        id="updateModal"
-        tabindex="-1"
-        aria-labelledby="updateModal"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Update Unite</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form id="updated-formID">
-                <div class="mb-3">
-                  <label for="outsiderNameUpdate" class="form-label"> Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="outsiderNameUpdate"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-
-                <div class="mb-3">
-                  <label for="outsiderCategoryUpdate" class="form-label">Category</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="outsiderCategoryUpdate"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="outsiderPhnUpdate" class="form-label">Phone Number</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="outsiderPhnUpdate"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div class="mb-3">
-                    <label for="outsiderAddressUpdate" class="form-label"
-                      >Address</label
-                    >
-                    <textarea
-                      class="form-control"
-                      id="outsiderAddressUpdate"
-                      rows="3"
-                    ></textarea>
-                  </div>
-                <div class="mb-3">
-                  <label for="outsiderStatusUpdate" class="form-label">Status</label>
-                  <input type="checkbox" id="outsiderStatusUpdate" />
-                </div>
-                <div class="d-flex justify-content-end">
-                  <button type="submit" data-bs-dismiss="modal" id="updateBtn" class="custom-btn ">Update</button>
-                </div>
-              </form>
-            </div>
-            <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div> -->
-          </div>
-        </div>
-      </div>
+ 
     </section>
 
     <!-- <script src="/bootstrap-5.3.2-dist/js/bootstrap.js"></script> -->
     <script src="/common.js"></script>
 <!-- <script src="/components/purchase/purchaseDetail.js"></script> -->
-    <script src="/components/purchase/purchase.js"></script>
+    <script src="/components/sale/sale.js"></script>
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -1,8 +1,8 @@
 const IP = "https://localhost:7105";
 const urlParams = new URLSearchParams(window.location.search);
-const purchaseId = urlParams.get('pIdDetail');
+const saleId = localStorage.getItem('sIdDetail');
 
-console.log(purchaseId, "id...");
+console.log(saleId, "id...");
 
 
 
@@ -11,27 +11,28 @@ loadTable();
 function loadTable() {
    
   
-    fetch(`https://localhost:7105/api/Purchase/${purchaseId}`)
+    fetch(`${IP}/api/Sale/${saleId}`)
       .then(response => response.json())
       .then(data => {
         // Populate form fields
-        document.getElementById('purchaseDate').value = data.purchaseDate.split('T')[0]; // Assuming the date is in YYYY-MM-DD format
+        console.log("comming........", data);
+        document.getElementById('saleDate').value = data.saleDate.split('T')[0]; // Assuming the date is in YYYY-MM-DD format
         document.getElementById('employeeDropdown').value = data.employeeName;
-        document.getElementById('supplierDropdown').value = data.supplierName;
+        document.getElementById('customerDropdown').value = data.customerName;
         document.getElementById('deliveryCharge').value = data.deliveryCharge;
         document.getElementById('extraCost').value = data.extraCost;
-        document.getElementById('totalPurchase').value = data.totalPurchase;
-        document.getElementById('purchaseDes').value = data.purchaseDescription;
+        document.getElementById('totalSale').value = data.totalSale;
+        document.getElementById('saleDes').value = data.saleDescription;
   
         // Populate table rows
-        const tableBody = document.querySelector('#productEntryTable tbody');
-        data.purchaseDetails.forEach(detail => {
+        const tableBody = document.querySelector('#saleEntryTable tbody');
+        data.saleDetails.forEach(detail => {
           let row = tableBody.insertRow();
           
           let cell;
           // Add cells to the row
           [
-            detail.expireDate.split('T')[0],
+           
             detail.categoryName,
             detail.productName,
             detail.unitPrice,

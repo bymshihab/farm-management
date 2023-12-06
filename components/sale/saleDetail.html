@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/style.css" />
 
-    <link rel="stylesheet" href="/components/purchase/purchase.css" />
+    <link rel="stylesheet" href="/components/sale/sale.css" />
 
     <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
 
@@ -19,7 +19,7 @@
       <div
         class="header-section bg-success text-white d-flex align-items-center justify-content-center"
       >
-        <h2>Purchase Details</h2>
+        <h2>Sale Details</h2>
       </div>
 
       <!-- Add Row Button -->
@@ -30,11 +30,11 @@
           <!-- Form content -->
 
           <div class="col-12 col-md-6 col-lg-4">
-            <label for="purchaseDate">Purchase Date</label>
+            <label for="saleDate">Sale Date</label>
             <input
               type="date"
               class="form-control"
-              id="purchaseDate"
+              id="saleDate"
               value=""
               disabled
             />
@@ -50,8 +50,8 @@
 
           <!-- Supplier Selection -->
           <div class="col-12 col-md-6 col-lg-4">
-            <label for="supplierDropdown">Suppliers</label>
-            <input class="form-control" id="supplierDropdown" disabled>
+            <label for="customerDropdown">Customers</label>
+            <input class="form-control" id="customerDropdown" disabled>
              
           </div>
 
@@ -78,11 +78,11 @@
             />
           </div>
           <div class="col-12 col-md-6 col-lg-4">
-            <label for="totalPurchase">Total Purchase</label>
+            <label for="totalSale">Total Sale</label>
             <input
               type="text"
               class="form-control"
-              id="totalPurchase"
+              id="totalSale"
               value=""
               disabled
             />
@@ -90,11 +90,11 @@
         
 
           <div class="col-12 col-md-6 col-lg-4">
-            <label for="purchaseDes">Description</label>
+            <label for="saleDes">Description</label>
             <textarea
               type="text"
               class="form-control"
-              id="purchaseDes"
+              id="saleDes"
               value=""
               disabled
             ></textarea>
@@ -109,10 +109,10 @@
 
         <!-- Product Entry Table -->
         <div class="table-responsive">
-          <table class="table" id="productEntryTable">
+          <table class="table" id="saleEntryTable">
             <thead class="">
               <tr>
-                <th>ExpDate</th>
+               
                 <th>Category</th>
                 <th>Product</th>
                 <th>Unit Price</th>
@@ -135,7 +135,7 @@
 
         <!-- Form Buttons -->
         <div class="d-flex justify-content-end">
-          <a href="/components/purchase/purchase.html">
+          <a href="/components/sale/sale.html">
             <button type="button" class="btn btn-secondary m-1">Back</button>
           </a>
         <button type="submit" class="btn btn-primary m-1">Save</button>
@@ -155,7 +155,7 @@
 
     <script src="/common.js"></script>
     <!-- <script src="/components/purchase/purchaseCreate.js"></script> -->
-    <script src="/components/purchase/purchaseDetail.js"></script>
+    <script src="/components/sale/saleDetail.js"></script>
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

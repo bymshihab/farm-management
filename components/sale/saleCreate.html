@@ -19,24 +19,27 @@
       <div
         class="header-section bg-success text-white d-flex align-items-center justify-content-center"
       >
-        <h2>PURCHASE Edit</h2>
+        <h2>Sale ENTRY</h2>
       </div>
 
       <!-- Add Row Button -->
 
       <!-- Purchase Entry Form -->
-      <form id="purchaseEntryForm">
+      <form id="saleEntryForm">
         <div class="row g-2 mt-3">
           <!-- Form content -->
 
           <div class="col-12 col-md-6 col-lg-4">
-            <label for="purchaseDate">Purchase Date</label>
-            <input
-              type="date"
-              class="form-control"
-              id="purchaseDate"
-              value=""
-            />
+            <label for="saleDate">Sale Date</label>
+            <input type="date" class="form-control" id="saleDate" value="" />
+          </div>
+
+          <!-- Customer Dropdown -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="customerDropdown">Customer</label>
+            <select class="form-control" id="customerDropdown">
+              <option>--Select Customer--</option>
+            </select>
           </div>
 
           <!-- Employee Selection -->
@@ -45,15 +48,6 @@
             <select class="form-control" id="employeeDropdown">
               <option>--Select Employee--</option>
               <!-- Employee options added here -->
-            </select>
-          </div>
-
-          <!-- Supplier Selection -->
-          <div class="col-12 col-md-6 col-lg-4">
-            <label for="supplierDropdown">Suppliers</label>
-            <select class="form-control" id="supplierDropdown">
-              <option>--Select Supplier--</option>
-              <!-- Supplier options added here -->
             </select>
           </div>
 
@@ -70,41 +64,25 @@
           <!-- Form content -->
           <div class="col-12 col-md-6 col-lg-4">
             <label for="extraCost">Utility / Extra Cost</label>
-            <input
-              type="text"
-              class="form-control"
-              id="extraCost"
-              value=""
-            />
+            <input type="text" class="form-control" id="extraCost" value="" />
           </div>
           <div class="col-12 col-md-6 col-lg-4">
-            <label for="purchaseCode">PurchaseCode</label>
+            <label for="totalSale">Total Sale</label>
             <input
               type="text"
               class="form-control"
-              id="purchaseCode"
+              id="totalSale"
               value=""
               disabled
             />
           </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <label for="totalPurchase">Total Purchase</label>
-            <input
-              type="text"
-              class="form-control"
-              id="totalPurchase"
-              value=""
-              disabled
-            />
-        </div>
-        
 
           <div class="col-12 col-md-6 col-lg-4">
-            <label for="purchaseDes">Description</label>
+            <label for="saleDes">Description</label>
             <textarea
               type="text"
               class="form-control"
-              id="purchaseDes"
+              id="saleDes"
               value=""
             ></textarea>
           </div>
@@ -118,10 +96,9 @@
 
         <!-- Product Entry Table -->
         <div class="table-responsive">
-          <table class="table" id="productEntryTable">
+          <table class="table" id="saleEntryTable">
             <thead class="">
               <tr>
-                <th>ExpDate</th>
                 <th>Category</th>
                 <th>Product</th>
                 <th>Unit Price</th>
@@ -133,6 +110,7 @@
                 <th>VAT Amount</th>
                 <th>VAT PCT(%)</th>
                 <th>Net Total</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody class="">
@@ -143,26 +121,21 @@
 
         <!-- Form Buttons -->
         <div class="d-flex justify-content-end">
-          <a href="/components/purchase/purchase.html">
+          <a href="/components/sale/sale.html">
             <button type="button" class="btn btn-secondary m-1">Back</button>
           </a>
-        <button class="btn btn-primary m-1 " id="updateBtn">Update</button>
+          <button type="submit" class="btn btn-primary m-1">Save</button>
         </div>
-        
       </form>
     </div>
 
     <!-- Include jQuery and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-     
-      
-    
-    </script>
+    <script></script>
 
     <script src="/common.js"></script>
-    <script src="/components/purchase/purchaseEdit.js"></script>
+    <script src="/components/sale/saleCreate.js"></script>
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

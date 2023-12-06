@@ -134,12 +134,15 @@ function getPurchase() {
           editButton.addEventListener("click", function () {
             const pIdEdit = data[i].purchaseId;
             localStorage.setItem("pIdEdit", pIdEdit);
-            window.location.href = `/components/purchase/purchaseEdit.html`;
+            purchaseEdit(pIdEdit);
+            // window.location.href = `/components/purchase/purchaseEdit.html`;
           });
 
           detailButton.addEventListener("click", function () {
             const pIdDetail = data[i].purchaseId;
-            window.location.href = `/components/purchase/purchaseDetail.html?pIdDetail=${pIdDetail}`;
+            localStorage.setItem("pIdDetail", pIdDetail);
+            purchaseDetail(pIdDetail);
+            // window.location.href = `/components/purchase/purchaseDetail.html?pIdDetail=${pIdDetail}`;
           });
           deleteButton.addEventListener("click", function () {
             const pIdDelete = data[i].purchaseId;

@@ -1,3 +1,6 @@
+function purchase_create(){
+
+
 const IP = "https://localhost:7105";
 const companyId = localStorage.getItem("companyId");
 
@@ -205,3 +208,5 @@ fetch('https://localhost:7105/api/Purchase', {
   console.error('Error:', error);
 });
 });
+
+}

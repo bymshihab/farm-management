@@ -218,7 +218,39 @@ window.onclick = function(event) {
       .then((data) => {
         Container.innerHTML = data;
         console.log("html fetch ");
-        getPurchase();
+        purchase_create();
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
+  
+    //To geting purchase detail page
+  function purchaseDetail(){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/purchase/purchaseDetail.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        purchase_detail();
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
+  
+    //To geting purchase Edit page
+  function purchaseEdit(){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/purchase/purchaseEdit.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        purchase_Edit();
       })
       .catch((error) => {
         console.error("Error loading the navbar:", error);

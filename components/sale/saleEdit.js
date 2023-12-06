@@ -1,22 +1,14 @@
 const IP = "https://localhost:7105";
 const companyId = localStorage.getItem("companyId");
 // const urlParams = new URLSearchParams(window.location.search);
-const purchaseId = localStorage.getItem("pIdEdit");
+const saleId = localStorage.getItem('sIdEdit');
 
-// const apiUrlCategory = `${IP}/api/ActiveCategories?CompanyId=${companyId}`;
+console.log(saleId, "id...");
 
-// creatingDropdown(
-//   "productCategoryDropdown",
-//   apiUrlCategory,
-//   "CategoryId",
-//   "CategoryName"
-// );
 
-// const unitUpdatedDropdown = document.getElementById("unitUpdatedDropdown");
-// setSelectedOption(unitUpdatedDropdown, rowData.uomName);
 
 const apiUrlEmployee = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
-const apiUrlSupplier = `${IP}/api/ActiveSuppliers?CompanyId=${companyId}`;
+const apiUrlCustomer = `${IP}/api/Customer/GetActiveCustomers?CompanyId=${companyId}`;
 
 
 
@@ -29,40 +21,40 @@ creatingDropdown("employeeDropdown", apiUrlEmployee, "EId", "EmployeeName");
 
 
 creatingDropdown(
-  "supplierDropdown",
-  apiUrlSupplier,
-  "SupplierId",
-  "SupplierName"
+  "customerDropdown",
+  apiUrlCustomer,
+  "CustomerId",
+  "CustomerName"
 );
 
-console.log(purchaseId, "hsdfsfd");
+console.log(saleId, "hsdfsfd");
 
 loadTable();
 function loadTable() {
-  fetch(`https://localhost:7105/api/Purchase/${purchaseId}`)
+  fetch(`https://localhost:7105/api/Sale/${saleId}`)
     .then((response) => response.json())
     .then((data) => {
 
       console.log(data, "data.........");
       // Populate form fields
-      document.getElementById("purchaseDate").value = data.purchaseDate.split("T")[0];
+      document.getElementById("saleDate").value = data.saleDate.split("T")[0];
       setSelectedOption(document.getElementById("employeeDropdown"), data.employeeName);
-      setSelectedOption(document.getElementById("supplierDropdown"), data.supplierName);
+      setSelectedOption(document.getElementById("customerDropdown"), data.customerName);
 
       document.getElementById("deliveryCharge").value = data.deliveryCharge;
       document.getElementById("extraCost").value = data.extraCost;
-      document.getElementById("totalPurchase").value = data.totalPurchase;
-      document.getElementById("purchaseDes").value = data.purchaseDescription;
-      document.getElementById("purchaseCode").value = data.purchaseCode;
+      document.getElementById("totalSale").value = data.totalSale;
+      document.getElementById("saleDes").value = data.saleDescription;
+      document.getElementById("saleCode").value = data.saleCode;
 
       // Populate table rows with input fields
-      const tableBody = document.querySelector("#productEntryTable tbody");
+      const tableBody = document.querySelector("#saleEntryTable tbody");
       tableBody.innerHTML = "";
-      data.purchaseDetails.forEach((detail, index) => {
+      data.saleDetails.forEach((detail, index) => {
         let row = tableBody.insertRow();
 
         const cellData = [
-          { value: detail.expireDate.split("T")[0], type: "date", class: "expDate" },
+        
           { type: "dropdown", class: "categoryDropdown" + index, apiUrl: apiUrlCategory, valueProp: "CategoryId", textProp: "CategoryName" },
           { type: "dropdown", class: "productDropdown" + index, apiUrl: apiUrlProduct, valueProp: "ProductId", textProp: "ProductName" },
           { value: detail.unitPrice, type: "decimal", class: "unitPrice" },
@@ -119,7 +111,7 @@ function loadTable() {
 
 
 
-document.getElementById('productEntryTable').addEventListener('input', function(e) {
+document.getElementById('saleEntryTable').addEventListener('input', function(e) {
   let target = e.target;
   let row = target.closest('tr');
 
@@ -161,15 +153,15 @@ document.getElementById('productEntryTable').addEventListener('input', function(
 
 
 function updateTotalPurchase() {
-let rows = document.getElementById('productEntryTable').querySelectorAll('tbody tr');
-let totalPurchase = 0;
+let rows = document.getElementById('saleEntryTable').querySelectorAll('tbody tr');
+let totalSale = 0;
 
 rows.forEach(row => {
     let netTotal = parseFloat(row.querySelector('.netTotal').value) || 0;
-    totalPurchase += netTotal;
+    totalSale += netTotal;
 });
 
-document.getElementById('totalPurchase').value = totalPurchase.toFixed(2);
+document.getElementById('totalSale').value = totalSale.toFixed(2);
 }
 
 
@@ -181,19 +173,19 @@ document.getElementById('totalPurchase').value = totalPurchase.toFixed(2);
 updateBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
-  const purchaseDate = document.getElementById("purchaseDate").value;
+  const saleDate = document.getElementById("saleDate").value;
   const employeeId = document.getElementById("employeeDropdown").value;
-  const supplierId = document.getElementById("supplierDropdown").value;
+  const customerId = document.getElementById("customerDropdown").value;
   const deliveryCharge = document.getElementById("deliveryCharge").value;
   const extraCost = document.getElementById("extraCost").value;
-  const totalPurchase = document.getElementById("totalPurchase").value;
-  const purchaseDes = document.getElementById("purchaseDes").value;
-  const purchaseCode = document.getElementById("purchaseCode").value;
+  const totalSale = document.getElementById("totalSale").value;
+  const saleDes = document.getElementById("saleDes").value;
+  const saleCode = document.getElementById("saleCode").value;
 
-  const tableRows = document.querySelectorAll("#productEntryTable tbody tr");
-  const purchaseDetails = Array.from(tableRows).map((row, index) => {
+  const tableRows = document.querySelectorAll("#saleEntryTable tbody tr");
+  const saleDetails = Array.from(tableRows).map((row, index) => {
     return {
-      expDate: row.querySelector(`.expDate`).value,
+  
       categoryId: row.querySelector(`.categoryDropdown${index}`).value,
       productId: row.querySelector(`.productDropdown${index}`).value,
       unitPrice: row.querySelector(`.unitPrice`).value,
@@ -209,24 +201,24 @@ updateBtn.addEventListener("click", function (event) {
   });
 
   const formData = new FormData();
-  formData.append("PurchaseId", purchaseId);
-  formData.append("PurchaseCode", purchaseCode);
-  formData.append("PurchaseDate", purchaseDate);
+  formData.append("SaleId", saleId);
+  formData.append("SaleCode", saleCode);
+  formData.append("SaleDate", saleDate);
   formData.append("EId", employeeId);
-  formData.append("SupplierId", supplierId);
-  formData.append("TotalPurchase", totalPurchase);
+  formData.append("CustomerId", customerId);
+  formData.append("TotalSale", totalSale);
   formData.append("DeliveryCharge", deliveryCharge);
   formData.append("ExtraCost", extraCost);
-  formData.append("PurchaseDescription", purchaseDes);
+  formData.append("SaleDescription", saleDes);
   formData.append("CompanyId", companyId);
-  formData.append("data", JSON.stringify(purchaseDetails));
+  formData.append("data", JSON.stringify(saleDetails));
 
   // Set additional headers
   const headers = new Headers();
   // Add any additional headers if needed
   // headers.append("Authorization", "Bearer YOUR_ACCESS_TOKEN");
 
-  fetch("https://localhost:7105/api/Purchase/UpdatePurchase", {
+  fetch(`https://localhost:7105/api/Sale/UpdateSales`, {
     method: "PUT",
     headers: headers,
     body: formData,

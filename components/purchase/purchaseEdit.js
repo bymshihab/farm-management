@@ -1,7 +1,10 @@
+function purchase_Edit(pIdEdit){ 
 const IP = "https://localhost:7105";
 const companyId = localStorage.getItem("companyId");
 // const urlParams = new URLSearchParams(window.location.search);
 const purchaseId = localStorage.getItem("pIdEdit");
+
+console.log(pIdEdit);
 
 // const apiUrlCategory = `${IP}/api/ActiveCategories?CompanyId=${companyId}`;
 
@@ -247,3 +250,5 @@ updateBtn.addEventListener("click", function (event) {
       console.error("Error:", error);
     });
 });
+
+}

@@ -1,10 +1,10 @@
-function getPurchase() {
+
   const IP = "https://localhost:7105";
   const companyId = localStorage.getItem("companyId");
 
   loadTable();
   function loadTable() {
-    fetch(`${IP}/api/Purchase/GetPurchaseData?CompanyId=${companyId}`)
+    fetch(`${IP}/api/Sale/GetSaleData?CompanyId=${companyId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data, "comming...");
@@ -16,21 +16,29 @@ function getPurchase() {
           newRow.classList.add("text-center");
 
           let cell1 = document.createElement("td");
-          cell1.textContent = data[i].purchaseCode;
+          cell1.textContent = data[i].saleCode;
 
           let cell2 = document.createElement("td");
-          cell2.textContent = data[i].purchaseDate;
+          cell2.textContent = data[i].saleDate;
 
           let cell3 = document.createElement("td");
 
-          cell3.textContent = data[i].supplierName;
+          cell3.textContent = data[i].customerName;
 
           let cell4 = document.createElement("td");
 
-          cell4.textContent = data[i].purchaseDescription;
+          cell4.textContent = data[i].employeeName;
+
+          let cell5 = document.createElement("td");
+
+          cell5.textContent = data[i].saleDescription;
+
+          let cell6 = document.createElement("td");
+
+          cell6.textContent = data[i].totalSale;
 
           let cell7 = document.createElement("td");
-          cell7.setAttribute("id", data[i].purchaseId);
+          cell7.setAttribute("id", data[i].saleId);
 
           // Create and append the SVG to the button
           let svg = document.createElementNS(
@@ -132,21 +140,22 @@ function getPurchase() {
           cell7.appendChild(deleteButton);
 
           editButton.addEventListener("click", function () {
-            const pIdEdit = data[i].purchaseId;
-            localStorage.setItem("pIdEdit", pIdEdit);
-            window.location.href = `/components/purchase/purchaseEdit.html`;
+            const sIdEdit = data[i].saleId;
+            localStorage.setItem("sIdEdit", sIdEdit);
+            window.location.href = `/components/sale/saleEdit.html?pIdDetail=${sIdEdit}`;
           });
 
           detailButton.addEventListener("click", function () {
-            const pIdDetail = data[i].purchaseId;
-            window.location.href = `/components/purchase/purchaseDetail.html?pIdDetail=${pIdDetail}`;
+            const sIdDetail = data[i].saleId;
+            localStorage.setItem("sIdDetail", sIdDetail);
+            window.location.href = `/components/sale/saleDetail.html?pIdDetail=${sIdDetail}`;
           });
           deleteButton.addEventListener("click", function () {
-            const pIdDelete = data[i].purchaseId;
-            console.log(pIdDelete, "delete");
+            const sIdDelete = data[i].saleId;
+            console.log(sIdDelete, "delete");
 
             // Send a DELETE request to your API to delete the purchase
-            fetch(`https://localhost:7105/api/Purchase/${pIdDelete}`, {
+            fetch(`https://localhost:7105/api/Sale/${sIdDelete}`, {
               method: "DELETE",
             })
               .then((response) => {
@@ -172,6 +181,8 @@ function getPurchase() {
           newRow.appendChild(cell2);
           newRow.appendChild(cell3);
           newRow.appendChild(cell4);
+          newRow.appendChild(cell5);
+          newRow.appendChild(cell6);
           newRow.appendChild(cell7);
 
           console.log(newRow, "row data");
@@ -181,4 +192,4 @@ function getPurchase() {
       })
       .catch((error) => console.log("Error Message", error));
   }
-}
+
