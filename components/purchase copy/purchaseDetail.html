@@ -19,7 +19,7 @@
       <div
         class="header-section bg-success text-white d-flex align-items-center justify-content-center"
       >
-        <h2>PURCHASE ENTRY</h2>
+        <h2>Purchase Details</h2>
       </div>
 
       <!-- Add Row Button -->
@@ -36,25 +36,23 @@
               class="form-control"
               id="purchaseDate"
               value=""
+              disabled
             />
           </div>
 
           <!-- Employee Selection -->
           <div class="col-12 col-md-6 col-lg-4">
             <label for="employeeDropdown">Employee</label>
-            <select class="form-control" id="employeeDropdown">
-              <option>--Select Employee--</option>
-              <!-- Employee options added here -->
-            </select>
+            <input class="form-control" id="employeeDropdown" disabled>
+           
+            </input>
           </div>
 
           <!-- Supplier Selection -->
           <div class="col-12 col-md-6 col-lg-4">
             <label for="supplierDropdown">Suppliers</label>
-            <select class="form-control" id="supplierDropdown">
-              <option>--Select Supplier--</option>
-              <!-- Supplier options added here -->
-            </select>
+            <input class="form-control" id="supplierDropdown" disabled>
+             
           </div>
 
           <!-- Form content -->
@@ -65,6 +63,7 @@
               class="form-control"
               id="deliveryCharge"
               value=""
+              disabled
             />
           </div>
           <!-- Form content -->
@@ -75,6 +74,7 @@
               class="form-control"
               id="extraCost"
               value=""
+              disabled
             />
           </div>
           <div class="col-12 col-md-6 col-lg-4">
@@ -96,6 +96,7 @@
               class="form-control"
               id="purchaseDes"
               value=""
+              disabled
             ></textarea>
           </div>
         </div>
@@ -123,7 +124,7 @@
                 <th>VAT Amount</th>
                 <th>VAT PCT(%)</th>
                 <th>Net Total</th>
-                <th>Action</th>
+               
               </tr>
             </thead>
             <tbody class="">
@@ -153,7 +154,8 @@
     </script>
 
     <script src="/common.js"></script>
-    <script src="/components/purchase/purchaseCreate.js"></script>
+    <!-- <script src="/components/purchase/purchaseCreate.js"></script> -->
+    <script src="/components/purchase/purchaseDetail.js"></script>
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

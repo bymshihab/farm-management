@@ -19,7 +19,7 @@
       <div
         class="header-section bg-success text-white d-flex align-items-center justify-content-center"
       >
-        <h2>PURCHASE ENTRY</h2>
+        <h2>PURCHASE Edit</h2>
       </div>
 
       <!-- Add Row Button -->
@@ -78,6 +78,16 @@
             />
           </div>
           <div class="col-12 col-md-6 col-lg-4">
+            <label for="purchaseCode">PurchaseCode</label>
+            <input
+              type="text"
+              class="form-control"
+              id="purchaseCode"
+              value=""
+              disabled
+            />
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
             <label for="totalPurchase">Total Purchase</label>
             <input
               type="text"
@@ -123,7 +133,6 @@
                 <th>VAT Amount</th>
                 <th>VAT PCT(%)</th>
                 <th>Net Total</th>
-                <th>Action</th>
               </tr>
             </thead>
             <tbody class="">
@@ -137,7 +146,7 @@
           <a href="/components/purchase/purchase.html">
             <button type="button" class="btn btn-secondary m-1">Back</button>
           </a>
-        <button type="submit" class="btn btn-primary m-1">Save</button>
+        <button class="btn btn-primary m-1 " id="updateBtn">Update</button>
         </div>
         
       </form>
@@ -153,7 +162,7 @@
     </script>
 
     <script src="/common.js"></script>
-    <script src="/components/purchase/purchaseCreate.js"></script>
+    <script src="/components/purchase/purchaseEdit.js"></script>
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

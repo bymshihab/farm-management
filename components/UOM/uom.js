@@ -42,7 +42,7 @@ function getUom() {
 
   loadTable();
   function loadTable() {
-    fetch(`${IP}/api/Uom`)
+    fetch(`${IP}/api/Uom/GetUoms?CompanyId=${companyId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

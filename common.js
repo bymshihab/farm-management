@@ -16,7 +16,7 @@ function creatingDropdown(dropdownId, apiUrl, valueProp, textProp) {
       // Optionally, add a default 'Select' option
       const defaultOption = document.createElement("option");
       defaultOption.value = "";
-      defaultOption.textContent = "Select a shedType";
+      defaultOption.textContent = "Select";
       Dropdown.appendChild(defaultOption);
 
       // Iterate over each shed type and create a new option element
@@ -64,9 +64,6 @@ function creatingDropdownClass(dropdownElement, apiUrl, valueProp, textProp) {
     alert("Error fetching category data: " + error.message);
   });
 }
-
-
-
 
 // in dropdown selected option is selected
 function setSelectedOption(dropdownElement, valueToMatch) {

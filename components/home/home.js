@@ -192,4 +192,36 @@ window.onclick = function(event) {
         console.error("Error loading the navbar:", error);
       });
   }
+    //To geting purchase
+  function purchase(){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/purchase/purchase.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        getPurchase();
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
+
+
+    //To geting purchase create page
+  function purchaseCreate(){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/purchase/purchaseCreate.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        getPurchase();
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
   
