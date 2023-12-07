@@ -4,11 +4,11 @@
 
   loadTable();
   function loadTable() {
-    fetch(`${IP}/api/MilkCollection/MilkCollectionData?CompanyId=${companyId}`)
+    fetch(`${IP}/api/Feeding/GetFeedingData?CompanyId=${companyId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data, "comming...");
-        const tablebody = document.querySelector(".milkCollectionTable");
+        const tablebody = document.querySelector(".feedingsTable");
         tablebody.innerHTML = "";
 
         for (let i = 0; i < data.length; i++) {
@@ -16,21 +16,26 @@
           newRow.classList.add("text-center");
 
           let cell1 = document.createElement("td");
-          cell1.textContent = data[i].milkCollectionCode;
+          cell1.textContent = data[i].feedingCode;
 
           let cell2 = document.createElement("td");
-          cell2.textContent = data[i].milkCollectionDate;
+          cell2.textContent = data[i].feedIngDate.split("T")[0];
+
 
           let cell3 = document.createElement("td");
+
           cell3.textContent = data[i].employeeName;
 
           let cell4 = document.createElement("td");
 
-          cell4.textContent = data[i].milkCollectionDesc;
+          cell4.textContent = data[i].animalName.split(" ")[0];
 
-         
+          let cell5 = document.createElement("td");
+
+          cell5.textContent = data[i].totalQTY;
+
           let cell7 = document.createElement("td");
-          cell7.setAttribute("id", data[i].milkCollectionId);
+          cell7.setAttribute("id", data[i].feedId);
 
           // Create and append the SVG to the button
           let svg = document.createElementNS(
@@ -132,34 +137,34 @@
           cell7.appendChild(deleteButton);
 
           editButton.addEventListener("click", function () {
-            const mcIdEdit = data[i].milkCollectionId;
-            localStorage.setItem("mcIdEdit", mcIdEdit);
-            window.location.href = `/components/milkCollection/milkCollectionEdit.html?mcIdEdit=${mcIdEdit}`;
+            const feedIdEdit = data[i].feedId;
+            localStorage.setItem("feedIdEdit", feedIdEdit);
+            window.location.href = `/components/feedings/feedingsEdit.html?feedIdEdit=${feedIdEdit}`;
           });
 
           detailButton.addEventListener("click", function () {
-            const mcIdDetail = data[i].milkCollectionId;
-            localStorage.setItem("mcIdDetail", mcIdDetail);
-            window.location.href = `/components/milkCollection/milkCollectionDetail.html?pIdDetail=${mcIdDetail}`;
+            const feedIdDetail = data[i].feedId;
+            localStorage.setItem("feedIdDetail", feedIdDetail);
+            window.location.href = `/components/feedings/feedingsDetail.html?feedIdDetail=${feedIdDetail}`;
           });
           deleteButton.addEventListener("click", function () {
-            const mcIdDelete = data[i].milkCollectionId;
-            console.log(mcIdDelete, "delete");
+            const feedIdDelete = data[i].feedId;
+            console.log(feedIdDelete, "delete");
 
             // Send a DELETE request to your API to delete the purchase
-            fetch(`https://localhost:7105/api/MilkCollection/${mcIdDelete}`, {
+            fetch(`https://localhost:7105/api/Feeding/${feedIdDelete}`, {
               method: "DELETE",
             })
               .then((response) => {
                 if (response.ok) {
                   // The purchase was successfully deleted, you can update the UI as needed
-                  alert("Milk Collection deleted successfully");
+                  alert("grain feed deleted successfully");
                   // You might want to remove the row from the table as well
                   // For example: this.closest("tr").remove();
                   loadTable();
                 } else {
                   // Handle the case where the delete request failed
-                  alert("Failed to delete milkCollection");
+                  alert("Failed to delete purchase");
                 }
               })
               .catch((error) => {
@@ -173,7 +178,8 @@
           newRow.appendChild(cell2);
           newRow.appendChild(cell3);
           newRow.appendChild(cell4);
-        
+          newRow.appendChild(cell5);
+         
           newRow.appendChild(cell7);
 
           console.log(newRow, "row data");

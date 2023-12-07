@@ -4,11 +4,11 @@
 
   loadTable();
   function loadTable() {
-    fetch(`${IP}/api/MilkCollection/MilkCollectionData?CompanyId=${companyId}`)
+    fetch(`${IP}/api/GrainFeedMaster/GetFeedingData?CompanyId=${companyId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data, "comming...");
-        const tablebody = document.querySelector(".milkCollectionTable");
+        const tablebody = document.querySelector(".grainFeedTable");
         tablebody.innerHTML = "";
 
         for (let i = 0; i < data.length; i++) {
@@ -16,21 +16,29 @@
           newRow.classList.add("text-center");
 
           let cell1 = document.createElement("td");
-          cell1.textContent = data[i].milkCollectionCode;
+          cell1.textContent = data[i].grainCode;
 
           let cell2 = document.createElement("td");
-          cell2.textContent = data[i].milkCollectionDate;
+          cell2.textContent = data[i].makingDate;
 
           let cell3 = document.createElement("td");
-          cell3.textContent = data[i].employeeName;
+
+          cell3.textContent = data[i].productName;
 
           let cell4 = document.createElement("td");
 
-          cell4.textContent = data[i].milkCollectionDesc;
+          cell4.textContent = data[i].animalName;
 
-         
+          let cell5 = document.createElement("td");
+
+          cell5.textContent = data[i].totalQty;
+
+          let cell6 = document.createElement("td");
+
+          cell6.textContent = data[i].totalPrice;
+
           let cell7 = document.createElement("td");
-          cell7.setAttribute("id", data[i].milkCollectionId);
+          cell7.setAttribute("id", data[i].grainMasterId);
 
           // Create and append the SVG to the button
           let svg = document.createElementNS(
@@ -132,34 +140,34 @@
           cell7.appendChild(deleteButton);
 
           editButton.addEventListener("click", function () {
-            const mcIdEdit = data[i].milkCollectionId;
-            localStorage.setItem("mcIdEdit", mcIdEdit);
-            window.location.href = `/components/milkCollection/milkCollectionEdit.html?mcIdEdit=${mcIdEdit}`;
+            const grainIdEdit = data[i].grainMasterId;
+            localStorage.setItem("grainIdEdit", grainIdEdit);
+            window.location.href = `/components/grainFeed/grainFeedEdit.html?grainIdEdit=${grainIdEdit}`;
           });
 
           detailButton.addEventListener("click", function () {
-            const mcIdDetail = data[i].milkCollectionId;
-            localStorage.setItem("mcIdDetail", mcIdDetail);
-            window.location.href = `/components/milkCollection/milkCollectionDetail.html?pIdDetail=${mcIdDetail}`;
+            const grainIdDetail = data[i].grainMasterId;
+            localStorage.setItem("grainIdDetail", grainIdDetail);
+            window.location.href = `/components/grainFeed/grainFeedDetail.html?grainIdDetail=${grainIdDetail}`;
           });
           deleteButton.addEventListener("click", function () {
-            const mcIdDelete = data[i].milkCollectionId;
-            console.log(mcIdDelete, "delete");
+            const grainIdDelete = data[i].grainMasterId;
+            console.log(grainIdDelete, "delete");
 
             // Send a DELETE request to your API to delete the purchase
-            fetch(`https://localhost:7105/api/MilkCollection/${mcIdDelete}`, {
+            fetch(`https://localhost:7105/api/GrainFeedMaster/${grainIdDelete}`, {
               method: "DELETE",
             })
               .then((response) => {
                 if (response.ok) {
                   // The purchase was successfully deleted, you can update the UI as needed
-                  alert("Milk Collection deleted successfully");
+                  alert("grain feed deleted successfully");
                   // You might want to remove the row from the table as well
                   // For example: this.closest("tr").remove();
                   loadTable();
                 } else {
                   // Handle the case where the delete request failed
-                  alert("Failed to delete milkCollection");
+                  alert("Failed to delete purchase");
                 }
               })
               .catch((error) => {
@@ -173,7 +181,8 @@
           newRow.appendChild(cell2);
           newRow.appendChild(cell3);
           newRow.appendChild(cell4);
-        
+          newRow.appendChild(cell5);
+          newRow.appendChild(cell6);
           newRow.appendChild(cell7);
 
           console.log(newRow, "row data");

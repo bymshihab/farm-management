@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
   </head>
   <body>
-    <div class="container mt-2"><h2>Animal shudhu insert hoiche.. same as employee image problem</h2></div>
+    <div class="container mt-2"><h2>Animal</h2></div>
     <section>
       <div class="container mt-5">
         <!-- top of table -->
@@ -110,7 +110,7 @@
               <!-- <th scope="col">
                 <input type="checkbox" id="" name="" value="" />
               </th> -->
-             
+
               <th scope="col">Animal Name</th>
               <th scope="col">Animal Tag</th>
               <th scope="col">Product</th>
@@ -182,7 +182,7 @@
 
       <!-- for create modal -->
       <div
-        class="modal fade  modal-lg"
+        class="modal fade modal-lg"
         id="createModal"
         tabindex="-1"
         aria-labelledby="createModal"
@@ -203,97 +203,99 @@
               <form id="insertAnimal">
                 <div class="row">
                   <div class="col-md-6 mb-3">
-                  <label for="animalId" class="form-label">Animal Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="animalId"
-                    aria-describedby="emailHelp"
-                  />
+                    <label for="animalId" class="form-label">Animal Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="animalId"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+
+                  <div class="productType col-md-6 mb-3">
+                    <label for="productTypeDropdown" class="fw-bold"
+                      >Animal Type</label
+                    ><br />
+                    <select
+                      name="productType"
+                      id="productTypeDropdown"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+
+                  <div class="milkType col-md-6 mb-3">
+                    <label for="milkTypeDropdown" class="fw-bold"
+                      >Milk Type</label
+                    ><br />
+                    <select
+                      name="milkType"
+                      id="milkTypeDropdown"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+
+                  <div class="gendertype col-md-6 mb-3">
+                    <label for="genderTypeDropdown" class="fw-bold"
+                      >Gender Type</label
+                    ><br />
+                    <select
+                      name="gendertype"
+                      id="genderTypeDropdown"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="animalDob" class="form-label">DOB</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="animalDob"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="animalWeight" class="form-label">weight</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="animalWeight"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="animalImg" class="form-label"
+                      >Animal Image</label
+                    >
+                    <input
+                      type="file"
+                      id="animalImg"
+                      name="filename"
+                      class=""
+                    />
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="IsDead" class="form-label">IsDead</label>
+                    <input type="checkbox" id="IsDead" />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="IsSold" class="form-label">IsSold</label>
+                    <input type="checkbox" id="IsSold" />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="isVaccinated" class="form-label"
+                      >isVaccinated</label
+                    >
+                    <input type="checkbox" id="isVaccinated" />
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="animalStatus" class="form-label">Status</label>
+                    <input type="checkbox" id="animalStatus" />
+                  </div>
                 </div>
-               
-                <div class="productType col-md-6 mb-3">
-                  <label for="productTypeDropdown" class="fw-bold"
-                    >Animal Type</label
-                  ><br />
-                  <select
-                    name="productType"
-                    id="productTypeDropdown"
-                    class="w-100 p-1"
-                  ></select>
-                </div>
-
-
-                
-                <div class="milkType col-md-6 mb-3">
-                  <label for="milkTypeDropdown" class="fw-bold"
-                    >Milk Type</label
-                  ><br />
-                  <select
-                    name="milkType"
-                    id="milkTypeDropdown"
-                    class="w-100 p-1"
-                  ></select>
-                </div>
-
-
-                <div class="gendertype col-md-6 mb-3">
-                  <label for="genderTypeDropdown" class="fw-bold"
-                    >Gender Type</label
-                  ><br />
-                  <select
-                    name="gendertype"
-                    id="genderTypeDropdown"
-                    class="w-100 p-1"
-                  ></select>
-                </div>
-
-
-                <div class="col-md-6 mb-3">
-                  <label for="animalDob" class="form-label">DOB</label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="animalDob"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="animalWeight" class="form-label">weight</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="animalWeight"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="animalImg" class="form-label">Animal Image</label>
-                  <input type="file" id="animalImg" name="filename" class="">
-                </div>
-
-
-                <div class="col-md-6 mb-3">
-                  <label for="IsDead" class="form-label">IsDead</label>
-                  <input type="checkbox" id="IsDead" />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="IsSold" class="form-label">IsSold</label>
-                  <input type="checkbox" id="IsSold" />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="isVaccinated" class="form-label">isVaccinated</label>
-                  <input type="checkbox" id="isVaccinated" />
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="animalStatus" class="form-label">Status</label>
-                  <input type="checkbox" id="animalStatus" />
-                </div>
-
-              </div>
-
 
                 <div class="d-flex justify-content-end">
                   <button
@@ -370,8 +372,6 @@
                   />
                 </div>
 
-              
-
                 <!-- category dropdown -->
 
                 <div class="category">
@@ -397,11 +397,11 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="productUpdatedStatus" class="form-label">Status</label>
+                  <label for="productUpdatedStatus" class="form-label"
+                    >Status</label
+                  >
                   <input type="checkbox" id="productUpdatedStatus" />
                 </div>
-
-
 
                 <div class="d-flex justify-content-end">
                   <button
@@ -425,11 +425,10 @@
     </section>
 
     <!-- <script src="/bootstrap-5.3.2-dist/js/bootstrap.js"></script> -->
-   
+
     <script src="/common.js"></script>
     <script src="/components/Animal/animal.js"></script>
 
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
-
   </body>
 </html>

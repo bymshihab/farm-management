@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+
+    <link rel="stylesheet" href="/components/grainFeed/grainFeed.css" />
+
+    <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
+
+    <style>
+      /* Add custom CSS styles if needed */
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div
+        class="header-section bg-success text-white d-flex align-items-center justify-content-center"
+      >
+        <h2>Grain Feed ENTRY</h2>
+      </div>
+
+      <!-- Add Row Button -->
+
+      <!-- Purchase Entry Form -->
+      <form id="grainFeedEntryForm">
+        <div class="row g-2 mt-3">
+          <!-- Form content -->
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="grainFeedDate">Making  Date</label>
+            <input type="date" class="form-control" id="grainFeedDate" value="" />
+          </div>
+
+          <!-- Customer Dropdown -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="animalDropdown">Animal</label>
+            <select class="form-control" id="animalDropdown">
+              <option>--Select Animal--</option>
+            </select>
+          </div>
+
+          <!-- Employee Selection -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="aTypeDropdown">Animal Type</label>
+            <select class="form-control" id="aTypeDropdown">
+              <option>--Select Animal Type--</option>
+              <!-- Employee options added here -->
+            </select>
+          </div>
+
+          <!-- Form content -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="grainFeedtotalQty">Total Quantity</label>
+            <input
+              type="text"
+              class="form-control"
+              id="grainFeedtotalQty"
+              value=""
+              disabled
+            />
+          </div>
+          <!-- Form content -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="grainFeedtotalPrice">Total Price</label>
+            <input type="text" class="form-control" id="grainFeedtotalPrice" disabled value="" />
+          </div>
+        
+        </div>
+
+        <div class="d-flex justify-content-end align-items-center">
+          <button type="button" class="btn btn-info mt-2" id="addRowBtn">
+            Add
+          </button>
+        </div>
+
+        <!-- Product Entry Table -->
+        <div class="table-responsive">
+          <table class="table" id="grainFeedEntryTable">
+            <thead class="">
+              <tr>
+                <th>Ingredient</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Unit</th>
+                <th>Total Price</th>
+             
+              </tr>
+            </thead>
+            <tbody class="">
+              <!-- Table rows will be added here dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Form Buttons -->
+        <div class="d-flex justify-content-end">
+          <a href="/components/grainFeed/grainFeed.html">
+            <button type="button" class="btn btn-secondary m-1">Back</button>
+          </a>
+          <button type="submit" class="btn btn-primary m-1">Save</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script></script>
+
+    <script src="/common.js"></script>
+    <script src="/components/grainFeed/grainFeedCreate.js"></script>
+    <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
