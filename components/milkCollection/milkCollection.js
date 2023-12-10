@@ -1,4 +1,4 @@
-
+function getMilkCollection(){
   const IP = "https://localhost:7105";
   const companyId = localStorage.getItem("companyId");
 
@@ -134,13 +134,15 @@
           editButton.addEventListener("click", function () {
             const mcIdEdit = data[i].milkCollectionId;
             localStorage.setItem("mcIdEdit", mcIdEdit);
-            window.location.href = `/components/milkCollection/milkCollectionEdit.html?mcIdEdit=${mcIdEdit}`;
+            // window.location.href = `/components/milkCollection/milkCollectionEdit.html?mcIdEdit=${mcIdEdit}`;
+            milkCollectionEdit(mcIdEdit);
           });
 
           detailButton.addEventListener("click", function () {
             const mcIdDetail = data[i].milkCollectionId;
             localStorage.setItem("mcIdDetail", mcIdDetail);
-            window.location.href = `/components/milkCollection/milkCollectionDetail.html?pIdDetail=${mcIdDetail}`;
+            // window.location.href = `/components/milkCollection/milkCollectionDetail.html?pIdDetail=${mcIdDetail}`;
+            milkCollectionDetail(mcIdDetail);
           });
           deleteButton.addEventListener("click", function () {
             const mcIdDelete = data[i].milkCollectionId;
@@ -183,4 +185,4 @@
       })
       .catch((error) => console.log("Error Message", error));
   }
-
+}

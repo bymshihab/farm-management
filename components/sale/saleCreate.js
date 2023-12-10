@@ -1,7 +1,8 @@
+function  sale_create(){
 const IP = "https://localhost:7105";
 const companyId = localStorage.getItem("companyId");
 
-const apiUrlEmployee = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
+const apiUrlEmployee = `${IP}/api/ActiveEmployees/GetActiveEmployees?CompanyId=${companyId}`;
 const apiUrlCustomer = `${IP}/api/Customer/GetActiveCustomers?CompanyId=${companyId}`;
 const apiUrlCategory = `${IP}/api/ActiveCategories?CompanyId=${companyId}`;
 const apiUrlUnit = `${IP}/api/ActiveUoms?CompanyId=${companyId}`;
@@ -209,3 +210,5 @@ saleForm.addEventListener("submit", function (e) {
       console.error("Error:", error);
     });
 });
+
+}

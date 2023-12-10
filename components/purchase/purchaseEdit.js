@@ -18,7 +18,7 @@ console.log(pIdEdit);
 // const unitUpdatedDropdown = document.getElementById("unitUpdatedDropdown");
 // setSelectedOption(unitUpdatedDropdown, rowData.uomName);
 
-const apiUrlEmployee = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
+const apiUrlEmployee =  `${IP}/api/ActiveEmployees/GetActiveEmployees?CompanyId=${companyId}`;
 const apiUrlSupplier = `${IP}/api/ActiveSuppliers?CompanyId=${companyId}`;
 
 

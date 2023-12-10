@@ -1,3 +1,4 @@
+function getSale(){
 
   const IP = "https://localhost:7105";
   const companyId = localStorage.getItem("companyId");
@@ -142,13 +143,18 @@
           editButton.addEventListener("click", function () {
             const sIdEdit = data[i].saleId;
             localStorage.setItem("sIdEdit", sIdEdit);
-            window.location.href = `/components/sale/saleEdit.html?pIdDetail=${sIdEdit}`;
+            // window.location.href = `/components/sale/saleEdit.html?pIdDetail=${sIdEdit}`;
+
+            saleEdit(sIdEdit);
+
           });
 
           detailButton.addEventListener("click", function () {
             const sIdDetail = data[i].saleId;
             localStorage.setItem("sIdDetail", sIdDetail);
-            window.location.href = `/components/sale/saleDetail.html?pIdDetail=${sIdDetail}`;
+            // window.location.href = `/components/sale/saleDetail.html?pIdDetail=${sIdDetail}`;
+
+            saleDetail(sIdDetail);
           });
           deleteButton.addEventListener("click", function () {
             const sIdDelete = data[i].saleId;
@@ -161,19 +167,19 @@
               .then((response) => {
                 if (response.ok) {
                   // The purchase was successfully deleted, you can update the UI as needed
-                  alert("Purchase deleted successfully");
+                  alert("Sale deleted successfully");
                   // You might want to remove the row from the table as well
                   // For example: this.closest("tr").remove();
                   loadTable();
                 } else {
                   // Handle the case where the delete request failed
-                  alert("Failed to delete purchase");
+                  alert("Failed to delete Sale");
                 }
               })
               .catch((error) => {
                 // Handle any network or other errors
                 console.error("Error deleting purchase:", error);
-                alert("Error deleting purchase");
+                alert("Error deleting sale");
               });
           });
 
@@ -192,4 +198,4 @@
       })
       .catch((error) => console.log("Error Message", error));
   }
-
+}

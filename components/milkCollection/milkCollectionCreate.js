@@ -1,3 +1,4 @@
+function milkCollection_create(){
 const IP = "https://localhost:7105";
 const companyId = localStorage.getItem("companyId");
 
@@ -177,3 +178,5 @@ milkColForm.addEventListener("submit", function (e) {
       console.error("Error:", error);
     });
 });
+
+}

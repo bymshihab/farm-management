@@ -192,6 +192,10 @@ window.onclick = function(event) {
         console.error("Error loading the navbar:", error);
       });
   }
+
+
+// Purchase........
+
     //To geting purchase
   function purchase(){
     const Container = document.getElementById("mainContent");
@@ -256,4 +260,220 @@ window.onclick = function(event) {
         console.error("Error loading the navbar:", error);
       });
   }
+
+
+  // Sale......
+
+// To geting Sale
+function sale(){
+  const Container = document.getElementById("mainContent");
+
+  fetch("/components/sale/sale.html")
+    .then((response) => response.text())
+    .then((data) => {
+      Container.innerHTML = data;
+      console.log("html fetch ");
+      getSale();
+    })
+    .catch((error) => {
+      console.error("Error loading the navbar:", error);
+    });
+}
+
+// To geting Sale create
+
+function saleCreate(){
+  const Container = document.getElementById("mainContent");
+
+  fetch("/components/sale/saleCreate.html")
+    .then((response) => response.text())
+    .then((data) => {
+      Container.innerHTML = data;
+      console.log("html fetch ");
+      sale_create();
+    })
+    .catch((error) => {
+      console.error("Error loading the navbar:", error);
+    });
+}
+
+   //To geting purchase detail page
+   function saleDetail(){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/sale/saleDetail.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        sale_detail();
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
+
+
+
+    //To geting sale Edit page
+    function saleEdit(){
+      const Container = document.getElementById("mainContent");
+  
+      fetch("/components/sale/saleEdit.html")
+        .then((response) => response.text())
+        .then((data) => {
+          Container.innerHTML = data;
+          console.log("html fetch ");
+          sale_Edit();
+        })
+        .catch((error) => {
+          console.error("Error loading the navbar:", error);
+        });
+    }
+
+
+
+// Grain feed..........
+
+// To geting grainFeed.......
+function grainFeed(){
+  const Container = document.getElementById("mainContent");
+
+  fetch("/components/grainFeed/grainFeed.html")
+    .then((response) => response.text())
+    .then((data) => {
+      Container.innerHTML = data;
+      console.log("html fetch ");
+      getgrainFeed();
+    })
+    .catch((error) => {
+      console.error("Error loading the navbar:", error);
+    });
+}
+
+// To geting grain create
+
+function grainCreate(){
+  const Container = document.getElementById("mainContent");
+
+  fetch("/components/grainFeed/grainFeedCreate.html")
+    .then((response) => response.text())
+    .then((data) => {
+      Container.innerHTML = data;
+      console.log("html fetch ");
+      grainFeed_create();
+    })
+    .catch((error) => {
+      console.error("Error loading the navbar:", error);
+    });
+}
+
+
+   //To geting grain feed detail page
+   function grainFeedDetail(){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/grainFeed/grainFeedDetail.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        grainFeed_detail();
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
+
+   //To geting grain feed detail page
+   function grainFeedEdit(grainIdEdit){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/grainFeed/grainFeedEdit.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        grainFeed_Edit(grainIdEdit);
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
+
+
+// Milk Collection............
+
+// To geting MilkCollection.........
+function milkCollection(){
+  const Container = document.getElementById("mainContent");
+
+  fetch("/components/milkCollection/milkCollection.html")
+    .then((response) => response.text())
+    .then((data) => {
+      Container.innerHTML = data;
+      console.log("html fetch ");
+      getMilkCollection();
+    })
+    .catch((error) => {
+      console.error("Error loading the navbar:", error);
+    });
+}
+
+
+// To creating feeding create
+
+function milkCollectionCreate(){
+  const Container = document.getElementById("mainContent");
+
+  fetch("/components/milkCollection/milkCollectionCreate.html")
+    .then((response) => response.text())
+    .then((data) => {
+      Container.innerHTML = data;
+      console.log("html fetch ");
+      milkCollection_create();
+    })
+    .catch((error) => {
+      console.error("Error loading the navbar:", error);
+    });
+}
+
+
+
+   //To geting milkCollectionDetail page
+   function milkCollectionDetail(mcIdDetail){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/milkCollection/milkCollectionDetail.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        milkCollection_detail(mcIdDetail);
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
+
+   //To geting grain feed detail page
+   function milkCollectionEdit(mcIdEdit){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/milkCollection/milkCollectionEdit.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        milkCollection_Edit(mcIdEdit);
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
+
+
+  
+
+
   

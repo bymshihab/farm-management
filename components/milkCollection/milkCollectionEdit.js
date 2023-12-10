@@ -1,7 +1,8 @@
+function milkCollection_Edit(mcIdEdit){
 const IP = "https://localhost:7105";
 const companyId = localStorage.getItem("companyId");
 // const urlParams = new URLSearchParams(window.location.search);
-const mcIdEdit = localStorage.getItem('mcIdEdit');
+const mcIdEdits = localStorage.getItem('mcIdEdit');
 
 console.log(mcIdEdit, "id...");
 
@@ -31,7 +32,7 @@ console.log(mcIdEdit, "hsdfsfd");
 
 loadTable();
 function loadTable() {
-  fetch(`https://localhost:7105/api/MilkCollection/${mcIdEdit}`)
+  fetch(`https://localhost:7105/api/MilkCollection/${mcIdEdits}`)
     .then((response) => response.json())
     .then((data) => {
 
@@ -185,6 +186,11 @@ updateBtn.addEventListener("click", function (event) {
   formData.append("CompanyId", companyId);
   formData.append("data", JSON.stringify(mcDetails));
 
+
+  for (var pair of formData.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]); 
+}
+
   // Set additional headers
   const headers = new Headers();
   // Add any additional headers if needed
@@ -211,3 +217,4 @@ updateBtn.addEventListener("click", function (event) {
       console.error("Error:", error);
     });
 });
+}

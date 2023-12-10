@@ -1,13 +1,13 @@
+function sale_Edit(sIdEdit){
 const IP = "https://localhost:7105";
 const companyId = localStorage.getItem("companyId");
-// const urlParams = new URLSearchParams(window.location.search);
 const saleId = localStorage.getItem('sIdEdit');
 
-console.log(saleId, "id...");
+console.log(sIdEdit, "id...");
 
 
 
-const apiUrlEmployee = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
+const apiUrlEmployee = `${IP}/api/ActiveEmployees/GetActiveEmployees?CompanyId=${companyId}`;
 const apiUrlCustomer = `${IP}/api/Customer/GetActiveCustomers?CompanyId=${companyId}`;
 
 
@@ -239,3 +239,6 @@ updateBtn.addEventListener("click", function (event) {
       console.error("Error:", error);
     });
 });
+
+
+}

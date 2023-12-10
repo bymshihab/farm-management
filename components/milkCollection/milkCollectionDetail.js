@@ -1,12 +1,13 @@
+function milkCollection_detail(mcIdDetail) {
 const IP = "https://localhost:7105";
-const urlParams = new URLSearchParams(window.location.search);
-const mcIdDetail = localStorage.getItem("mcIdDetail");
+
+const mcIdDetails = localStorage.getItem("mcIdDetail");
 
 console.log(mcIdDetail, "id...");
 
 loadTable();
 function loadTable() {
-  fetch(`${IP}/api/MilkCollection/${mcIdDetail}`)
+  fetch(`${IP}/api/MilkCollection/${mcIdDetails}`)
     .then((response) => response.json())
     .then((data) => {
       // Populate form fields
@@ -40,4 +41,6 @@ function loadTable() {
       console.log(data, "coming...");
     })
     .catch((error) => console.log("Error Message", error));
+}
+
 }

@@ -1,4 +1,4 @@
-
+function getgrainFeed() {
   const IP = "https://localhost:7105";
   const companyId = localStorage.getItem("companyId");
 
@@ -142,13 +142,18 @@
           editButton.addEventListener("click", function () {
             const grainIdEdit = data[i].grainMasterId;
             localStorage.setItem("grainIdEdit", grainIdEdit);
-            window.location.href = `/components/grainFeed/grainFeedEdit.html?grainIdEdit=${grainIdEdit}`;
+            // window.location.href = `/components/grainFeed/grainFeedEdit.html?grainIdEdit=${grainIdEdit}`;
+            grainFeedEdit(grainIdEdit);
           });
 
           detailButton.addEventListener("click", function () {
             const grainIdDetail = data[i].grainMasterId;
             localStorage.setItem("grainIdDetail", grainIdDetail);
-            window.location.href = `/components/grainFeed/grainFeedDetail.html?grainIdDetail=${grainIdDetail}`;
+            // window.location.href = `/components/grainFeed/grainFeedDetail.html?grainIdDetail=${grainIdDetail}`;
+
+            grainFeedDetail(grainIdDetail);
+
+
           });
           deleteButton.addEventListener("click", function () {
             const grainIdDelete = data[i].grainMasterId;
@@ -193,3 +198,4 @@
       .catch((error) => console.log("Error Message", error));
   }
 
+}

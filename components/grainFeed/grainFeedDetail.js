@@ -1,6 +1,8 @@
+function grainFeed_detail(grainIdDetail){
+
 const IP = "https://localhost:7105";
 // const urlParams = new URLSearchParams(window.location.search);
-const grainIdDetail = localStorage.getItem('grainIdDetail');
+const grainIdDetails = localStorage.getItem('grainIdDetail');
 
 console.log(grainIdDetail, "id...");
 
@@ -11,7 +13,7 @@ loadTable();
 function loadTable() {
    
   
-    fetch(`${IP}/api/GrainFeedMaster/${grainIdDetail}`)
+    fetch(`${IP}/api/GrainFeedMaster/${grainIdDetails}`)
       .then(response => response.json())
       .then(data => {
         // Populate form fields
@@ -52,5 +54,5 @@ function loadTable() {
       .catch(error => console.log("Error Message", error));
 }
   
-
+}
   

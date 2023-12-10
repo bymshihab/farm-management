@@ -1,8 +1,10 @@
+function sale_detail(sIdDetail){
+
 const IP = "https://localhost:7105";
-const urlParams = new URLSearchParams(window.location.search);
+// const urlParams = new URLSearchParams(window.location.search);
 const saleId = localStorage.getItem('sIdDetail');
 
-console.log(saleId, "id...");
+console.log(sIdDetail, "id...");
 
 
 
@@ -58,5 +60,5 @@ function loadTable() {
       .catch(error => console.log("Error Message", error));
   }
   
-
+}
   

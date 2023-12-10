@@ -1,9 +1,11 @@
+function grainFeed_Edit(grainIdEdit){
 const IP = "https://localhost:7105";
 const companyId = localStorage.getItem("companyId");
 // const urlParams = new URLSearchParams(window.location.search);
-const grainIdEdit = localStorage.getItem("grainIdEdit");
+const gf = localStorage.getItem("grainIdEdit");
 
-console.log(grainIdEdit, "id...");
+console.log(grainIdEdit,  "id...");
+
 
 const apiUrlAnimal = `${IP}/api/ActiveProducts/ActiveAnimalType?CompanyId=${companyId}`;
 const apiUrlAnimalType = `${IP}/api/ActiveAnimals?CompanyId=${companyId}`;
@@ -15,11 +17,11 @@ const apiUrlUnit = `${IP}/api/ActiveUoms?CompanyId=${companyId}`;
 creatingDropdown("animalDropdown", apiUrlAnimal, "ProductId", "ProductName");
 creatingDropdown("aTypeDropdown", apiUrlAnimalType, "AnimalId", "AnimalName");
 
-console.log(grainIdEdit, "hsdfsfd");
+// console.log(gf, "hsdfsfd");
 
 loadTable();
 function loadTable() {
-  fetch(`https://localhost:7105/api/GrainFeedMaster/${grainIdEdit}`)
+  fetch(`https://localhost:7105/api/GrainFeedMaster/${gf}`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data, "data.........");
@@ -114,60 +116,60 @@ function loadTable() {
 }
 
 
-// for adding new row
+// // for adding new row
 
-function addNewRow() {
-  var newRow = document.createElement("tr");
-  newRow.innerHTML = `
+// function addNewRow() {
+//   var newRow = document.createElement("tr");
+//   newRow.innerHTML = `
        
-            <td><select class="form-control ingredientDropdown" ><option value="">--Select--</option></select></td>
+//             <td><select class="form-control ingredientDropdown" ><option value="">--Select--</option></select></td>
          
-            <td><input type="decimal" class="form-control grainFeedunitPrice"></td>
-            <td><input type="decimal" class="form-control grainFeedquantity"></td>
+//             <td><input type="decimal" class="form-control grainFeedunitPrice"></td>
+//             <td><input type="decimal" class="form-control grainFeedquantity"></td>
 
-            <td><select class="form-control unitDropdown " ><option value="">--Select Unit--</option></select></td>
-            <td><input type="decimal" class="form-control grainFeedtotalPrice" disabled></td>
+//             <td><select class="form-control unitDropdown " ><option value="">--Select Unit--</option></select></td>
+//             <td><input type="decimal" class="form-control grainFeedtotalPrice" disabled></td>
             
-            <td><button type="button" class="btn btn-danger removeRowBtn">Remove</button></td>
-          `;
+//             <td><button type="button" class="btn btn-danger removeRowBtn">Remove</button></td>
+//           `;
 
-  creatingDropdownClass(
-    newRow.getElementsByClassName("ingredientDropdown")[0],
-    apiUrlIngredient,
-    "ProductId",
-    "ProductName"
-  );
+//   creatingDropdownClass(
+//     newRow.getElementsByClassName("ingredientDropdown")[0],
+//     apiUrlIngredient,
+//     "ProductId",
+//     "ProductName"
+//   );
 
-  creatingDropdownClass(
-    newRow.getElementsByClassName("unitDropdown")[0],
-    apiUrlUnit,
-    "UomId",
-    "UomName"
-  );
+//   creatingDropdownClass(
+//     newRow.getElementsByClassName("unitDropdown")[0],
+//     apiUrlUnit,
+//     "UomId",
+//     "UomName"
+//   );
 
-  // Attach event listeners
-  let unitPriceInput = newRow.querySelector(".grainFeedunitPrice");
-  let quantityInput = newRow.querySelector(".grainFeedquantity");
+//   // Attach event listeners
+//   let unitPriceInput = newRow.querySelector(".grainFeedunitPrice");
+//   let quantityInput = newRow.querySelector(".grainFeedquantity");
 
-  unitPriceInput.addEventListener("change", function () {
-    calculateTotalPrice(newRow);
-  });
+//   unitPriceInput.addEventListener("change", function () {
+//     calculateTotalPrice(newRow);
+//   });
 
-  quantityInput.addEventListener("change", function () {
-    calculateTotalPrice(newRow);
-  });
+//   quantityInput.addEventListener("change", function () {
+//     calculateTotalPrice(newRow);
+//   });
 
-  document
-    .getElementById("grainFeedEntryTable")
-    .querySelector("tbody")
-    .appendChild(newRow);
-}
+//   document
+//     .getElementById("grainFeedEntryTable")
+//     .querySelector("tbody")
+//     .appendChild(newRow);
+// }
 
 
 
-document.getElementById("addRowBtn").addEventListener("click", function () {
-  addNewRow();
-});
+// document.getElementById("addRowBtn").addEventListener("click", function () {
+//   addNewRow();
+// });
 
 
 
@@ -295,5 +297,5 @@ updateBtn.addEventListener("click", function (event) {
     });
 });
 
-
+}
 

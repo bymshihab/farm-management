@@ -90,7 +90,7 @@ function updateMasterTotals() {
   });
 
   document.getElementById("feedtotalQty").value = totalQuantity.toFixed(2);
-  // document.getElementById("grainFeedtotalPrice").value = totalPrice.toFixed(2);
+  document.getElementById("feedGrandtotalprice").value = totalPrice.toFixed(2);
 }
 
 // Event delegation to handle row removal
@@ -120,6 +120,7 @@ grainFeedForm.addEventListener("submit", function (e) {
   const employeeId = document.getElementById("employeeDropdown").value;
   const animalId = document.getElementById("animalDropdownFeed").value;
   const feedtotalQty = document.getElementById("feedtotalQty").value;
+  const feedtotalPrice = document.getElementById("feedGrandtotalprice").value;
 
   // const grainFeedtotalPrice = document.getElementById(
   //   "grainFeedtotalPrice"
@@ -145,6 +146,8 @@ grainFeedForm.addEventListener("submit", function (e) {
   formData.append("EId", employeeId);
   formData.append("AnimalId", animalId);
   formData.append("TotalQty", feedtotalQty);
+  formData.append("TotalPrice", feedtotalPrice);
+
   // formData.append("TotalPrice", grainFeedtotalPrice);
 
   formData.append("CompanyId", companyId);
@@ -168,7 +171,7 @@ grainFeedForm.addEventListener("submit", function (e) {
     .then((data) => {
       console.log("Success:", data);
       // purchaseForm.reset();
-       window.location.reload();
+       //window.location.reload();
     })
     .catch((error) => {
       console.error("Error:", error);
