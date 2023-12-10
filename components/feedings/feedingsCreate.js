@@ -146,7 +146,7 @@ grainFeedForm.addEventListener("submit", function (e) {
   formData.append("EId", employeeId);
   formData.append("AnimalId", animalId);
   formData.append("TotalQty", feedtotalQty);
-  formData.append("TotalPrice", feedtotalPrice);
+  formData.append("TotalCost", feedtotalPrice);
 
   // formData.append("TotalPrice", grainFeedtotalPrice);
 

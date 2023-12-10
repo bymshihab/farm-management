@@ -26,10 +26,18 @@
           border: 1px solid #dee2e6;
           border-radius: 0.25rem;
           box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-          padding: 1rem;
+          /* padding: 1rem; */
           margin-top: 1rem;
           background-color: white; /* Optional: for better contrast */
       }
+
+
+      .table thead th {
+      position: sticky;
+      top: 0;
+      background-color: white; /* To ensure the text doesn't get overlapped by the content behind */
+      z-index: 10; /* To lift the header above the other content */
+  }
   </style>
   </head>
   <body>

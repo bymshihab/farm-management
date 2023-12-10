@@ -20,7 +20,7 @@ function loadTable() {
         document.getElementById('employeeDropdown').value = data.employeeName;
         document.getElementById('animalDropdown').value = data.animalName;
         document.getElementById('totalQtyFeed').value = data.totalQTY;
-        document.getElementById('totalGrandFeedTotal').value = data.totalQTY;
+        document.getElementById('totalGrandFeedTotal').value = data.totalCost;
      
     
   
