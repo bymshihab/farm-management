@@ -172,6 +172,7 @@ grainFeedForm.addEventListener("submit", function (e) {
       console.log("Success:", data);
       // purchaseForm.reset();
        //window.location.reload();
+       alert("successfully added")
     })
     .catch((error) => {
       console.error("Error:", error);

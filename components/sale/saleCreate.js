@@ -204,7 +204,8 @@ saleForm.addEventListener("submit", function (e) {
     .then((data) => {
       console.log("Success:", data);
       // purchaseForm.reset();
-      window.location.reload();
+      //window.location.reload();
+      alert("successfully added");
     })
     .catch((error) => {
       console.error("Error:", error);
