@@ -65,12 +65,19 @@
 }
 
 /* Style for the dropdown links */
-.sidebar-item .dropdown-menu li a {
+.sidebar-item .dropdown-menu li  {
   color: black;
-  padding: 12px 16px;
+  padding: 4px 16px;
   text-decoration: none;
   display: block;
 }
+
+/* .sidebar-item .dropdown-menu li  a{
+  color: black;
+  padding: 4px 16px;
+  text-decoration: none;
+  display: block;
+} */
 
 .sidebar-item .dropdown-menu li a:hover {
   /* background-color: #ddd; */

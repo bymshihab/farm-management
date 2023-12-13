@@ -1,4 +1,4 @@
-function get_supplier() {}
+function get_vaccine() {
 
 const IP = "https://localhost:7105";
 const companyId = parseInt(localStorage.getItem("companyId"), 10);
@@ -8,7 +8,7 @@ const apiUrlanimal = `${IP}/api/ActiveAnimals?CompanyId=${companyId}`;
 
 const apiUrlvaccine = `${IP}/api/Vaccination/Vaccine?CompanyId=${companyId}`;
 
-const apiUrlEmployee = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
+const apiUrlEmployee = `${IP}/api/ActiveEmployees/GetActiveEmployees?CompanyId=${companyId}`;
 const apiUrlOutsider = `${IP}/api/ActiveOutsiders?CompanyId=${companyId}`;
 
 creatingDropdown("EmployeeDropdown", apiUrlEmployee, "EId", "EmployeeName");
@@ -26,7 +26,7 @@ const apiUrlanimalUpdate = `${IP}/api/ActiveAnimals?CompanyId=${companyId}`;
 
 const apiUrlvaccineUpdate = `${IP}/api/Vaccination/Vaccine?CompanyId=${companyId}`;
 
-const apiUrlEmployeeUpdate = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
+const apiUrlEmployeeUpdate =`${IP}/api/ActiveEmployees/GetActiveEmployees?CompanyId=${companyId}`;
 const apiUrlOutsiderUpdate = `${IP}/api/ActiveOutsiders?CompanyId=${companyId}`;
 
 creatingDropdown(
@@ -373,3 +373,5 @@ updateShedBtn.addEventListener("click", function (e) {
       alert("Update failed."); // Display an error message
     });
 });
+
+}

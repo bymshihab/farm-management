@@ -1,4 +1,4 @@
-function get_supplier() {}
+function get_product() {
 
 const IP = "https://localhost:7105";
 const companyId = localStorage.getItem("companyId");
@@ -294,3 +294,4 @@ updateShedBtn.addEventListener("click", function (e) {
       alert("create Customfield failed."); // Display an error message
     });
 });
+}

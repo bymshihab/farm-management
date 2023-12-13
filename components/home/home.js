@@ -27,7 +27,10 @@ if (logoutButton) {
 
 // sidebar active
 document.querySelectorAll('.sidebar-item').forEach(item => {
-  item.addEventListener('click', function() {
+  item.addEventListener('click', function(event) {
+    // Stop event from bubbling up to parent elements
+    event.stopPropagation();
+
     // Remove 'active' class from all sidebar items
     document.querySelectorAll('.sidebar-item').forEach(innerItem => {
       innerItem.classList.remove('active');
@@ -39,10 +42,16 @@ document.querySelectorAll('.sidebar-item').forEach(item => {
     // Update the headerContent with the text of the clicked item
     const headerContent = document.getElementById('headerContent');
     if (headerContent) {
-      headerContent.textContent = this.textContent;
+      // Check if the clicked item is a dropdown item
+      if (this.closest('.dropdown-menu')) {
+        headerContent.textContent = this.textContent.trim();
+      } else {
+        headerContent.textContent = this.firstChild.textContent.trim();
+      }
     }
   });
 });
+
 
 
 // sidebar-dropdown
@@ -192,6 +201,149 @@ window.onclick = function(event) {
         console.error("Error loading the navbar:", error);
       });
   }
+
+    //To geting shed
+
+  function shed(){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/shed/shed.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        get_shed();
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
+
+    //To geting product
+
+  function product(){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/product/product.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        get_product();
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
+
+  //   //To geting animal
+
+  // function product(){
+  //   const Container = document.getElementById("mainContent");
+
+  //   fetch("/components/product/product.html")
+  //     .then((response) => response.text())
+  //     .then((data) => {
+  //       Container.innerHTML = data;
+  //       console.log("html fetch ");
+  //       get_product();
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error loading the navbar:", error);
+  //     });
+  // }
+
+
+
+      //To geting vaccination
+
+      function vaccine(){
+        const Container = document.getElementById("mainContent");
+    
+        fetch("/components/vaccination/vaccination.html")
+          .then((response) => response.text())
+          .then((data) => {
+            Container.innerHTML = data;
+            console.log("html fetch ");
+            get_vaccine();
+          })
+          .catch((error) => {
+            console.error("Error loading the navbar:", error);
+          });
+      }
+
+      //To geting breading
+
+      function breading(){
+        const Container = document.getElementById("mainContent");
+    
+        fetch("/components/breading/breading.html")
+          .then((response) => response.text())
+          .then((data) => {
+            Container.innerHTML = data;
+            console.log("html fetch ");
+            get_breading();
+          })
+          .catch((error) => {
+            console.error("Error loading the navbar:", error);
+          });
+      }
+
+      //To geting employee
+
+      function employee(){
+        const Container = document.getElementById("mainContent");
+    
+        fetch("/components/employee/employee.html")
+          .then((response) => response.text())
+          .then((data) => {
+            Container.innerHTML = data;
+            console.log("html fetch ");
+            get_employee();
+          })
+          .catch((error) => {
+            console.error("Error loading the navbar:", error);
+          });
+      }
+
+      //To geting Animal
+
+      function animal(){
+        const Container = document.getElementById("mainContent");
+    
+        fetch("/components/Animal/animal.html")
+          .then((response) => response.text())
+          .then((data) => {
+            Container.innerHTML = data;
+            console.log("html fetch ");
+            get_animal();
+          })
+          .catch((error) => {
+            console.error("Error loading the navbar:", error);
+          });
+      }
+
+      //To geting Stock
+
+      function stock(){
+        const Container = document.getElementById("mainContent");
+    
+        fetch("/components/stock/stock.html")
+          .then((response) => response.text())
+          .then((data) => {
+            Container.innerHTML = data;
+            console.log("html fetch ");
+            get_stock();
+          })
+          .catch((error) => {
+            console.error("Error loading the navbar:", error);
+          });
+      }
+
+
+
+
+
 
 
 // Purchase........

@@ -1,10 +1,10 @@
-function get_supplier() {}
+function get_breading() {
 
 const IP = "https://localhost:7105";
 const companyId = parseInt(localStorage.getItem("companyId"), 10);
 
 // for creating
-const apiUrlemployee = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
+const apiUrlemployee = `${IP}/api/ActiveEmployees/GetActiveEmployees?CompanyId=${companyId}`;
 
 const apiUrlSemen = `${IP}/api/Breeding/Semen?CompanyId=${companyId}`;
 
@@ -27,7 +27,7 @@ creatingDropdown(
 
 
 // // for updating
-const apiUrlUpdateEmployee = `${IP}/api/ActiveEmployees?CompanyId=${companyId}`;
+const apiUrlUpdateEmployee = `${IP}/api/ActiveEmployees/GetActiveEmployees?CompanyId=${companyId}`;
 
 const apiUrlSemenUpdate = `${IP}/api/Breeding/Semen?CompanyId=${companyId}`;
 
@@ -362,3 +362,5 @@ updateShedBtn.addEventListener("click", function (e) {
     alert("Update failed."); // Display an error message
   });
 });
+
+}

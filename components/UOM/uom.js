@@ -191,7 +191,7 @@ function getUom() {
 
     console.log("obj of UOM update", obj);
 
-    fetch(`https://localhost:7105/api/Uom/UpdateUom/${uomId}`, {
+    fetch(`${IP}/api/Uom/UpdateUom`, {
       method: "PUT",
       body: JSON.stringify(obj),
       headers: { "Content-Type": "application/json" },
