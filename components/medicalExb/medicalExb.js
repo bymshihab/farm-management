@@ -2,13 +2,15 @@
   const IP = "https://localhost:7105";
   const companyId = localStorage.getItem("companyId");
 
+  console.log("comming........");
+
   loadTable();
   function loadTable() {
-    fetch(`${IP}/api/Feeding/GetFeedingData?CompanyId=${companyId}`)
+    fetch(`${IP}/api/MedicalExhibition/MedicalExhibitionData?CompanyId=${companyId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data, "comming...");
-        const tablebody = document.querySelector(".feedingsTable");
+        const tablebody = document.querySelector(".medicalExbTable");
         tablebody.innerHTML = "";
 
         for (let i = 0; i < data.length; i++) {
@@ -16,26 +18,26 @@
           newRow.classList.add("text-center");
 
           let cell1 = document.createElement("td");
-          cell1.textContent = data[i].feedingCode;
+          cell1.textContent = data[i].medicalCode;
 
           let cell2 = document.createElement("td");
-          cell2.textContent = data[i].feedIngDate.split("T")[0];
+          cell2.textContent = data[i].exhibitionDate.split("T")[0];
 
 
           let cell3 = document.createElement("td");
 
-          cell3.textContent = data[i].employeeName;
+          cell3.textContent = data[i].animalName;
 
           let cell4 = document.createElement("td");
 
-          cell4.textContent = data[i].animalName.split(" ")[0];
+          cell4.textContent = data[i].outsiderName;
 
           let cell5 = document.createElement("td");
 
-          cell5.textContent = data[i].totalQTY;
+          cell5.textContent = data[i].employeeName;
 
           let cell7 = document.createElement("td");
-          cell7.setAttribute("id", data[i].feedId);
+          cell7.setAttribute("id", data[i].medicalId);
 
           // Create and append the SVG to the button
           let svg = document.createElementNS(
@@ -137,18 +139,18 @@
           cell7.appendChild(deleteButton);
 
           editButton.addEventListener("click", function () {
-            const feedIdEdit = data[i].feedId;
+            const feedIdEdit = data[i].medicalId;
             localStorage.setItem("feedIdEdit", feedIdEdit);
             window.location.href = `/components/feedings/feedingsEdit.html?feedIdEdit=${feedIdEdit}`;
           });
 
           detailButton.addEventListener("click", function () {
-            const feedIdDetail = data[i].feedId;
+            const feedIdDetail = data[i].medicalId;
             localStorage.setItem("feedIdDetail", feedIdDetail);
             window.location.href = `/components/feedings/feedingsDetail.html?feedIdDetail=${feedIdDetail}`;
           });
           deleteButton.addEventListener("click", function () {
-            const feedIdDelete = data[i].feedId;
+            const feedIdDelete = data[i].medicalId;
             console.log(feedIdDelete, "delete");
 
             // Send a DELETE request to your API to delete the purchase

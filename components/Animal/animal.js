@@ -423,8 +423,9 @@ function get_animal() {
       .then((data) => {
         console.log(data);
         // Handle success
-        alert("successfully updated");
         loadTable();
+        alert("successfully updated");
+       
       })
       .catch((error) => {
         console.error("Error:", error);

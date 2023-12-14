@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+
+    <link rel="stylesheet" href="/components/medicalExb/medicalExb.css" />
+
+    <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
+
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div
+        class="header-section  bg-success-subtle  rounded-1 text-black-50 d-flex align-items-center justify-content-center"
+      >
+        <h2>Medical Exibution Entry</h2>
+      </div>
+
+      <!-- Add Row Button -->
+      <div class="form-container">
+          <!-- Purchase Entry Form -->
+          <form id="medExbEntryForm">
+            <div class="row g-2 mt-3">
+              <!-- Form content -->
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <label for=exbDate">Exibution Date</label>
+                <input type="date" class="form-control" id="exbDate" value="" />
+              </div>
+
+              <!-- Customer Dropdown -->
+              <div class="col-12 col-md-6 col-lg-4">
+                <label for="employeeDropdownMed">Employee</label>
+                <select class="form-control" id="employeeDropdownMed">
+                  <option>--Select Employee--</option>
+                </select>
+              </div>
+
+              <!-- Employee Selection -->
+              <div class="col-12 col-md-6 col-lg-4">
+                <label for="animalDropdownMed">Animal </label>
+                <select class="form-control" id="animalDropdownMed">
+                  <option>--Select Animal--</option>
+                  <!-- Employee options added here -->
+                </select>
+              </div>
+
+              <!-- Outsider Selection -->
+              <div class="col-12 col-md-6 col-lg-4">
+                <label for="outsiderDropdownMed">Outsider </label>
+                <select class="form-control" id="outsiderDropdownMed">
+                  <option>--Select Outsider--</option>
+                  <!-- Employee options added here -->
+                </select>
+              </div>
+
+              
+              <div class="col-md-6 mb-3">
+                <label for="IsNewMed" class="form-label">IsNew</label>
+                <input type="checkbox" id="IsNewMed" />
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="IsSickMed" class="form-label">IsSick</label>
+                <input type="checkbox" id="IsSickMed" />
+              </div>
+
+              <div class="row">
+                <!-- one medicine -->
+                <div class="col-12 col-md-6">
+                  <div class="d-flex justify-content-between align-items-center bg-success-subtle">
+                    <div> <h3 class="m-1">Medicine</h3> </div>
+                    <button type="button" class="btn btn-info m-2" id="addRowBtnMedicine">Add</button>
+
+                  </div>
+      
+                  <!-- Product Entry Table -->
+                  <div class="table-container scrollable-table">
+                    <table class="table text-center" id="medicineEntryTable">
+                      <thead class="">
+                        <tr>
+                          <th>
+                            Medicine</th>
+
+                          <th>Unit</th>
+                          <th>Day</th>
+                          <th>Time.	</th>
+                          <th>Qty.</th>
+                          <th>Action</th>
+                      
+                      
+                        </tr>
+                      </thead>
+                      <tbody class="">
+                        <!-- Table rows will be added here dynamically -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- two Quarentain-->
+                <div class="col-12 col-md-6">
+                  <div class="d-flex justify-content-between align-items-center bg-success-subtle">
+                    <div> <h3 class="m-1">Quarentaine</h3> </div>
+                    <button type="button" class="btn btn-info m-2" id="addRowBtnQuarentaine">
+                      Add
+                    </button>
+                  </div>
+            
+                <div class="table-container scrollable-table">
+                  <table class="table text-center" id="quarentainEntryTable">
+                    <thead class="">
+                      <tr>
+                        <th>
+                          Shed	</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Action</th>
+                    
+                    
+                      </tr>
+                    </thead>
+                    <tbody class="">
+                     
+                    </tbody>
+                  </table>
+                </div>
+                </div>
+
+              </div>
+          
+            <!-- Form Buttons -->
+            <div class="d-flex justify-content-end">
+              <a href="/components/feedings/feedings.html">
+                <button type="button" class="btn btn-secondary m-1">Back</button>
+              </a>
+              <button type="submit" class="btn btn-primary m-1">Save</button>
+            </div>
+          </form>
+      </div>
+    </div>
+
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script></script>
+
+    <script src="/common.js"></script>
+    <script src="/components/medicalExb/medicalExbCreate.js"></script>
+    <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
