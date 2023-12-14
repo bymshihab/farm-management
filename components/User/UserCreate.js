@@ -48,4 +48,32 @@ function closeModal() {
 }
 
 
+fetch(`https://localhost:7105/api/UserInfo/GetAllUserInfo?CompanyId=${1}`)
+.then(response => response.json())
+.then(data => {
+    if (data && data.length > 0) {
+        data.forEach(user => {
+            const userRow = document.createElement('tr');
+            userRow.innerHTML = `
+                <td>${user.userCode}</td>
+                <td>${user.userName}</td>
+                <td>${user.employeeId}</td>
+                <td>${user.email}</td>
+                <td>${user.isAdmin}</td>
+                <td>${user.isAudit}</td>
+                <td>${user.isActive}</td>
+            `;
+            userInfoTableBody.appendChild(userRow);
+        });
+    } else {
+        userInfoTableBody.innerHTML = '<tr><td colspan="7">No user information available.</td></tr>';
+    }
+})
+.catch(error => {
+    console.error('Error:', error);
+    userInfoTableBody.innerHTML = '<tr><td colspan="7">An error occurred while fetching user information.</td></tr>';
+});
+
+
+
 document.getElementById('openModalBtn').addEventListener('click', openUserModal);

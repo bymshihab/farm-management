@@ -182,3 +182,11 @@ function getPurchase() {
       .catch((error) => console.log("Error Message", error));
   }
 }
+
+
+if (!isLoggedIn) {
+
+  window.location.href = "/components/login/login.html";
+} else {
+  window.location.href = "/components/purchase/purchase.html";
+}

@@ -12,7 +12,27 @@
 </head>
 
 <body>
-    <button id="openModalBtn">Open User Creation Modal</button>
+
+    <!-- <div id="userInfoContainer"></div> -->
+    <button id="openModalBtn"> Create User</button>
+    <!-- <button id="refreshUserInfoBtn">Refresh User Information</button> -->
+    
+<div id="userInfoContainer">
+    <table id="userInfoTable">
+        <thead>
+            <tr>
+                <th>User Code</th>
+                <th>User Name</th>
+                <th>Employee ID</th>
+                <th>Email</th>
+                <th>Is Admin</th>
+                <th>Is Audit</th>
+                <th>Is Active</th>
+            </tr>
+        </thead>
+        <tbody id="userInfoTableBody"></tbody>
+    </table>
+</div>
 
     <!-- The Modal -->
     <div id="userModal" class="modal">

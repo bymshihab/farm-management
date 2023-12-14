@@ -46,8 +46,6 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
  
   const formData = new FormData(form);
-
-
   for (let [key, value] of formData.entries()) {
     console.log(`${key}: ${value}`);
   }
@@ -70,7 +68,7 @@ form.addEventListener("submit", function (e) {
     })
     .then((data) => {
       console.log(data, "data message!");
-
+      localStorage.mytime = Date.now();
       localStorage.setItem("companyId", data.companyId)
 
       // Check the structure of 'data' to match your actual API response
@@ -88,3 +86,26 @@ form.addEventListener("submit", function (e) {
       //alert("Login failed: " + error.message); // Display an error message
     });
 });
+
+// function redirectToPage(url) {
+//   setTimeout(function () {
+//     window.location.href = url;
+//   }, 10000000); // Delay in milliseconds before redirecting (adjust as needed)
+// }
+
+// var addCols = function (num) {
+//   for (var i = 1; i <= num; i++) {
+//     var myCol = $('<div class="col-sm-3 col-md-3 pb-2"></div>');
+//     var myPanel = $('<div class="card card-outline-info" id="' + i + 'Panel"><div class="card-block"><div class="card-title"><span>Card #' + i + '</span></div><p>Some text in ' + i + '</p><img src="//placehold.it/50/eeeeee" class="rounded rounded-circle"></div></div>');
+//     myPanel.appendTo(myCol);
+//     myCol.appendTo('#contentPanel');
+//   }
+// };
+
+// if (!localStorage.getItem("mytime")) {
+//   window.location.href = "/components/login/login.html"; 
+// }else{
+//   window.location.href = "/components/home/home.html";
+// }
+
+

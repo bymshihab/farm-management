@@ -1,12 +1,12 @@
 // Function to handle logout
 function handleLogout() {
-    localStorage.clear();
-    window.location.href = '/components/login/login.html'; 
+  console.log("Logging out");
+  localStorage.clear();
+  window.location.href = '/components/login/login.html'; 
 }
-
 const logoutButton = document.getElementById('logoutBtn'); 
 if (logoutButton) {
-    logoutButton.addEventListener('click', handleLogout);
+  logoutButton.addEventListener('click', handleLogout);
 }
 
 // for toggle sidebar
@@ -224,4 +224,14 @@ window.onclick = function(event) {
         console.error("Error loading the navbar:", error);
       });
   }
-  
+
+
+// Check if the user is logged in
+const isLoggedIn = localStorage.getItem("mytime") !== null;
+
+// Only perform the redirect once when the page loads
+if (!isLoggedIn) {
+    window.location.href = "/components/login/login.html";
+} else {
+    window.location.href = "/components/home/home.html";
+}

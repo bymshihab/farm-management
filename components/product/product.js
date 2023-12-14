@@ -294,3 +294,14 @@ updateShedBtn.addEventListener("click", function (e) {
       alert("create Customfield failed."); // Display an error message
     });
 });
+
+
+// // Check if the user is logged in
+const isLoggedIn = localStorage.getItem("mytime") !== null;
+
+if (!isLoggedIn) {
+
+  window.location.href = "/components/login/login.html";
+} else {
+  window.location.href = "/components/home/home.html";
+}
