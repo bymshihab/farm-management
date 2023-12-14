@@ -1,4 +1,4 @@
-
+function getFeeding(){
   const IP = "https://localhost:7105";
   const companyId = localStorage.getItem("companyId");
 
@@ -139,13 +139,15 @@
           editButton.addEventListener("click", function () {
             const feedIdEdit = data[i].feedId;
             localStorage.setItem("feedIdEdit", feedIdEdit);
-            window.location.href = `/components/feedings/feedingsEdit.html?feedIdEdit=${feedIdEdit}`;
+            feedingEdit(feedIdEdit);
+            // window.location.href = `/components/feedings/feedingsEdit.html?feedIdEdit=${feedIdEdit}`;
           });
 
           detailButton.addEventListener("click", function () {
             const feedIdDetail = data[i].feedId;
             localStorage.setItem("feedIdDetail", feedIdDetail);
-            window.location.href = `/components/feedings/feedingsDetail.html?feedIdDetail=${feedIdDetail}`;
+            feedingDetail(feedIdDetail);
+            // window.location.href = `/components/feedings/feedingsDetail.html?feedIdDetail=${feedIdDetail}`;
           });
           deleteButton.addEventListener("click", function () {
             const feedIdDelete = data[i].feedId;
@@ -189,4 +191,6 @@
       })
       .catch((error) => console.log("Error Message", error));
   }
+
+}
 

@@ -1,6 +1,7 @@
+function feeding_detail(feedIdDetail){
 const IP = "https://localhost:7105";
 // const urlParams = new URLSearchParams(window.location.search);
-const feedIdDetail = localStorage.getItem('feedIdDetail');
+const feedIdDetails = localStorage.getItem('feedIdDetail');
 
 console.log(feedIdDetail, "id...");
 
@@ -11,7 +12,7 @@ loadTable();
 function loadTable() {
    
   
-    fetch(`${IP}/api/Feeding/${feedIdDetail}`)
+    fetch(`${IP}/api/Feeding/${feedIdDetails}`)
       .then(response => response.json())
       .then(data => {
         // Populate form fields
@@ -53,5 +54,5 @@ function loadTable() {
       .catch(error => console.log("Error Message", error));
 }
   
-
+}
   

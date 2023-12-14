@@ -1,7 +1,9 @@
+function  feeding_Edit(feedIdEdit){
+
 const IP = "https://localhost:7105";
 const companyId = localStorage.getItem("companyId");
 // const urlParams = new URLSearchParams(window.location.search);
-const feedIdEdit = localStorage.getItem("feedIdEdit");
+const feedIdEdits = localStorage.getItem("feedIdEdit");
 
 console.log(feedIdEdit, "id...");
 
@@ -19,7 +21,7 @@ creatingDropdown("aTypeDropdown", apiUrlAnimalType, "AnimalId", "AnimalName");
 
 loadTable();
 function loadTable() {
-  fetch(`https://localhost:7105/api/Feeding/${feedIdEdit}`)
+  fetch(`https://localhost:7105/api/Feeding/${feedIdEdits}`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data, "data.........");
@@ -195,7 +197,7 @@ updateBtn.addEventListener("click", function (event) {
   });
 
   const formData = new FormData();
-  formData.append("FeedId", feedIdEdit);
+  formData.append("FeedId", feedIdEdits);
   formData.append("FeedingCode", feedCode);
   formData.append("FeedIngDate", FeedingDate);
   formData.append("EId", employeeID);
@@ -240,5 +242,6 @@ updateBtn.addEventListener("click", function (event) {
     });
 });
 
+}
 
 

@@ -1,16 +1,12 @@
-// document.addEventListener("DOMContentLoaded", function() {
-//   get_stock();
-// });
 
-function get_stock(){
   console.log("from stock......");
 const IP = "https://localhost:7105";
 const companyId = localStorage.getItem("companyId");
 
-  
+
 // for tab
 function openTab(evt, tabName) {
-  var i, tabcontent, tablinks;
+  let i, tabcontent, tablinks;
 
   // Get all elements with class="tabcontent" and hide them
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -27,13 +23,14 @@ function openTab(evt, tabName) {
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  var currentTab = document.getElementById(tabName);
+  let currentTab = document.getElementById(tabName);
   if (currentTab) {
     currentTab.style.display = "block";
     if (evt.currentTarget) {
       evt.currentTarget.className += " active";
     }
   }
+
 
 
   if (tabName === 'Tab1') {
@@ -56,10 +53,6 @@ function openTab(evt, tabName) {
   }
 }
 
-// Initialize Tab1 content on page load
-// document.addEventListener("DOMContentLoaded", function() {
-//   openTab({ currentTarget: document.querySelector(".tablinks") }, 'Tab1');
-// });
 
 
 // // for stock table
@@ -297,7 +290,6 @@ function loadSemenTable(){
 }
 
 
-}
 
 
 

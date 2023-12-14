@@ -333,7 +333,8 @@ window.onclick = function(event) {
           .then((data) => {
             Container.innerHTML = data;
             console.log("html fetch ");
-            get_stock();
+            openTab({ currentTarget: document.querySelector(".tablinks") }, 'Tab1');
+           
           })
           .catch((error) => {
             console.error("Error loading the navbar:", error);
@@ -625,6 +626,79 @@ function milkCollectionCreate(){
   }
 
 
+
+  
+// Feeding.........
+
+// To geting feeding.........
+function feeding(){
+  const Container = document.getElementById("mainContent");
+
+  fetch("/components/feedings/feedings.html")
+    .then((response) => response.text())
+    .then((data) => {
+      Container.innerHTML = data;
+      console.log("html fetch ");
+      getFeeding();
+    })
+    .catch((error) => {
+      console.error("Error loading the navbar:", error);
+    });
+}
+
+
+
+// To creating feeding create
+
+function feedingCreate(){
+  const Container = document.getElementById("mainContent");
+
+  fetch("/components/feedings/feedingsCreate.html")
+    .then((response) => response.text())
+    .then((data) => {
+      Container.innerHTML = data;
+      console.log("html fetch ");
+      feedings_create();
+    })
+    .catch((error) => {
+      console.error("Error loading the navbar:", error);
+    });
+}
+
+
+
+   //To geting feeding details page
+   function feedingDetail(feedIdDetail){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/feedings/feedingsDetail.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        feeding_detail(feedIdDetail);
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
+
+     //To geting feeding detail page
+     function feedingEdit(feedIdEdit){
+      const Container = document.getElementById("mainContent");
+  
+      fetch("/components/feedings/feedingsEdit.html")
+        .then((response) => response.text())
+        .then((data) => {
+          Container.innerHTML = data;
+          console.log("html fetch ");
+          feeding_Edit(feedIdEdit);
+        })
+        .catch((error) => {
+          console.error("Error loading the navbar:", error);
+        });
+    }
+  
   
 
 
