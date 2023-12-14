@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Permission</title>
+    <link rel="stylesheet" href="/components/userPermission/userPermission.css">
+
+    <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css">
+</head>
+<body>
+    <div id="Nav&SideNav"></div>
+    
+    <section id="body">
+        <div id="motherDiv">
+            <div id ="titleName">User Permission Information</div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="container p-0 m-2">
+                        <label for=""> User: </label>
+                        <div class="dropdown w-50">
+                            <input style="width: 100%;" type="button" id="loadusername" value="Select an option" class="dropdown-toggle">
+                            <div id="dropdownlist" class="dropdown-content w-100">
+                                <input class="w-100" type="text" id="usernames" placeholder="Enter username">
+                                <div id="username">
+    
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="m-2" id="selectOption">
+                        <label for=""> Company: </label>
+                        <select class="w-50" name="" id="selectionOption">
+                            <option value=""> Nothing selected </option>
+                        </select>
+                    </div>
+                </div>
+              </div>
+
+            <div class="row d-flex justify-content-between">
+
+                <div id="DynamicDetailsTable" class="col-8 mt-2 container-fluid">
+                    <div class="grid-container" id="gridContainer">
+                        <div class="row headerRow bottomField1stRow ">
+                            <div class="col-4 grid-item">  
+                                <label for=""> Module </label>
+                            </div>
+                            <div class="col-4 grid-item">  
+                                <label for=""> Interfaces </label>
+                            </div>
+                            <div class="col grid-item">
+                                <div class="col-1 headerchecklist">
+                                    <div class="form-check d-flex justify-content-center align-items-center">
+                                        <input class="form-check-input" type="checkbox" value="" id="sellectAllView">
+                                    </div>
+                                </div>
+                                <label for=""> View </label>
+                            </div>
+                            <div class="col grid-item">
+                                <div class="col-1 headerchecklist">
+                                    <div class="form-check d-flex justify-content-center align-items-center">
+                                        <input class="form-check-input" type="checkbox" value="" id="sellectAllAdd">
+                                    </div>
+                                </div>
+                                <label for=""> Add </label>
+                            </div>
+                            <div class="col grid-item">
+                                <div class="col-1 headerchecklist">
+                                    <div class="form-check d-flex justify-content-center align-items-center">
+                                        <input class="form-check-input" type="checkbox" value="" id="sellectAllModify">
+                                    </div>
+                                </div>
+                                <label for=""> Modify </label>
+                            </div>
+                            <div class="col grid-item">
+                                <div class="col-1 headerchecklist">
+                                    <div class="form-check d-flex justify-content-center align-items-center">
+                                        <input class="form-check-input" type="checkbox" value="" id="sellectAllDelete">
+                                    </div>
+                                </div>
+                                <label for=""> Delete </label>
+                            </div>
+                        </div>
+                        <div style="height: 30px !important;" class="row headerRow bottomField1stRow ">
+                            <div class="col-4 grid-item">
+                                <input type="text" id="moduleInput" class="form-control" placeholder="module">
+                            </div>
+                            <div class="col-4 grid-item">
+                                <input type="text" id="interfaceInput" class="form-control" placeholder="Interface">
+                            </div>
+                            <div class="col-1 grid-item"> </div>
+                            <div class="col-1 grid-item"> </div>
+                            <div class="col-1 grid-item"> </div>
+                            <div class="col-1 grid-item"> </div>
+                        </div>
+                    </div>
+                    <div class="grid-container" id="gridContainer-data">
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end button-div">
+                <button type="button" class="btn crudButton" id="saveTheData" > <i class="fa-solid fa-download"></i> Save </button>
+                <button type="button" class="btn crudButton" onclick="test()"><i class="fa-sharp fa-solid fa-trash"></i> Delete</button>
+                <button type="button" class="btn crudButton"> <i class="fa-solid fa-arrows-rotate" ></i> clear</button> 
+                <!-- <button type="button" class="btn crudButton " onclick ="displayOldData()"><i class="fa-regular fa-eye"></i> Preview</button> -->
+            </div>
+        </div>
+    </section>
+    
+    <script src="/bootstrap-5.3.2-dist/js/bootstrap.js"></script>
+    <script src="/components/userPermission/userPermissionjs"></script>
+</body>
+</html>

@@ -52,7 +52,7 @@ form.addEventListener("submit", function (e) {
     console.log(`${key}: ${value}`);
   }
 
-  fetch(`https://localhost:7105/api/UserInfo/login`, {
+  fetch(`https://localhost:7105/api/UserLogin/login`, {
     method: "POST",
     body: formData,
   })
