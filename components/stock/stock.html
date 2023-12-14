@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+
+    <link rel="stylesheet" href="/components/stock/stock.css" />
+
+    <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
+  </head>
+  <body>
+    <div class="container mt-2"><h2>Stock</h2></div>
+
+    <div class="container">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Tab1')"> Feed Stock</button>
+            <button class="tablinks" onclick="openTab(event, 'Tab2')"> Animal Summary</button>
+            <button class="tablinks" onclick="openTab(event, 'Tab3')">MedicineStock</button>
+            <button class="tablinks" onclick="openTab(event, 'Tab4')">Vaccine Stock</button>
+            <button class="tablinks" onclick="openTab(event, 'Tab5')"> Semen Stock</button>
+        </div>
+      
+            <div id="Tab1" class="tabcontent">   
+         
+            <section>
+                <div class="container mt-5">
+                  <!-- top of table -->
+                  <div class="row gx-2 m-0 p-0 border">
+                    <div class="col-12 col-md-10 m-0 p-0">
+                      <div class="d-flex w-100">
+                        <div class="searchBtn d-flex align-items-center">
+                          <button
+                            class="border-0 bg-white ms-2 me-2"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="25"
+                              height="25"
+                              fill="currentColor"
+                              class="bi bi-search"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                        <div class="searchInput w-100">
+                          <input
+                            type="search"
+                            placeholder="Search"
+                            class="w-100 h-100 p-2 border-0"
+                          />
+                        </div>
+                      </div>
+                    </div>
+          
+                    <div
+                      class="col-12 col-md-2 p-0 d-flex justify-content-end align-items-center"
+                    >
+                   
+                    </div>
+                  </div>
+          
+                  <!-- table -->
+                  <table class="table border">
+                    <thead class="header-table">
+                      <tr class="text-center">
+                        <th scope="col">Feed</th>
+                        <th scope="col">Purchase</th>
+                       
+                        <th scope="col">Use</th>
+                        <th scope="col">Sale</th>
+                        <th scope="col">StockQty</th>
+                      </tr>
+                    </thead>
+                    <tbody class="feedStockTable">
+                      <tr class="text-center">
+                       
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        
+                      </tr>
+                    </tbody>
+                  </table>
+          
+                </div>
+                
+              </section>
+            </div>
+      
+            <div id="Tab2" class="tabcontent">   
+            
+                <section>
+                    <div class="container mt-5">
+                    <!-- top of table -->
+                    <div class="row gx-2 m-0 p-0 border">
+                        <div class="col-12 col-md-10 m-0 p-0">
+                        <div class="d-flex w-100">
+                            <div class="searchBtn d-flex align-items-center">
+                            <button
+                                class="border-0 bg-white ms-2 me-2"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                            >
+                                <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="25"
+                                height="25"
+                                fill="currentColor"
+                                class="bi bi-search"
+                                viewBox="0 0 16 16"
+                                >
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                                />
+                                </svg>
+                            </button>
+                            </div>
+                            <div class="searchInput w-100">
+                            <input
+                                type="search"
+                                placeholder="Search"
+                                class="w-100 h-100 p-2 border-0"
+                            />
+                            </div>
+                        </div>
+                        </div>
+            
+                        <div
+                        class="col-12 col-md-2 p-0 d-flex justify-content-end align-items-center"
+                        >
+                    
+                        </div>
+                    </div>
+            
+                    <!-- table -->
+                    <table class="table border">
+                        <thead class="header-table">
+                        <tr class="text-center">
+                            <th scope="col">ProductName</th>
+                            <th scope="col">Total Animal</th>
+                        
+                            <th scope="col">Dead</th>
+                            <th scope="col">Sold</th>
+                            <th scope="col">Available Animal</th>
+                        </tr>
+                        </thead>
+                        <tbody class="animalSummaryTable">
+                        <tr class="text-center">
+                        
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            
+                        </tr>
+                        </tbody>
+                    </table>
+            
+                    </div>
+                    
+                </section>
+            </div>
+      
+            <div id="Tab3" class="tabcontent">   
+            
+                <section>
+                    <div class="container mt-5">
+                    <!-- top of table -->
+                    <div class="row gx-2 m-0 p-0 border">
+                        <div class="col-12 col-md-10 m-0 p-0">
+                        <div class="d-flex w-100">
+                            <div class="searchBtn d-flex align-items-center">
+                            <button
+                                class="border-0 bg-white ms-2 me-2"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                            >
+                                <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="25"
+                                height="25"
+                                fill="currentColor"
+                                class="bi bi-search"
+                                viewBox="0 0 16 16"
+                                >
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                                />
+                                </svg>
+                            </button>
+                            </div>
+                            <div class="searchInput w-100">
+                            <input
+                                type="search"
+                                placeholder="Search"
+                                class="w-100 h-100 p-2 border-0"
+                            />
+                            </div>
+                        </div>
+                        </div>
+            
+                        <div
+                        class="col-12 col-md-2 p-0 d-flex justify-content-end align-items-center"
+                        >
+                    
+                        </div>
+                    </div>
+            
+                    <!-- table -->
+                    <table class="table border">
+                        <thead class="header-table">
+                        <tr class="text-center">
+                            <th scope="col">ProductName</th>
+                            <th scope="col">TotalMedicine</th>
+                        
+                            <th scope="col">UsedMedicine</th>
+                            <th scope="col">SaleMedicine</th>
+                            <th scope="col">AvailableMedicine</th>
+                        </tr>
+                        </thead>
+                        <tbody class="medicineStockTable">
+                        <tr class="text-center">
+                        
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            
+                        </tr>
+                        </tbody>
+                    </table>
+            
+                    </div>
+                    
+                </section>
+            </div>
+            <div id="Tab4" class="tabcontent">   
+            
+                <section>
+                    <div class="container mt-5">
+                    <!-- top of table -->
+                    <div class="row gx-2 m-0 p-0 border">
+                        <div class="col-12 col-md-10 m-0 p-0">
+                        <div class="d-flex w-100">
+                            <div class="searchBtn d-flex align-items-center">
+                            <button
+                                class="border-0 bg-white ms-2 me-2"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                            >
+                                <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="25"
+                                height="25"
+                                fill="currentColor"
+                                class="bi bi-search"
+                                viewBox="0 0 16 16"
+                                >
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                                />
+                                </svg>
+                            </button>
+                            </div>
+                            <div class="searchInput w-100">
+                            <input
+                                type="search"
+                                placeholder="Search"
+                                class="w-100 h-100 p-2 border-0"
+                            />
+                            </div>
+                        </div>
+                        </div>
+            
+                        <div
+                        class="col-12 col-md-2 p-0 d-flex justify-content-end align-items-center"
+                        >
+                    
+                        </div>
+                    </div>
+            
+                    <!-- table -->
+                    <table class="table border">
+                        <thead class="header-table">
+                        <tr class="text-center">
+                            <th scope="col">ProductName</th>
+                            <th scope="col">TotalMedicine</th>
+                        
+                            <th scope="col">UsedMedicine</th>
+                            <th scope="col">SaleMedicine</th>
+                            <th scope="col">AvailableMedicine</th>
+                        </tr>
+                        </thead>
+                        <tbody class="vaccineStockTable">
+                        <tr class="text-center">
+                        
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            
+                        </tr>
+                        </tbody>
+                    </table>
+            
+                    </div>
+                    
+                </section>
+            </div>
+            <div id="Tab5" class="tabcontent">   
+            
+                <section>
+                    <div class="container mt-5">
+                    <!-- top of table -->
+                    <div class="row gx-2 m-0 p-0 border">
+                        <div class="col-12 col-md-10 m-0 p-0">
+                        <div class="d-flex w-100">
+                            <div class="searchBtn d-flex align-items-center">
+                            <button
+                                class="border-0 bg-white ms-2 me-2"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                            >
+                                <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="25"
+                                height="25"
+                                fill="currentColor"
+                                class="bi bi-search"
+                                viewBox="0 0 16 16"
+                                >
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                                />
+                                </svg>
+                            </button>
+                            </div>
+                            <div class="searchInput w-100">
+                            <input
+                                type="search"
+                                placeholder="Search"
+                                class="w-100 h-100 p-2 border-0"
+                            />
+                            </div>
+                        </div>
+                        </div>
+            
+                        <div
+                        class="col-12 col-md-2 p-0 d-flex justify-content-end align-items-center"
+                        >
+                    
+                        </div>
+                    </div>
+            
+                    <!-- table -->
+                    <table class="table border">
+                        <thead class="header-table">
+                        <tr class="text-center">
+                            <th scope="col">ProductName</th>
+                            <th scope="col">TotalMedicine</th>
+                        
+                            <th scope="col">UsedMedicine</th>
+                            <th scope="col">SaleMedicine</th>
+                            <th scope="col">AvailableMedicine</th>
+                        </tr>
+                        </thead>
+                        <tbody class="semenStockTable">
+                        <tr class="text-center">
+                        
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            
+                        </tr>
+                        </tbody>
+                    </table>
+            
+                    </div>
+                    
+                </section>
+            </div>
+            
+        
+    </div>
+   
+
+
+
+
+    <script src="/common.js"></script>
+
+    <script src="/components/stock/stock.js"></script>
+    <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

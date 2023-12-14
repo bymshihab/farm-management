@@ -1,8 +1,10 @@
+function purchase_detail(pIdDetail){
 const IP = "https://localhost:7105";
-const urlParams = new URLSearchParams(window.location.search);
-const purchaseId = urlParams.get('pIdDetail');
+// const urlParams = new URLSearchParams(window.location.search);
+// const purchaseId = urlParams.get('pIdDetail');
 
-console.log(purchaseId, "id...");
+console.log(pIdDetail, "id...");
+const purchaseId = localStorage.getItem("pIdDetail");
 
 
 
@@ -57,5 +59,5 @@ function loadTable() {
       .catch(error => console.log("Error Message", error));
   }
   
-
+}
   

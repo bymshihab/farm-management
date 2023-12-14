@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css" />
+
+    <link rel="stylesheet" href="/components/purchase/purchase.css" />
+
+    <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
+
+    <style>
+      /* Add custom CSS styles if needed */
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div
+        class="header-section bg-success text-white d-flex align-items-center justify-content-center"
+      >
+        <h2>Sale ENTRY</h2>
+      </div>
+
+      <!-- Add Row Button -->
+
+      <!-- Purchase Entry Form -->
+      <form id="saleEntryForm">
+        <div class="row g-2 mt-3">
+          <!-- Form content -->
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="saleDate">Sale Date</label>
+            <input type="date" class="form-control" id="saleDate" value="" />
+          </div>
+
+          <!-- Customer Dropdown -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="customerDropdown">Customer</label>
+            <select class="form-control" id="customerDropdown">
+              <option>--Select Customer--</option>
+            </select>
+          </div>
+
+          <!-- Employee Selection -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="employeeDropdown">Employee</label>
+            <select class="form-control" id="employeeDropdown">
+              <option>--Select Employee--</option>
+              <!-- Employee options added here -->
+            </select>
+          </div>
+
+          <!-- Form content -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="deliveryCharge">Delevery Charge</label>
+            <input
+              type="text"
+              class="form-control"
+              id="deliveryCharge"
+              value=""
+            />
+          </div>
+          <!-- Form content -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="extraCost">Utility / Extra Cost</label>
+            <input type="text" class="form-control" id="extraCost" value="" />
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="totalSale">Total Sale</label>
+            <input
+              type="text"
+              class="form-control"
+              id="totalSale"
+              value=""
+              disabled
+            />
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="saleDes">Description</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="saleDes"
+              value=""
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end align-items-center">
+          <button type="button" class="btn btn-info mt-2" id="addRowBtn">
+            Add
+          </button>
+        </div>
+
+        <!-- Product Entry Table -->
+        <div class="table-responsive">
+          <table class="table" id="saleEntryTable">
+            <thead class="">
+              <tr>
+                <th>Category</th>
+                <th>Product</th>
+                <th>Unit Price</th>
+                <th>Qty.</th>
+                <th>Unit</th>
+                <th>Gross Total</th>
+                <th>Discount Amount</th>
+                <th>Discount PCT(%)</th>
+                <th>VAT Amount</th>
+                <th>VAT PCT(%)</th>
+                <th>Net Total</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody class="">
+              <!-- Table rows will be added here dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Form Buttons -->
+        <div class="d-flex justify-content-end">
+        
+            <button type="button" onclick="sale()" class="btn btn-secondary m-1">Back</button>
+   
+          <button type="submit" class="btn btn-primary m-1">Save</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script></script>
+
+    <script src="/common.js"></script>
+    <script src="/components/sale/saleCreate.js"></script>
+    <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

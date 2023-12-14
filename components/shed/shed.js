@@ -1,4 +1,4 @@
-function get_supplier() {}
+function  get_shed() {
 
     const IP = "https://localhost:7105";
     const companyId = localStorage.getItem("companyId");
@@ -277,7 +277,7 @@ function get_supplier() {}
           });
     });
     
-
+  }
     
     
     

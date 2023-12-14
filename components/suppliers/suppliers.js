@@ -46,7 +46,7 @@ function get_supplier() {
     
     loadTable();
     function loadTable() {
-      fetch(`${IP}/api/Suppliers`)
+      fetch(`${IP}/api/Suppliers/GetSupplier?CompanyId=${companyId}`)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -206,7 +206,7 @@ function get_supplier() {
     
     //   console.log("obj of UOM update", obj);
     
-      fetch(`${IP}/api/Suppliers/UpdateSupplier/${supplierId}`, {
+      fetch(`${IP}/api/Suppliers/UpdateSupplier`, {
           method: "PUT",
           body: JSON.stringify(obj),
           headers: { "Content-Type": "application/json" },

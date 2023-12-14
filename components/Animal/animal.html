@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
   </head>
   <body>
-    <div class="container mt-2"><h2>Animal shudhu insert hoiche.. same as employee image problem</h2></div>
+    <div class="container mt-2"><h2>Animal</h2></div>
     <section>
       <div class="container mt-5">
         <!-- top of table -->
@@ -104,13 +104,9 @@
         </div>
 
         <!-- table -->
-        <table class="table border">
+        <!-- <table class="table border">
           <thead class="header-table">
             <tr class="text-center">
-              <!-- <th scope="col">
-                <input type="checkbox" id="" name="" value="" />
-              </th> -->
-             
               <th scope="col">Animal Name</th>
               <th scope="col">Animal Tag</th>
               <th scope="col">Product</th>
@@ -127,9 +123,7 @@
           </thead>
           <tbody class="animalTable">
             <tr class="text-center">
-              <!-- <td scope="row">
-                <input type="checkbox" id="" name="" value="" />
-              </td> -->
+            
               <td>Mark</td>
               <td>Otto</td>
               <td>@mdo</td>
@@ -157,7 +151,13 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
+
+        
+
+
+
+
 
         <!-- <div class="d-flex justify-content-end align-content-center">
           <button class="custom-btn bg-danger">
@@ -176,13 +176,38 @@
             <span>Delete</span>
           </button>
         </div> -->
+
+        <!-- card of Annimals -->
+
+
+        <div class="container mt-1">
+          <div class="row  cardContain">
+            <!-- Card 1 -->
+            <!-- <div class="card m-3" style="width: 18rem; ">
+              <img class="h-75 " src="/utility/image/profile.jpg" alt="">
+                <title>Placeholder</title>
+              <div class="card-body">
+                <h5 class="card-title"> Animal Name : <span>Sindhe</span></h5>
+                <p class="card-text">Tag No: <span>AN-23-12-0027</span></p>
+                <p class="card-text">Product: <span>Cow</span></p>
+                <p class="card-text">Shed Name: <span>shihab Calf-Shed</span></p>
+                <p class="card-text">Weight: <span>525</span></p>
+                <p class="card-text">Gender Type: <span>Female</span></p>
+                <div class="d-flex flex-column ">
+                  <a href="#" class="btn btn-primary mb-1">Edit</a>
+                  <a href="#" class="btn btn-secondary">Details</a>
+                </div>
+              </div>
+            </div> -->
+        </div>
+
       </div>
 
       <!-- modal -->
 
       <!-- for create modal -->
       <div
-        class="modal fade  modal-lg"
+        class="modal fade modal-lg"
         id="createModal"
         tabindex="-1"
         aria-labelledby="createModal"
@@ -203,97 +228,110 @@
               <form id="insertAnimal">
                 <div class="row">
                   <div class="col-md-6 mb-3">
-                  <label for="animalId" class="form-label">Animal Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="animalId"
-                    aria-describedby="emailHelp"
-                  />
+                    <label for="animalId" class="form-label">Animal Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="animalId"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+
+                  <div class="productType col-md-6 mb-3">
+                    <label for="productTypeDropdown" class="fw-bold"
+                      >Animal Type</label
+                    ><br />
+                    <select
+                      name="productType"
+                      id="productTypeDropdown"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+
+                  <div class="milkType col-md-6 mb-3">
+                    <label for="milkTypeDropdown" class="fw-bold"
+                      >Milk Type</label
+                    ><br />
+                    <select
+                      name="milkType"
+                      id="milkTypeDropdown"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+
+                  <div class="gendertype col-md-6 mb-3">
+                    <label for="genderTypeDropdown" class="fw-bold"
+                      >Gender Type</label
+                    ><br />
+                    <select
+                      name="gendertype"
+                      id="genderTypeDropdown"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+
+                  <div class="shedType col-md-6 mb-3">
+                    <label for="shedTypeDropdown" class="fw-bold"
+                      >Shed Name</label
+                    ><br />
+                    <select
+                      name="gendertype"
+                      id="shedTypeDropdown"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="animalDob" class="form-label">DOB</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="animalDob"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="animalWeight" class="form-label">weight</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="animalWeight"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="animalImg" class="form-label"
+                      >Animal Image</label
+                    >
+                    <input
+                      type="file"
+                      id="animalImg"
+                      name="filename"
+                      class=""
+                    />
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="IsDead" class="form-label">IsDead</label>
+                    <input type="checkbox" id="IsDead" />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="IsSold" class="form-label">IsSold</label>
+                    <input type="checkbox" id="IsSold" />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="isVaccinated" class="form-label"
+                      >isVaccinated</label
+                    >
+                    <input type="checkbox" id="isVaccinated" />
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="animalStatus" class="form-label">Status</label>
+                    <input type="checkbox" id="animalStatus" />
+                  </div>
                 </div>
-               
-                <div class="productType col-md-6 mb-3">
-                  <label for="productTypeDropdown" class="fw-bold"
-                    >Animal Type</label
-                  ><br />
-                  <select
-                    name="productType"
-                    id="productTypeDropdown"
-                    class="w-100 p-1"
-                  ></select>
-                </div>
-
-
-                
-                <div class="milkType col-md-6 mb-3">
-                  <label for="milkTypeDropdown" class="fw-bold"
-                    >Milk Type</label
-                  ><br />
-                  <select
-                    name="milkType"
-                    id="milkTypeDropdown"
-                    class="w-100 p-1"
-                  ></select>
-                </div>
-
-
-                <div class="gendertype col-md-6 mb-3">
-                  <label for="genderTypeDropdown" class="fw-bold"
-                    >Gender Type</label
-                  ><br />
-                  <select
-                    name="gendertype"
-                    id="genderTypeDropdown"
-                    class="w-100 p-1"
-                  ></select>
-                </div>
-
-
-                <div class="col-md-6 mb-3">
-                  <label for="animalDob" class="form-label">DOB</label>
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="animalDob"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="animalWeight" class="form-label">weight</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="animalWeight"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="animalImg" class="form-label">Animal Image</label>
-                  <input type="file" id="animalImg" name="filename" class="">
-                </div>
-
-
-                <div class="col-md-6 mb-3">
-                  <label for="IsDead" class="form-label">IsDead</label>
-                  <input type="checkbox" id="IsDead" />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="IsSold" class="form-label">IsSold</label>
-                  <input type="checkbox" id="IsSold" />
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="isVaccinated" class="form-label">isVaccinated</label>
-                  <input type="checkbox" id="isVaccinated" />
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="animalStatus" class="form-label">Status</label>
-                  <input type="checkbox" id="animalStatus" />
-                </div>
-
-              </div>
-
 
                 <div class="d-flex justify-content-end">
                   <button
@@ -325,7 +363,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Update Shed</h5>
+              <h5 class="modal-title">Update Animal</h5>
               <button
                 type="button"
                 class="btn-close"
@@ -334,83 +372,135 @@
               ></button>
             </div>
             <div class="modal-body">
+          
               <form id="updated-formID">
-                <div class="mb-3">
-                  <label for="productUpdateName" class="form-label"
-                    >Product Name</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="productUpdateName"
-                    aria-describedby="emailHelp"
-                  />
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="animalIdUpdate" class="form-label">Animal Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="animalIdUpdate"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+
+                  <div class="productType col-md-6 mb-3">
+                    <label for="productTypeDropdownUpdate" class="fw-bold"
+                      >Animal Type</label
+                    ><br />
+                    <select
+                      name="productType"
+                      id="productTypeDropdownUpdate"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+
+                  <div class="milkType col-md-6 mb-3">
+                    <label for="milkTypeDropdownUpdate" class="fw-bold"
+                      >Milk Type</label
+                    ><br />
+                    <select
+                      name="milkType"
+                      id="milkTypeDropdownUpdate"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+
+                  <div class="gendertype col-md-6 mb-3">
+                    <label for="genderTypeDropdownUpdate" class="fw-bold"
+                      >Gender Type</label
+                    ><br />
+                    <select
+                      name="gendertype"
+                      id="genderTypeDropdownUpdate"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+
+                  <div class="gendertype col-md-6 mb-3">
+                    <label for="shedTypeDropdownUpdate" class="fw-bold"
+                      >Shed Type</label
+                    ><br />
+                    <select
+                      name="gendertype"
+                      id="shedTypeDropdownUpdate"
+                      class="w-100 p-1"
+                    ></select>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="animalDobUpdate" class="form-label">DOB</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="animalDobUpdate"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="animalWeightUpdate" class="form-label">weight</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="animalWeightUpdate"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+
+                  <!-- <div class="col-md-6 mb-3">
+                    <label for="animalImgUpdate" class="form-label"
+                      >Animal Image</label
+                    >
+                    <input
+                      type="file"
+                      id="animalImgUpdate"
+                      name="filename"
+                      class=""
+                    />
+                  </div> -->
+
+                  <div class="col-md-6 mb-3">
+                    <label for="animalImgUpdate" class="form-label">Animal Image</label>
+                    <img id="currentAnimalImage" src="" alt="Current Animal Image" style="width:100%; max-height:200px; object-fit:contain; display:none;" />
+                    <input type="file" id="animalImgUpdate" name="filename" class="" />
+                    <input type="hidden" id="existingAnimalImage" name="existingImage" value="" />
+                  </div>
+                  
+                  
+
+
+
+                  <div class="col-md-6 mb-3">
+                    <label for="IsDeadUpdated" class="form-label">IsDead</label>
+                    <input type="checkbox" id="IsDeadUpdated" />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="IsSoldUpdated" class="form-label">IsSold</label>
+                    <input type="checkbox" id="IsSoldUpdated" />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="isVaccinatedUpdated" class="form-label"
+                      >isVaccinated</label
+                    >
+                    <input type="checkbox" id="isVaccinatedUpdated" />
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="animalStatusUpdated" class="form-label">Status</label>
+                    <input type="checkbox" id="animalStatusUpdated" />
+                  </div>
                 </div>
-
-                <div class="mb-3">
-                  <label for="productUpdateDescription" class="form-label">
-                    Description</label
-                  >
-                  <textarea
-                    class="form-control"
-                    id="productUpdateDescription"
-                    rows="3"
-                  ></textarea>
-                </div>
-
-                <div class="mb-3">
-                  <label for="productUpdatePrice" class="form-label"
-                    >Price</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="productUpdatePrice"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
-
-              
-
-                <!-- category dropdown -->
-
-                <div class="category">
-                  <label for="productUpdatedCategoryDropdown" class="fw-bold"
-                    >Category</label
-                  ><br />
-                  <select
-                    name="productId"
-                    id="productUpdatedCategoryDropdown"
-                    class="w-100 p-1"
-                  ></select>
-                </div>
-
-                <!-- unit dropdown -->
-                <div class="unit">
-                  <label for="unitUpdatedDropdown" class="fw-bold">Unit</label
-                  ><br />
-                  <select
-                    name="productId"
-                    id="unitUpdatedDropdown"
-                    class="w-100 p-1"
-                  ></select>
-                </div>
-
-                <div class="mb-3">
-                  <label for="productUpdatedStatus" class="form-label">Status</label>
-                  <input type="checkbox" id="productUpdatedStatus" />
-                </div>
-
-
 
                 <div class="d-flex justify-content-end">
                   <button
                     type="submit"
+                    id="updateAnimal"
                     data-bs-dismiss="modal"
-                    id="updateBtn"
                     class="custom-btn"
                   >
-                    Update
+                    Save
                   </button>
                 </div>
               </form>
@@ -422,14 +512,182 @@
           </div>
         </div>
       </div>
+      <!-- for details modal -->
+      <div
+      class="modal fade"
+      id="detailsModal"
+      tabindex="-1"
+      aria-labelledby="detailsModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Details Animal</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+        
+            <form id="updated-formID">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="animalIdDetails" class="form-label">Animal Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="animalIdDetails"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+
+                <div class="productType col-md-6 mb-3">
+                  <label for="productTypeDropdownDetails" class="fw-bold"
+                    >Animal Type</label
+                  ><br />
+                  <select
+                    name="productType"
+                    id="productTypeDropdownDetails"
+                    class="w-100 p-1"
+                  ></select>
+                </div>
+
+                <div class="milkType col-md-6 mb-3">
+                  <label for="milkTypeDropdownDetails" class="fw-bold"
+                    >Milk Type</label
+                  ><br />
+                  <select
+                    name="milkType"
+                    id="milkTypeDropdownDetails"
+                    class="w-100 p-1"
+                  ></select>
+                </div>
+
+                <div class="gendertype col-md-6 mb-3">
+                  <label for="genderTypeDropdownDetails" class="fw-bold"
+                    >Gender Type</label
+                  ><br />
+                  <select
+                    name="gendertype"
+                    id="genderTypeDropdownDetails"
+                    class="w-100 p-1"
+                  ></select>
+                </div>
+
+                <div class="gendertype col-md-6 mb-3">
+                  <label for="shedTypeDropdownDetails" class="fw-bold"
+                    >Shed Type</label
+                  ><br />
+                  <select
+                    name="gendertype"
+                    id="shedTypeDropdownDetails"
+                    class="w-100 p-1"
+                  ></select>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="animalDobDetails" class="form-label">DOB</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="animalDobDetails"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="animalWeightDetails" class="form-label">weight</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="animalWeightDetails"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+
+                
+                <div class="col-md-6 mb-3">
+                  <label for="IsDeadDetails" class="form-label">IsDead</label>
+                  <input type="checkbox" id="IsDeadDetails" />
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                  <label for="qrCodeDetails" class="form-label">QR Code</label>
+                  <img id="qrCodeDetails" src="" alt="QR Code Image" style="width:100%; max-height:200px; object-fit:contain; display:none;" />
+              </div>
+
+                <!-- <div class="col-md-6 mb-3">
+                  <label for="animalImgUpdate" class="form-label"
+                    >Animal Image</label
+                  >
+                  <input
+                    type="file"
+                    id="animalImgUpdate"
+                    name="filename"
+                    class=""
+                  />
+                </div> -->
+
+                <div class="col-md-6 mb-3">
+                  <label for="animalImgDetails" class="form-label">Animal Image</label>
+                  <img id="currentAnimalImageDetails" src="" alt="Current Animal Image" style="width:100%; max-height:200px; object-fit:contain; display:none;" />
+            
+                </div>
+                
+
+              
+                
+                
+
+
+
+                <div class="col-md-6 mb-3">
+                  <label for="IsSoldDetails" class="form-label">IsSold</label>
+                  <input type="checkbox" id="IsSoldDetails" />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="isVaccinatedDetails" class="form-label"
+                    >isVaccinated</label
+                  >
+                  <input type="checkbox" id="isVaccinatedDetails" />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="animalStatusDetails" class="form-label">Status</label>
+                  <input type="checkbox" id="animalStatusDetails" />
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-end">
+                <button
+                  type="submit"
+                  id="updateAnimal"
+                  data-bs-dismiss="modal"
+                  class="custom-btn"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+          <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+        </div>
+      </div>
+    </div>
     </section>
 
     <!-- <script src="/bootstrap-5.3.2-dist/js/bootstrap.js"></script> -->
-   
+
     <script src="/common.js"></script>
     <script src="/components/Animal/animal.js"></script>
 
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
-
   </body>
 </html>

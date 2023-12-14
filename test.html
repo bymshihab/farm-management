@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feeding Entry Form</title>
+    <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css" />
+    <style>
+        .scrollable-table {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .form-container {
+            border: 1px solid #dee2e6; /* Bootstrap default border color */
+            border-radius: 0.25rem; /* Bootstrap default border radius */
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Bootstrap default shadow */
+            padding: 1rem;
+            background-color: white; /* Optional: for better contrast */
+        }
+        .table-container {
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            padding: 1rem;
+            margin-top: 1rem;
+            background-color: white; /* Optional: for better contrast */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="bg-success text-white text-center py-2">
+            <h2>Feeding Entry</h2>
+        </div>
+
+        <div class="form-container">
+            <form id="grainFeedEntryForm">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label for="feedingDate" class="form-label">Feeding Date</label>
+                        <input type="date" class="form-control" id="feedingDate" />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="employeeDropdown" class="form-label">Employee</label>
+                        <select class="form-select" id="employeeDropdown">
+                            <option selected>--Select Employee--</option>
+                            <!-- Employee options here -->
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="animalDropdownFeed" class="form-label">Animal</label>
+                        <select class="form-select" id="animalDropdownFeed">
+                            <option selected>--Select Animal--</option>
+                            <!-- Animal options here -->
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="feedtotalQty" class="form-label">Total Quantity</label>
+                        <input type="text" class="form-control" id="feedtotalQty" disabled />
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-end">
+                        <button type="button" class="btn btn-info" id="addRowBtn">Add Row</button>
+                    </div>
+                </div>
+
+                <div class="table-container scrollable-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Feed</th>
+                                <th>Price</th>
+                                <th>Qty</th>
+                                <th>Unit</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><select class="form-control ingredientDropdown"><option value="">--Select--</option></select></td>
+                                <td><input type="number" class="form-control feedunitPrice"></td>
+                                <td><input type="number" class="form-control feedquantity"></td>
+                                <td><select class="form-control unitDropdown"><option value="">--Select Unit--</option></select></td>
+                                <td><input type="number" class="form-control feedtotalPriceRow" disabled></td>
+                                <td><button type="button" class="btn btn-danger removeRowBtn">Remove</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="d-flex justify-content-end mt-3">
+                    <a href="/components/feedings/feedings.html" class="btn btn-secondary m-1">Back</a>
+                    <button type="submit" class="btn btn-primary m-1">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom scripts here -->
+</body>
+</

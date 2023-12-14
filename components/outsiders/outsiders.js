@@ -1,4 +1,4 @@
-
+function  get_outsider(){
 
     const IP = "https://localhost:7105";
     const companyId = localStorage.getItem("companyId");
@@ -231,7 +231,7 @@
           });
     });
     
-  
+}
 
     
     

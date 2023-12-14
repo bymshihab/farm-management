@@ -6,26 +6,24 @@ function shed_Type() {
 
   shedTypeForm.addEventListener("submit", function (event) {
     event.preventDefault();
-
+  
     const shedTypeName = document.getElementById("shedTypeId").value;
     const shedTypeDes = document.getElementById("shedTypeDescription").value;
     const shedTypeStatus = document.getElementById("shedTypeStatus").checked;
-
+  
     const obj = {
       shedTypeName: shedTypeName,
       shedTypeDescription: shedTypeDes,
       status: shedTypeStatus,
       companyId: parseInt(companyId, 10)
     };
-
+  
     console.log(obj, "object...");
-
+  
     fetch(`${IP}/api/ShedType/CreateShedType`, {
       method: "POST",
-      // body: objArray,
       body: JSON.stringify(obj),
-      // body: obj,
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" }, // Set the Content-Type header
     })
       .then((response) => response.json())
       .then((data) => {
@@ -36,9 +34,10 @@ function shed_Type() {
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
-        alert("create Customfield failed."); // Display an error message
+        alert("Create ShedType failed."); // Display an error message
       });
   });
+  
 
   loadTable();
   function loadTable() {
@@ -176,7 +175,7 @@ function shed_Type() {
       .getElementById("updated-formID")
       .getAttribute("data-uom-id");
 
-    let shedTypeEditName = document.getElementById("shedTypeId").value;
+    let shedTypeEditName = document.getElementById("shedTypeEditId").value;
     let shedTypeEditDes = document.getElementById("shedTypeEditDescription").value;
     let shedTypeEditStatus = document.getElementById("shedTypeEditStatusId").checked;
     // let uomUpdateId = rowData.uomId;
@@ -191,7 +190,7 @@ function shed_Type() {
 
     console.log("obj of UOM update", obj);
 
-    fetch(`${IP}/api/ShedType/UpdateShedType/${shedTypeId}`, {
+    fetch(`${IP}/api/ShedType/UpdateShedType`, {
       method: "PUT",
       body: JSON.stringify(obj),
       headers: { "Content-Type": "application/json" },

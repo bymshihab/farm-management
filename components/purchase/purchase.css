@@ -1,8 +1,28 @@
-/* .detail-row {
-    display: none;
-    background-color: #e7e7e7;
+.scrollable-table {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  display: block; /* May help with horizontal scrolling */
+}
+.form-container {
+  border: 1px solid #dee2e6; /* Bootstrap default border color */
+  border-radius: 0.25rem; /* Bootstrap default border radius */
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Bootstrap default shadow */
+  padding: 1rem;
+  background-color: white; /* Optional: for better contrast */
+}
+.table-container {
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  margin-top: 1rem;
+  background-color: white; /* Optional: for better contrast */
+  overflow-x: auto; /* Enables horizontal scrolling */
 }
 
-.detail-row.active {
-    display: table-row;
-} */
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+}

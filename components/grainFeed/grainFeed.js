@@ -1,14 +1,14 @@
-function getPurchase() {
+function getgrainFeed() {
   const IP = "https://localhost:7105";
   const companyId = localStorage.getItem("companyId");
 
   loadTable();
   function loadTable() {
-    fetch(`${IP}/api/Purchase/GetPurchaseData?CompanyId=${companyId}`)
+    fetch(`${IP}/api/GrainFeedMaster/GetFeedingData?CompanyId=${companyId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data, "comming...");
-        const tablebody = document.querySelector(".purchaseTable");
+        const tablebody = document.querySelector(".grainFeedTable");
         tablebody.innerHTML = "";
 
         for (let i = 0; i < data.length; i++) {
@@ -16,21 +16,29 @@ function getPurchase() {
           newRow.classList.add("text-center");
 
           let cell1 = document.createElement("td");
-          cell1.textContent = data[i].purchaseCode;
+          cell1.textContent = data[i].grainCode;
 
           let cell2 = document.createElement("td");
-          cell2.textContent = data[i].purchaseDate;
+          cell2.textContent = data[i].makingDate;
 
           let cell3 = document.createElement("td");
 
-          cell3.textContent = data[i].supplierName;
+          cell3.textContent = data[i].productName;
 
           let cell4 = document.createElement("td");
 
-          cell4.textContent = data[i].purchaseDescription;
+          cell4.textContent = data[i].animalName;
+
+          let cell5 = document.createElement("td");
+
+          cell5.textContent = data[i].totalQty;
+
+          let cell6 = document.createElement("td");
+
+          cell6.textContent = data[i].totalPrice;
 
           let cell7 = document.createElement("td");
-          cell7.setAttribute("id", data[i].purchaseId);
+          cell7.setAttribute("id", data[i].grainMasterId);
 
           // Create and append the SVG to the button
           let svg = document.createElementNS(
@@ -132,27 +140,33 @@ function getPurchase() {
           cell7.appendChild(deleteButton);
 
           editButton.addEventListener("click", function () {
-            const pIdEdit = data[i].purchaseId;
-            localStorage.setItem("pIdEdit", pIdEdit);
-            window.location.href = `/components/purchase/purchaseEdit.html`;
+            const grainIdEdit = data[i].grainMasterId;
+            localStorage.setItem("grainIdEdit", grainIdEdit);
+            // window.location.href = `/components/grainFeed/grainFeedEdit.html?grainIdEdit=${grainIdEdit}`;
+            grainFeedEdit(grainIdEdit);
           });
 
           detailButton.addEventListener("click", function () {
-            const pIdDetail = data[i].purchaseId;
-            window.location.href = `/components/purchase/purchaseDetail.html?pIdDetail=${pIdDetail}`;
+            const grainIdDetail = data[i].grainMasterId;
+            localStorage.setItem("grainIdDetail", grainIdDetail);
+            // window.location.href = `/components/grainFeed/grainFeedDetail.html?grainIdDetail=${grainIdDetail}`;
+
+            grainFeedDetail(grainIdDetail);
+
+
           });
           deleteButton.addEventListener("click", function () {
-            const pIdDelete = data[i].purchaseId;
-            console.log(pIdDelete, "delete");
+            const grainIdDelete = data[i].grainMasterId;
+            console.log(grainIdDelete, "delete");
 
             // Send a DELETE request to your API to delete the purchase
-            fetch(`https://localhost:7105/api/Purchase/${pIdDelete}`, {
+            fetch(`https://localhost:7105/api/GrainFeedMaster/${grainIdDelete}`, {
               method: "DELETE",
             })
               .then((response) => {
                 if (response.ok) {
                   // The purchase was successfully deleted, you can update the UI as needed
-                  alert("Purchase deleted successfully");
+                  alert("grain feed deleted successfully");
                   // You might want to remove the row from the table as well
                   // For example: this.closest("tr").remove();
                   loadTable();
@@ -172,6 +186,8 @@ function getPurchase() {
           newRow.appendChild(cell2);
           newRow.appendChild(cell3);
           newRow.appendChild(cell4);
+          newRow.appendChild(cell5);
+          newRow.appendChild(cell6);
           newRow.appendChild(cell7);
 
           console.log(newRow, "row data");
@@ -181,4 +197,5 @@ function getPurchase() {
       })
       .catch((error) => console.log("Error Message", error));
   }
+
 }
