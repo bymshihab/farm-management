@@ -79,10 +79,13 @@ function loadTable() {
         }" alt="Image of ${fullName.trim()}">
     <div class="card-body">
       <h5 class="card-title">Name: <span>${fullName.trim()}</span></h5>
-      <p class="card-text">Employee Code: <span>${
+      <p class="card-text"><span class="fw-bolder">Employee Code: </span> <span>${
         employee.EmployeeCode
       }</span></p>
-      <p class="card-text">Job Title: <span>${employee.JobTitle}</span></p>
+      <p class="card-text mb-2"><span class="fw-bolder">Job Title: </span></p>
+      <p class="card-text"><span>${employee.JobTitle}</span></p>
+      
+      
  
       <div class="d-flex flex-column "></div>
     </div>

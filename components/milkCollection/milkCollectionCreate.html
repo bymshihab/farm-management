@@ -17,13 +17,13 @@
   <body>
     <div class="container mt-5">
       <div
-        class="header-section bg-success text-white d-flex align-items-center justify-content-center"
-      >
-        <h2>Milk Collection ENTRY</h2>
+      class="header-section  bg-success-subtle  rounded-1 text-black-50 d-flex align-items-center justify-content-center"
+    >
+        <h2>Milk Collection Entry</h2>
       </div>
 
       <!-- Add Row Button -->
-
+      <div class="form-container">
       <!-- Purchase Entry Form -->
       <form id="milkCollectionForm">
         <div class="row g-2 mt-3">
@@ -65,8 +65,8 @@
         </div>
 
         <!-- Product Entry Table -->
-        <div class="table-responsive">
-          <table class="table" id="milkCollectionEntryTable">
+        <div class="table-container scrollable-table">
+          <table class="table text-center" id="milkCollectionEntryTable">
             <thead class="">
               <tr>
                 <th>Animal</th>
@@ -83,12 +83,13 @@
 
         <!-- Form Buttons -->
         <div class="d-flex justify-content-end">
-          <a href="/components/milkCollection/milkCollection.html">
-            <button type="button" class="btn btn-secondary m-1">Back</button>
-          </a>
+        
+            <button type="button" onclick="milkCollection()" class="btn btn-secondary m-1">Back</button>
+ 
           <button type="submit" class="btn btn-primary m-1">Save</button>
         </div>
       </form>
+      </div>
     </div>
 
     <!-- Include jQuery and Bootstrap JS -->

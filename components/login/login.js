@@ -39,52 +39,37 @@ function toCreateCompanyName(){
 
 
 
-
-const form = document.getElementById("loginForm")
+const form = document.getElementById("loginForm");
+const errorDiv = document.getElementById("loginError");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
- 
+
   const formData = new FormData(form);
-
-
-  for (let [key, value] of formData.entries()) {
-    console.log(`${key}: ${value}`);
-  }
 
   fetch(`https://localhost:7105/api/UserLogin/login`, {
     method: "POST",
     body: formData,
   })
     .then((response) => {
-      console.log(response);
-      // window.location.href = "/Components/home/home.html";
       if (!response.ok) {
-        // If the login was not successful, throw an error with the status
-
-        throw new Error(
-          `Login was not successful: Status code ${response.status}`
-        );
+        throw new Error(`Login was not successful: Status code ${response.status}`);
       }
       return response.json(); // Parse JSON response
     })
     .then((data) => {
-      console.log(data, "data message!");
+      localStorage.setItem("companyId", data.companyId);
 
-      localStorage.setItem("companyId", data.companyId)
-
-      // Check the structure of 'data' to match your actual API response
       if (data.a) {
         window.location.href = "/components/home/home.html";
       } else if (data && data.error) {
-        // 'error' is just an example, replace with your API's actual property name
-        // alert("Login failed: " + data.error);
+        errorDiv.style.display = "block"; // Show error message
       } else {
-        //  alert("Login failed: Unknown error occurred.");
+        errorDiv.style.display = "block"; // Show error message for unexpected cases
       }
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
-      //alert("Login failed: " + error.message); // Display an error message
+      errorDiv.style.display = "block"; // Show error message
     });
 });

@@ -52,17 +52,17 @@ function getUom() {
         for (let i = 0; i < data.length; i++) {
           let newRow = document.createElement("tr");
           newRow.classList.add("text-center");
-          let cell1 = document.createElement("td");
+          // let cell1 = document.createElement("td");
 
-          let checkbox = document.createElement("input");
-          checkbox.type = "checkbox";
-          checkbox.name = "uomCheckbox";
-          checkbox.value = data[i].uomId;
-          checkbox.id = "checkbox_" + data[i].uomId; // Create a unique ID for each checkbox
+          // let checkbox = document.createElement("input");
+          // checkbox.type = "checkbox";
+          // checkbox.name = "uomCheckbox";
+          // checkbox.value = data[i].uomId;
+          // checkbox.id = "checkbox_" + data[i].uomId; // Create a unique ID for each checkbox
 
-          // Append the checkbox to cell1
-          cell1.appendChild(checkbox);
-          cell1.setAttribute("id", data[i].uomId);
+          // // Append the checkbox to cell1
+          // cell1.appendChild(checkbox); 
+          // cell1.setAttribute("id", data[i].uomId);
 
           // cell1.textContent = data[i].resolutionName;
 
@@ -128,7 +128,7 @@ function getUom() {
           //     addDataToPopup(this, this.id);
           // });
 
-          newRow.appendChild(cell1);
+          // newRow.appendChild(cell1);
           newRow.appendChild(cell2);
           newRow.appendChild(cell3);
           newRow.appendChild(cell4);

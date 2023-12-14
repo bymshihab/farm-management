@@ -47,7 +47,7 @@ function  get_outsider(){
     
     loadTable();
     function loadTable() {
-      fetch(`${IP}/api/Outsider`)
+      fetch(`${IP}/api/Outsider?CompanyId=${companyId}`)
         .then((response) => response.json())
         .then((data) => {
           console.log(data, "comming...");
@@ -57,17 +57,17 @@ function  get_outsider(){
           for (let i = 0; i < data.length; i++) {
             let newRow = document.createElement("tr");
             newRow.classList.add("text-center");
-            let cell1 = document.createElement("td");
+            // let cell1 = document.createElement("td");
     
-            let checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            checkbox.name = "outsiderCheckbox";
-            checkbox.value = data[i].OutsiderId;
-            checkbox.id = "checkbox_" + data[i].OutsiderId; // Create a unique ID for each checkbox
+            // let checkbox = document.createElement("input");
+            // checkbox.type = "checkbox";
+            // checkbox.name = "outsiderCheckbox";
+            // checkbox.value = data[i].OutsiderId;
+            // checkbox.id = "checkbox_" + data[i].OutsiderId; // Create a unique ID for each checkbox
     
-            // Append the checkbox to cell1
-            cell1.appendChild(checkbox);
-            cell1.setAttribute("id", data[i].outsiderId);
+            // // Append the checkbox to cell1
+            // cell1.appendChild(checkbox);
+            // cell1.setAttribute("id", data[i].outsiderId);
     
             // cell1.textContent = data[i].resolutionName;
     
@@ -138,7 +138,7 @@ function  get_outsider(){
             //     addDataToPopup(this, this.id);
             // });
     
-            newRow.appendChild(cell1);
+            // newRow.appendChild(cell1);
             newRow.appendChild(cell2);
             newRow.appendChild(cell3);
             newRow.appendChild(cell4);

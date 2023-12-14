@@ -157,7 +157,7 @@ function get_animal() {
   loadTable();
   function loadTable() {
     fetch(
-      `https://localhost:7105/api/Animal/GetAllAnimalDetails?CompanyId=${1}`
+      `${IP}/api/Animal/GetAllAnimalDetails?CompanyId=${companyId}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -177,11 +177,9 @@ function get_animal() {
           <img class="h-75" src="${IP}/Images/Uploads/${animal.animalImage}" alt="Image of ${animal.animalName}">
           <div class="card-body">
             <h5 class="card-title"> Animal Name : <span>${animal.animalName}</span></h5>
-            <p class="card-text">Tag No: <span>${animal.animalTagNo}</span></p>
-            <p class="card-text">Product: <span>${animal.productName}</span></p>
-            <p class="card-text">Shed Name: <span>${animal.shedName}</span></p>
-            <p class="card-text">Weight: <span>${animal.weight}</span></p>
-            <p class="card-text">Gender Type: <span>${animal.genderType}</span></p>
+            <p class="card-text"> <span class="fw-bolder"> Tag No:</span> <span>${animal.animalTagNo}</span></p>
+            <p class="card-text">  <span class="fw-bolder">Product: </span> <span>${animal.productName}</span></p>
+           
             <div class="d-flex flex-column "></div>
           </div>
         `;
