@@ -51,12 +51,16 @@ productForm.addEventListener("submit", function (event) {
   const obj = {
     productName: productName,
     productDescription: productDescription,
-    price: productPrice,
     categoryId: productCategoryDropdown,
     uomId: priceUnitDropdown,
     status: productStatus,
     companyId: parseInt(companyId, 10),
   };
+  if(productPrice == ''){
+    obj.price = 0.00;
+  }else{
+    obj.price = productPrice;
+  }
 
 
 
