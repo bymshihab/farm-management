@@ -194,6 +194,7 @@ fetch('https://localhost:7105/api/Purchase', {
   
   body: formData
 })
+
 .then(response => response.json())
 .then(data => {
   console.log('Success:', data);
@@ -201,7 +202,9 @@ fetch('https://localhost:7105/api/Purchase', {
   window.location.reload(); 
 
 })
+
 .catch((error) => {
   console.error('Error:', error);
 });
+
 });
