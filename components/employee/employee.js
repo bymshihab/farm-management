@@ -44,6 +44,7 @@ employeeForm.addEventListener("submit", function (event) {
     .then((data) => {
       console.log(data);
       alert("Employee created successfully");
+      employeeForm.reset();
       loadTable();
       // You can add additional actions upon successful request here
     })
