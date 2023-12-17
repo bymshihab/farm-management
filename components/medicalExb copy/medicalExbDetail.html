@@ -10,20 +10,17 @@
 
     <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.css" />
 
-    <style>
-      /* Add custom CSS styles if needed */
-    </style>
   </head>
   <body>
     <div class="container mt-5">
       <div
       class="header-section  bg-success-subtle  rounded-1 text-black-50 d-flex align-items-center justify-content-center"
     >
-        <h2>Medical Edit </h2>
-        <!-- <p>problem ace [api] te header add kora ace.</p> -->
+        <h2>medical Exibution Details</h2>
       </div>
 
       <!-- Add Row Button -->
+
       <div class="form-container">
         <!-- Purchase Entry Form -->
         <form id="medExbEntryForm">
@@ -31,56 +28,44 @@
             <!-- Form content -->
 
             <div class="col-12 col-md-6 col-lg-4">
-              <label for=exbDateUpdate">Exibution Date</label>
-              <input type="date" class="form-control" id="exbDateUpdate" value="" />
+              <label for=exbDateDetails">Exibution Date</label>
+              <input type="date" class="form-control" id="exbDateDetails" value="" />
             </div>
 
             <!-- Customer Dropdown -->
             <div class="col-12 col-md-6 col-lg-4">
-              <label for="employeeDropdownMedUpdate">Employee</label>
-              <select class="form-control" id="employeeDropdownMedUpdate">
-                <option>--Select employee--</option>
-              </select>
+              <label for="employeeDropdownMedDetails">Employee</label>
+              <input class="form-control" id="employeeDropdownMedDetails" disabled>
            
             </input>
             </div>
 
             <!-- Employee Selection -->
             <div class="col-12 col-md-6 col-lg-4">
-              <label for="animalDropdownMedUpdate">Animal </label>
-              <select class="form-control" id="animalDropdownMedUpdate">
-                <option>--Select employee--</option>
-              </select>
+              <label for="animalDropdownMedDetails">Animal </label>
+              <input class="form-control" id="animalDropdownMedDetails" disabled>
            
             </input>
             </div>
 
             <!-- Outsider Selection -->
             <div class="col-12 col-md-6 col-lg-4">
-              <label for="outsiderDropdownMedUpdate">Outsider </label>
+              <label for="outsiderDropdownMedDetails">Outsider </label>
        
-              <select class="form-control" id="outsiderDropdownMedUpdate">
-                <option>--Select employee--</option>
-              </select>
+              <input class="form-control" id="outsiderDropdownMedDetails" disabled>
            
             </input>
             </div>
 
             
-            <div class="col-12 col-md-6 col-lg-4">
-              <label for=exbCodeUpdate">Medical Exibution Code</label>
-              <input type="text" class="form-control" id="exbCodeUpdate" value="" />
-            </div>
-
-            
             <div class="col-md-6 mb-3">
-              <label for="IsNewMedUpdate" class="form-label">IsNew</label>
-              <input type="checkbox" id="IsNewMedUpdate" />
+              <label for="IsNewMedDetails" class="form-label">IsNew</label>
+              <input type="checkbox" id="IsNewMedDetails" />
             </div>
 
             <div class="col-md-6 mb-3">
-              <label for="IsSickMedUpdate" class="form-label">IsSick</label>
-              <input type="checkbox" id="IsSickMedUpdate" />
+              <label for="IsSickMedDetails" class="form-label">IsSick</label>
+              <input type="checkbox" id="IsSickMedDetails" />
             </div>
 
             <div class="row">
@@ -94,7 +79,7 @@
     
                 <!-- Product Entry Table -->
                 <div class="table-container scrollable-table">
-                  <table class="table text-center" id="medicineEntryTableUpdate">
+                  <table class="table text-center" id="medicineEntryTableDetails">
                     <thead class="">
                       <tr>
                         <th>
@@ -104,7 +89,7 @@
                         <th>Day</th>
                         <th>Time.	</th>
                         <th>Qty.</th>
-                       
+                        <th>Action</th>
                     
                     
                       </tr>
@@ -125,14 +110,14 @@
                 </div>
           
               <div class="table-container scrollable-table">
-                <table class="table text-center" id="quarentainEntryTableUpdate">
+                <table class="table text-center" id="quarentainEntryTableDetails">
                   <thead class="">
                     <tr>
                       <th>
                         Shed	</th>
                       <th>Start Date</th>
                       <th>End Date</th>
-                    
+                      <th>Action</th>
                   
                   
                     </tr>
@@ -148,22 +133,27 @@
         
           <!-- Form Buttons -->
           <div class="d-flex justify-content-end">
-           
-              <button type="button" onclick="medicalExb()" class="btn btn-secondary m-1">Back</button>
-           
-            <button type="submit" id="updateBtn" class="btn btn-primary m-1">Save</button>
+            <a href="/components/medicalExb/medicalExb.html">
+              <button type="button" class="btn btn-secondary m-1">Back</button>
+            </a>
+            <button type="submit" class="btn btn-primary m-1">Save</button>
           </div>
         </form>
     </div>
     </div>
 
     <!-- Include jQuery and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script></script>
+    <script> -->
+     
+      
+    
+    </script>
 
     <script src="/common.js"></script>
-    <script src="/components/medicalExb/medicalExbEdit.js"></script>
+    <!-- <script src="/components/purchase/purchaseCreate.js"></script> -->
+    <script src="/components/medicalExb/medicalExbDetail.js"></script>
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

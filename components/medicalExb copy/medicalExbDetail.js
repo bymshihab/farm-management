@@ -1,14 +1,13 @@
-function medicalExb_detail(medicalIdDetail){
 const IP = "https://localhost:7105";
 // const urlParams = new URLSearchParams(window.location.search);
-const medicalIdDetails = localStorage.getItem('medicalIdDetail');
+const medicalIdDetail = localStorage.getItem('medicalIdDetail');
 
 console.log(medicalIdDetail, "id...");
 
 
 loadTable();
 function loadTable() {
-  fetch(`${IP}/api/MedicalExhibition/${medicalIdDetails}`)
+  fetch(`${IP}/api/MedicalExhibition/${medicalIdDetail}`)
     .then(response => response.json())
     .then(data => {
       console.log("comming........", data);
@@ -58,6 +57,5 @@ function loadTable() {
     .catch(error => console.log("Error Message", error));
 }
 
-}
 
   

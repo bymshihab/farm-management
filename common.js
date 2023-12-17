@@ -67,12 +67,15 @@ function creatingDropdownClass(dropdownElement, apiUrl, valueProp, textProp) {
 
 // in dropdown selected option is selected
 function setSelectedOption(dropdownElement, valueToMatch) {
+  valueToMatch = valueToMatch.trim(); // Trim the value to match
+
   for (let i = 0; i < dropdownElement.options.length; i++) {
-    if (dropdownElement.options[i].text === valueToMatch) {
+    if (dropdownElement.options[i].text.trim() === valueToMatch) { // Also trim the option text
       dropdownElement.selectedIndex = i;
-      return; // when match is found exit
+      return; // when match is found, exit
     }
   }
 }
+
 
 console.log("okay");

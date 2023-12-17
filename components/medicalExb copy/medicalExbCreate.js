@@ -1,5 +1,3 @@
-function  medicalExb_create(){
-
 const IP = "https://localhost:7105";
 const companyId = parseInt(localStorage.getItem("companyId"), 10);
 
@@ -233,5 +231,3 @@ medExbForm.addEventListener("submit", function (e) {
       console.error("Error:", error);
     });
 });
-
-}

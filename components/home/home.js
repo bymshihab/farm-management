@@ -78,11 +78,6 @@ window.onclick = function(event) {
 
 
 
-
-
-
-
-
 // To getting UOM
  function getUOM(){
     const Container = document.getElementById("mainContent");
@@ -698,8 +693,80 @@ function feedingCreate(){
           console.error("Error loading the navbar:", error);
         });
     }
+
+
+  // medical Exhbution...........
+
   
+  function medicalExb(){
+  const Container = document.getElementById("mainContent");
+
+  fetch("/components/medicalExb/medicalExb.html")
+    .then((response) => response.text())
+    .then((data) => {
+      Container.innerHTML = data;
+      console.log("html fetch ");
+      getMedicalExb();
+    })
+    .catch((error) => {
+      console.error("Error loading the navbar:", error);
+    });
+}
+
+
+// To creating medicalExhb create
+
+function medicalExbCreate(){
+  const Container = document.getElementById("mainContent");
+
+  fetch("/components/medicalExb/medicalExbCreate.html")
+    .then((response) => response.text())
+    .then((data) => {
+      Container.innerHTML = data;
+      console.log("html fetch ");
+      medicalExb_create();
+    })
+    .catch((error) => {
+      console.error("Error loading the navbar:", error);
+    });
+}
+
+
+   //To geting medicalExhb details page
+   function medicalExbDetail(medicalIdDetail){
+    const Container = document.getElementById("mainContent");
+
+    fetch("/components/medicalExb/medicalExbDetail.html")
+      .then((response) => response.text())
+      .then((data) => {
+        Container.innerHTML = data;
+        console.log("html fetch ");
+        medicalExb_detail(medicalIdDetail);
+      })
+      .catch((error) => {
+        console.error("Error loading the navbar:", error);
+      });
+  }
+
+
+     //To geting feeding detail page
+     function medicalExEdit(medicalIdEdit){
+      const Container = document.getElementById("mainContent");
   
+      fetch("/components/medicalExb/medicalExbEdit.html")
+        .then((response) => response.text())
+        .then((data) => {
+          Container.innerHTML = data;
+          console.log("html fetch ");
+          medicalExb_Edit(medicalIdEdit);
+        })
+        .catch((error) => {
+          console.error("Error loading the navbar:", error);
+        });
+    }
+
+
+
 
 
   

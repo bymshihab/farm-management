@@ -1,4 +1,4 @@
-function getMedicalExb() {
+
   const IP = "https://localhost:7105";
   const companyId = localStorage.getItem("companyId");
 
@@ -6,9 +6,7 @@ function getMedicalExb() {
 
   loadTable();
   function loadTable() {
-    fetch(
-      `${IP}/api/MedicalExhibition/MedicalExhibitionData?CompanyId=${companyId}`
-    )
+    fetch(`${IP}/api/MedicalExhibition/MedicalExhibitionData?CompanyId=${companyId}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data, "comming...");
@@ -24,6 +22,7 @@ function getMedicalExb() {
 
           let cell2 = document.createElement("td");
           cell2.textContent = data[i].exhibitionDate.split("T")[0];
+
 
           let cell3 = document.createElement("td");
 
@@ -142,27 +141,22 @@ function getMedicalExb() {
           editButton.addEventListener("click", function () {
             const medicalIdEdit = data[i].medicalId;
             localStorage.setItem("medicalIdEdit", medicalIdEdit);
-            medicalExEdit(medicalIdEdit);
-            // window.location.href = `/components/medicalExb/medicalExbEdit.html?medicalIdEdit=${medicalIdEdit}`;
+            window.location.href = `/components/medicalExb/medicalExbEdit.html?medicalIdEdit=${medicalIdEdit}`;
           });
 
           detailButton.addEventListener("click", function () {
             const medicalIdDetail = data[i].medicalId;
             localStorage.setItem("medicalIdDetail", medicalIdDetail);
-            medicalExbDetail(medicalIdDetail);
-            // window.location.href = `/components/medicalExb/medicalExbDetail.html?medicalIdDetail=${medicalIdDetail}`;
+            window.location.href = `/components/medicalExb/medicalExbDetail.html?medicalIdDetail=${medicalIdDetail}`;
           });
           deleteButton.addEventListener("click", function () {
-            const medicalIdDelete = data[i].medicalId;
-            console.log(medicalIdDelete, "delete");
+            const feedIdDelete = data[i].medicalId;
+            console.log(feedIdDelete, "delete");
 
             // Send a DELETE request to your API to delete the purchase
-            fetch(
-              `https://localhost:7105/api/MedicalExhibition/${medicalIdDelete}`,
-              {
-                method: "DELETE",
-              }
-            )
+            fetch(`https://localhost:7105/api/Feeding/${feedIdDelete}`, {
+              method: "DELETE",
+            })
               .then((response) => {
                 if (response.ok) {
                   // The purchase was successfully deleted, you can update the UI as needed
@@ -187,7 +181,7 @@ function getMedicalExb() {
           newRow.appendChild(cell3);
           newRow.appendChild(cell4);
           newRow.appendChild(cell5);
-
+         
           newRow.appendChild(cell7);
 
           console.log(newRow, "row data");
@@ -197,4 +191,4 @@ function getMedicalExb() {
       })
       .catch((error) => console.log("Error Message", error));
   }
-}
+

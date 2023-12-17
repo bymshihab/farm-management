@@ -1,8 +1,7 @@
-  function medicalExb_Edit(medicalIdEdit){
 const IP = "https://localhost:7105";
 const companyId = localStorage.getItem("companyId");
 // const urlParams = new URLSearchParams(window.location.search);
-const medicalIdEdits = localStorage.getItem("medicalIdEdit");
+const medicalIdEdit = localStorage.getItem("medicalIdEdit");
 
 console.log(medicalIdEdit, "id...");
 
@@ -42,7 +41,7 @@ creatingDropdown(
 
 loadTable();
 function loadTable() {
-  fetch(`${IP}/api/MedicalExhibition/${medicalIdEdits}`)
+  fetch(`${IP}/api/MedicalExhibition/${medicalIdEdit}`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data, "data.........");
@@ -363,7 +362,5 @@ updateBtn.addEventListener("click", function (event) {
     console.error("Error:", error);
   });
 });
-
-}
 
 

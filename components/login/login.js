@@ -61,6 +61,7 @@ form.addEventListener("submit", function (e) {
       localStorage.setItem("companyId", data.companyId);
 
       if (data.a) {
+        localStorage.mytime = Date.now();
         window.location.href = "/components/home/home.html";
       } else if (data && data.error) {
         errorDiv.style.display = "block"; // Show error message
