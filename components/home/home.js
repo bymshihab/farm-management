@@ -76,6 +76,25 @@ window.onclick = function(event) {
   }
 };
 
+// to geting DashBoard
+// JavaScript
+
+// Function to display the dashboard content
+function getDashboard() {
+  const Container = document.getElementById("mainContent");
+  Container.innerHTML = '<div class="dashboardCls fs-1 fw-bold text-success"> Welcome To Farm Management System</div>';
+}
+
+// Check if the dashboard is active when the page loads
+document.addEventListener("DOMContentLoaded", function() {
+  const dashboardItem = document.querySelector('.sidebar-item.active');
+  if (dashboardItem && dashboardItem.textContent.trim() === 'Dashboard') {
+    getDashboard();
+  }
+});
+
+
+
 
 
 // To getting UOM
@@ -93,6 +112,7 @@ window.onclick = function(event) {
         console.error("Error loading the navbar:", error);
       });
   }
+
 
 
   //To geting Category

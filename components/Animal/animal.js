@@ -144,6 +144,7 @@ function get_animal() {
       .then((data) => {
         alert(data.message);
         console.log(data, "data message!");
+        animalForm.reset();
         loadTable();
       })
       .catch((error) => {
