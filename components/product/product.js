@@ -276,7 +276,7 @@ updateShedBtn.addEventListener("click", function (e) {
 
   console.log("obj  update", obj);
 
-  fetch(`${IP}/api/Product/UpdateProduct`, {
+  fetch(`${IP}/api/Product/UpdateProduct?ProductId=${productId}`, {
     method: "PUT",
     body: JSON.stringify(obj),
     headers: { "Content-Type": "application/json" },
