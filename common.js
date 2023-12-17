@@ -47,7 +47,7 @@ function creatingDropdownClass(dropdownElement, apiUrl, valueProp, textProp) {
       // Optionally, add a default 'Select' option
       const defaultOption = document.createElement("option");
       defaultOption.value = "";
-      defaultOption.textContent = "Select a Category";
+      defaultOption.textContent = "--Select--";
       dropdownElement.appendChild(defaultOption);
 
       // Iterate over each category and create a new option element

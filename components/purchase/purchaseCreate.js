@@ -27,10 +27,10 @@ function purchase_create() {
             <td><select class="form-control unitDropdown " ><option value="">--Select Unit--</option></select></td>
             <td><input type="decimal" class="form-control grossTotal" readonly></td>
             <td><input type="decimal" class="form-control discountAmount"></td>
-            <td><input type="decimal" class="form-control discountAmountPct"></td>
+            <td><input type="decimal" class="form-control discountAmountPct" disabled></td>
             <td><input type="decimal" class="form-control vatAmount"></td>
-            <td><input type="decimal" class="form-control vatAmountPct"></td>
-            <td><input type="decimal" class="form-control netTotal" readonly></td>
+            <td><input type="decimal" class="form-control vatAmountPct" disabled></td>
+            <td><input type="decimal" class="form-control netTotal" disabled></td>
             <td><button type="button" class="btn btn-danger removeRowBtn">Remove</button></td>
           `;
 
